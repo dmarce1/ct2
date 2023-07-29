@@ -47606,6 +47606,12 @@ greens_ewald:  push           %rbp
                vmovaps        384(G), tmp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C177, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -47935,6 +47941,12 @@ greens_ewald:  push           %rbp
                vmovaps        384(G), tmp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C178, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -50500,6 +50512,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C049, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
@@ -50520,6 +50538,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C310, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -50554,6 +50578,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C313, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -50577,6 +50607,12 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
                vfmadd231ps    C317, sinphi, tmp
                vmovaps        tmp, 960(G)
@@ -50592,6 +50628,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C318, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -50615,6 +50657,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C322, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C324, sinphi, tmp
@@ -50644,6 +50692,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C327, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -50667,18 +50721,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
-               vmovaps        tmp, 1184(G)
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
+               vfmadd231ps    C333, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
+               vfmadd231ps    C333, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C333, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -50686,20 +50752,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C334, sinphi, tmp
+               vfmadd231ps    C335, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -50707,35 +50779,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C339, sinphi, tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
                vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -50743,16 +50827,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -50774,35 +50858,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
                vfmadd231ps    C349, sinphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -50810,20 +50903,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C350, sinphi, tmp
+               vfmadd231ps    C351, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -50831,32 +50930,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -50864,38 +50969,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C361, sinphi, tmp
+               vfmadd231ps    C363, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -50903,50 +51020,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -50954,35 +51083,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -50990,20 +51131,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C374, sinphi, tmp
+               vfmadd231ps    C377, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -51011,35 +51158,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C379, sinphi, tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C380, cosphi, tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -51047,16 +51206,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -51077,22 +51236,22 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C388, cosphi, tmp
+               vfmadd231ps    C391, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -51101,31 +51260,31 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C389, sinphi, tmp
+               vfmadd231ps    C392, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C390, cosphi, tmp
+               vfmadd231ps    C393, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C389, cosphi, tmp
+               vfmadd231ps    C392, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C389, sinphi, tmp
+               vfmadd231ps    C392, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C391, sinphi, tmp
+               vfmadd231ps    C394, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C392, cosphi, tmp
+               vfmadd231ps    C395, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C391, cosphi, tmp
+               vfmadd231ps    C394, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C391, sinphi, tmp
+               vfmadd231ps    C394, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C393, cosphi, tmp
+               vfmadd231ps    C396, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -51134,49 +51293,49 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C394, cosphi, tmp
+               vfmadd231ps    C397, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C394, sinphi, tmp
+               vfmadd231ps    C397, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C395, sinphi, tmp
+               vfmadd231ps    C398, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C396, cosphi, tmp
+               vfmadd231ps    C399, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C395, cosphi, tmp
+               vfmadd231ps    C398, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C395, sinphi, tmp
+               vfmadd231ps    C398, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C397, sinphi, tmp
+               vfmadd231ps    C400, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C398, cosphi, tmp
+               vfmadd231ps    C401, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C397, cosphi, tmp
+               vfmadd231ps    C400, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C397, sinphi, tmp
+               vfmadd231ps    C400, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C399, sinphi, tmp
+               vfmadd231ps    C402, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C400, cosphi, tmp
+               vfmadd231ps    C403, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C399, cosphi, tmp
+               vfmadd231ps    C402, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C399, sinphi, tmp
+               vfmadd231ps    C402, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C401, cosphi, tmp
+               vfmadd231ps    C404, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -51185,10 +51344,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C402, cosphi, tmp
+               vfmadd231ps    C405, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C402, sinphi, tmp
+               vfmadd231ps    C405, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -51197,52 +51356,52 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C403, sinphi, tmp
+               vfmadd231ps    C406, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C404, cosphi, tmp
+               vfmadd231ps    C407, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C403, cosphi, tmp
+               vfmadd231ps    C406, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C403, sinphi, tmp
+               vfmadd231ps    C406, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C405, sinphi, tmp
+               vfmadd231ps    C408, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C406, cosphi, tmp
+               vfmadd231ps    C409, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C405, cosphi, tmp
+               vfmadd231ps    C408, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C405, sinphi, tmp
+               vfmadd231ps    C408, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C407, sinphi, tmp
+               vfmadd231ps    C410, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C408, cosphi, tmp
+               vfmadd231ps    C411, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C407, cosphi, tmp
+               vfmadd231ps    C410, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C407, sinphi, tmp
+               vfmadd231ps    C410, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C409, sinphi, tmp
+               vfmadd231ps    C412, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C410, cosphi, tmp
+               vfmadd231ps    C413, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C409, cosphi, tmp
+               vfmadd231ps    C412, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C409, sinphi, tmp
+               vfmadd231ps    C412, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -51264,35 +51423,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
                vfmadd231ps    C349, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -51300,20 +51468,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C411, sinphi, tmp
+               vfmadd231ps    C414, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -51321,32 +51495,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -51354,38 +51534,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C412, sinphi, tmp
+               vfmadd231ps    C415, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -51393,50 +51585,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -51444,35 +51648,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -51480,20 +51696,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C413, sinphi, tmp
+               vfmadd231ps    C416, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -51501,35 +51723,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C380, sinphi, tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C379, cosphi, tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -51537,16 +51771,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -51601,13 +51835,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C050, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C414, sinphi, tmp
+               vfmadd231ps    C417, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C310, sinphi, tmp
@@ -51621,6 +51861,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C310, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -51655,6 +51901,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C314, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -51678,8 +51930,14 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C415, sinphi, tmp
+               vfmadd231ps    C418, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C318, sinphi, tmp
@@ -51693,6 +51951,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C318, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -51716,6 +51980,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C323, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C324, sinphi, tmp
@@ -51745,6 +52015,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C328, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -51768,18 +52044,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
-               vmovaps        tmp, 1184(G)
-               vmovaps        1504(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
+               vfmadd231ps    C334, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C333, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -51787,20 +52075,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C416, sinphi, tmp
+               vfmadd231ps    C419, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -51808,35 +52102,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C340, sinphi, tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C339, cosphi, tmp
+               vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -51844,16 +52150,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vfmadd231ps    C020, z0, hdotx
@@ -51886,7 +52192,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C249, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C175, cosphi, tmp
@@ -51904,10 +52210,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C418, sinphi, tmp
+               vfmadd231ps    C421, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C419, cosphi, tmp
+               vfmadd231ps    C422, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C114, sinphi, tmp
@@ -51922,148 +52228,148 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C291, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C421, cosphi, tmp
+               vfmadd231ps    C424, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C421, sinphi, tmp
+               vfmadd231ps    C424, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C422, cosphi, tmp
+               vfmadd231ps    C425, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C422, sinphi, tmp
+               vfmadd231ps    C425, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C423, cosphi, tmp
+               vfmadd231ps    C426, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C423, sinphi, tmp
+               vfmadd231ps    C426, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C424, sinphi, tmp
+               vfmadd231ps    C427, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C425, sinphi, tmp
+               vfmadd231ps    C428, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C426, cosphi, tmp
+               vfmadd231ps    C429, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C427, sinphi, tmp
+               vfmadd231ps    C430, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C428, cosphi, tmp
+               vfmadd231ps    C431, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C429, sinphi, tmp
+               vfmadd231ps    C432, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C430, cosphi, tmp
+               vfmadd231ps    C433, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C431, sinphi, tmp
+               vfmadd231ps    C434, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C432, cosphi, tmp
+               vfmadd231ps    C435, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C433, sinphi, tmp
+               vfmadd231ps    C436, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C434, cosphi, tmp
+               vfmadd231ps    C437, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C436, cosphi, tmp
+               vfmadd231ps    C439, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C436, sinphi, tmp
+               vfmadd231ps    C439, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C437, cosphi, tmp
+               vfmadd231ps    C440, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C437, sinphi, tmp
+               vfmadd231ps    C440, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C438, cosphi, tmp
+               vfmadd231ps    C441, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C438, sinphi, tmp
+               vfmadd231ps    C441, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C440, cosphi, tmp
+               vfmadd231ps    C443, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C440, sinphi, tmp
+               vfmadd231ps    C443, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C441, cosphi, tmp
+               vfmadd231ps    C444, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C441, sinphi, tmp
+               vfmadd231ps    C444, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C442, sinphi, tmp
+               vfmadd231ps    C445, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C443, sinphi, tmp
+               vfmadd231ps    C446, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C444, cosphi, tmp
+               vfmadd231ps    C447, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C445, sinphi, tmp
+               vfmadd231ps    C448, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C446, cosphi, tmp
+               vfmadd231ps    C449, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C447, sinphi, tmp
+               vfmadd231ps    C450, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C448, cosphi, tmp
+               vfmadd231ps    C451, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C449, sinphi, tmp
+               vfmadd231ps    C452, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C450, cosphi, tmp
+               vfmadd231ps    C453, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C451, sinphi, tmp
+               vfmadd231ps    C454, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C452, cosphi, tmp
+               vfmadd231ps    C455, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C453, sinphi, tmp
+               vfmadd231ps    C456, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C454, cosphi, tmp
+               vfmadd231ps    C457, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C455, sinphi, tmp
+               vfmadd231ps    C458, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C456, cosphi, tmp
+               vfmadd231ps    C459, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vsubps         z0, hdotx, hdotx
@@ -52084,196 +52390,196 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C459, sinphi, tmp
+               vfmadd231ps    C462, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C460, sinphi, tmp
+               vfmadd231ps    C463, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C461, cosphi, tmp
+               vfmadd231ps    C464, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C465, cosphi, tmp
+               vfmadd231ps    C468, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C465, sinphi, tmp
+               vfmadd231ps    C468, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C466, cosphi, tmp
+               vfmadd231ps    C469, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C466, sinphi, tmp
+               vfmadd231ps    C469, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C468, sinphi, tmp
+               vfmadd231ps    C471, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C469, sinphi, tmp
+               vfmadd231ps    C472, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C470, cosphi, tmp
+               vfmadd231ps    C473, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C471, sinphi, tmp
+               vfmadd231ps    C474, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C472, cosphi, tmp
+               vfmadd231ps    C475, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C473, sinphi, tmp
+               vfmadd231ps    C476, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C474, cosphi, tmp
+               vfmadd231ps    C477, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C478, cosphi, tmp
+               vfmadd231ps    C481, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C478, sinphi, tmp
+               vfmadd231ps    C481, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C479, cosphi, tmp
+               vfmadd231ps    C482, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C479, sinphi, tmp
+               vfmadd231ps    C482, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C480, cosphi, tmp
+               vfmadd231ps    C483, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C480, sinphi, tmp
+               vfmadd231ps    C483, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C483, sinphi, tmp
+               vfmadd231ps    C486, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C484, sinphi, tmp
+               vfmadd231ps    C487, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C485, cosphi, tmp
+               vfmadd231ps    C488, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C486, sinphi, tmp
+               vfmadd231ps    C489, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C487, cosphi, tmp
+               vfmadd231ps    C490, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C488, sinphi, tmp
+               vfmadd231ps    C491, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C489, cosphi, tmp
+               vfmadd231ps    C492, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C490, sinphi, tmp
+               vfmadd231ps    C493, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C491, cosphi, tmp
+               vfmadd231ps    C494, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C492, sinphi, tmp
+               vfmadd231ps    C495, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C493, cosphi, tmp
+               vfmadd231ps    C496, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                sub            $128, %rsp
@@ -52293,112 +52599,112 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C497, sinphi, tmp
+               vfmadd231ps    C500, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C498, cosphi, tmp
+               vfmadd231ps    C501, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C499, cosphi, tmp
+               vfmadd231ps    C502, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C500, cosphi, tmp
+               vfmadd231ps    C503, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C500, sinphi, tmp
+               vfmadd231ps    C503, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C501, sinphi, tmp
+               vfmadd231ps    C504, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C502, cosphi, tmp
+               vfmadd231ps    C505, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C503, sinphi, tmp
+               vfmadd231ps    C506, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C504, cosphi, tmp
+               vfmadd231ps    C507, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C505, cosphi, tmp
+               vfmadd231ps    C508, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C506, cosphi, tmp
+               vfmadd231ps    C509, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C506, sinphi, tmp
+               vfmadd231ps    C509, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C507, cosphi, tmp
+               vfmadd231ps    C510, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C507, sinphi, tmp
+               vfmadd231ps    C510, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C508, sinphi, tmp
+               vfmadd231ps    C511, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C509, cosphi, tmp
+               vfmadd231ps    C512, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C510, sinphi, tmp
+               vfmadd231ps    C513, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C511, cosphi, tmp
+               vfmadd231ps    C514, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C512, sinphi, tmp
+               vfmadd231ps    C515, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C513, cosphi, tmp
+               vfmadd231ps    C516, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C514, cosphi, tmp
+               vfmadd231ps    C517, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C515, cosphi, tmp
+               vfmadd231ps    C518, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C515, sinphi, tmp
+               vfmadd231ps    C518, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C516, cosphi, tmp
+               vfmadd231ps    C519, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C516, sinphi, tmp
+               vfmadd231ps    C519, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C517, cosphi, tmp
+               vfmadd231ps    C520, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C517, sinphi, tmp
+               vfmadd231ps    C520, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C518, sinphi, tmp
+               vfmadd231ps    C521, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C519, cosphi, tmp
+               vfmadd231ps    C522, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C520, sinphi, tmp
+               vfmadd231ps    C523, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C521, cosphi, tmp
+               vfmadd231ps    C524, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C522, sinphi, tmp
+               vfmadd231ps    C525, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C523, cosphi, tmp
+               vfmadd231ps    C526, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C524, sinphi, tmp
+               vfmadd231ps    C527, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C525, cosphi, tmp
+               vfmadd231ps    C528, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         z0, hdotx, hdotx
@@ -52419,196 +52725,196 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C527, sinphi, tmp
+               vfmadd231ps    C530, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C460, sinphi, tmp
+               vfmadd231ps    C463, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C461, cosphi, tmp
+               vfmadd231ps    C464, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C528, cosphi, tmp
+               vfmadd231ps    C531, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C528, sinphi, tmp
+               vfmadd231ps    C531, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C466, cosphi, tmp
+               vfmadd231ps    C469, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C466, sinphi, tmp
+               vfmadd231ps    C469, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C529, cosphi, tmp
+               vfmadd231ps    C532, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C529, sinphi, tmp
+               vfmadd231ps    C532, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C530, sinphi, tmp
+               vfmadd231ps    C533, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C469, sinphi, tmp
+               vfmadd231ps    C472, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C470, cosphi, tmp
+               vfmadd231ps    C473, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C472, sinphi, tmp
+               vfmadd231ps    C475, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C471, cosphi, tmp
+               vfmadd231ps    C474, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C473, sinphi, tmp
+               vfmadd231ps    C476, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C474, cosphi, tmp
+               vfmadd231ps    C477, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C531, cosphi, tmp
+               vfmadd231ps    C534, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C531, sinphi, tmp
+               vfmadd231ps    C534, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C479, cosphi, tmp
+               vfmadd231ps    C482, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C479, sinphi, tmp
+               vfmadd231ps    C482, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C532, cosphi, tmp
+               vfmadd231ps    C535, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C532, sinphi, tmp
+               vfmadd231ps    C535, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C534, sinphi, tmp
+               vfmadd231ps    C537, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C484, sinphi, tmp
+               vfmadd231ps    C487, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C485, cosphi, tmp
+               vfmadd231ps    C488, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C487, sinphi, tmp
+               vfmadd231ps    C490, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C486, cosphi, tmp
+               vfmadd231ps    C489, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C488, sinphi, tmp
+               vfmadd231ps    C491, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C489, cosphi, tmp
+               vfmadd231ps    C492, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C491, sinphi, tmp
+               vfmadd231ps    C494, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C490, cosphi, tmp
+               vfmadd231ps    C493, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C492, sinphi, tmp
+               vfmadd231ps    C495, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C493, cosphi, tmp
+               vfmadd231ps    C496, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vfmadd231ps    C002, z0, hdotx
@@ -52641,7 +52947,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C249, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C250, cosphi, tmp
@@ -52659,10 +52965,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C418, sinphi, tmp
+               vfmadd231ps    C421, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C419, cosphi, tmp
+               vfmadd231ps    C422, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C113, sinphi, tmp
@@ -52677,148 +52983,148 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C291, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C535, cosphi, tmp
+               vfmadd231ps    C538, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C535, sinphi, tmp
+               vfmadd231ps    C538, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C422, cosphi, tmp
+               vfmadd231ps    C425, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C422, sinphi, tmp
+               vfmadd231ps    C425, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C536, cosphi, tmp
+               vfmadd231ps    C539, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C536, sinphi, tmp
+               vfmadd231ps    C539, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C537, sinphi, tmp
+               vfmadd231ps    C540, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C425, sinphi, tmp
+               vfmadd231ps    C428, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C426, cosphi, tmp
+               vfmadd231ps    C429, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C428, sinphi, tmp
+               vfmadd231ps    C431, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C427, cosphi, tmp
+               vfmadd231ps    C430, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C429, sinphi, tmp
+               vfmadd231ps    C432, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C430, cosphi, tmp
+               vfmadd231ps    C433, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C432, sinphi, tmp
+               vfmadd231ps    C435, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C431, cosphi, tmp
+               vfmadd231ps    C434, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C433, sinphi, tmp
+               vfmadd231ps    C436, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C434, cosphi, tmp
+               vfmadd231ps    C437, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C538, cosphi, tmp
+               vfmadd231ps    C541, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C538, sinphi, tmp
+               vfmadd231ps    C541, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C437, cosphi, tmp
+               vfmadd231ps    C440, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C437, sinphi, tmp
+               vfmadd231ps    C440, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C539, cosphi, tmp
+               vfmadd231ps    C542, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C539, sinphi, tmp
+               vfmadd231ps    C542, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C540, cosphi, tmp
+               vfmadd231ps    C543, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C540, sinphi, tmp
+               vfmadd231ps    C543, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C441, cosphi, tmp
+               vfmadd231ps    C444, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C441, sinphi, tmp
+               vfmadd231ps    C444, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C541, sinphi, tmp
+               vfmadd231ps    C544, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C443, sinphi, tmp
+               vfmadd231ps    C446, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C444, cosphi, tmp
+               vfmadd231ps    C447, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C446, sinphi, tmp
+               vfmadd231ps    C449, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C445, cosphi, tmp
+               vfmadd231ps    C448, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C447, sinphi, tmp
+               vfmadd231ps    C450, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C448, cosphi, tmp
+               vfmadd231ps    C451, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C450, sinphi, tmp
+               vfmadd231ps    C453, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C449, cosphi, tmp
+               vfmadd231ps    C452, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C451, sinphi, tmp
+               vfmadd231ps    C454, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C452, cosphi, tmp
+               vfmadd231ps    C455, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C454, sinphi, tmp
+               vfmadd231ps    C457, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C453, cosphi, tmp
+               vfmadd231ps    C456, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C455, sinphi, tmp
+               vfmadd231ps    C458, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C456, cosphi, tmp
+               vfmadd231ps    C459, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -52873,6 +53179,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C049, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
@@ -52893,6 +53205,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C310, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -52927,6 +53245,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C313, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -52950,6 +53274,12 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
                vfmadd231ps    C317, sinphi, tmp
                vmovaps        tmp, 960(G)
@@ -52965,6 +53295,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C318, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -52988,6 +53324,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C322, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C324, sinphi, tmp
@@ -53017,6 +53359,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C327, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -53040,18 +53388,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
-               vmovaps        tmp, 1184(G)
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
+               vfmadd231ps    C333, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
+               vfmadd231ps    C333, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C333, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -53059,20 +53419,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C334, sinphi, tmp
+               vfmadd231ps    C335, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -53080,35 +53446,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C339, sinphi, tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
                vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -53116,16 +53494,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -53147,35 +53525,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
                vfmadd231ps    C349, sinphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -53183,20 +53570,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C350, sinphi, tmp
+               vfmadd231ps    C351, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -53204,32 +53597,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -53237,38 +53636,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C361, sinphi, tmp
+               vfmadd231ps    C363, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -53276,50 +53687,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -53327,35 +53750,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -53363,20 +53798,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C374, sinphi, tmp
+               vfmadd231ps    C377, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -53384,35 +53825,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C379, sinphi, tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C380, cosphi, tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -53420,16 +53873,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -53450,22 +53903,22 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C388, cosphi, tmp
+               vfmadd231ps    C391, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -53474,31 +53927,31 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C389, sinphi, tmp
+               vfmadd231ps    C392, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C390, cosphi, tmp
+               vfmadd231ps    C393, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C389, cosphi, tmp
+               vfmadd231ps    C392, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C389, sinphi, tmp
+               vfmadd231ps    C392, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C391, sinphi, tmp
+               vfmadd231ps    C394, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C392, cosphi, tmp
+               vfmadd231ps    C395, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C391, cosphi, tmp
+               vfmadd231ps    C394, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C391, sinphi, tmp
+               vfmadd231ps    C394, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C393, cosphi, tmp
+               vfmadd231ps    C396, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -53507,49 +53960,49 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C394, cosphi, tmp
+               vfmadd231ps    C397, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C394, sinphi, tmp
+               vfmadd231ps    C397, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C395, sinphi, tmp
+               vfmadd231ps    C398, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C396, cosphi, tmp
+               vfmadd231ps    C399, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C395, cosphi, tmp
+               vfmadd231ps    C398, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C395, sinphi, tmp
+               vfmadd231ps    C398, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C397, sinphi, tmp
+               vfmadd231ps    C400, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C398, cosphi, tmp
+               vfmadd231ps    C401, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C397, cosphi, tmp
+               vfmadd231ps    C400, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C397, sinphi, tmp
+               vfmadd231ps    C400, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C399, sinphi, tmp
+               vfmadd231ps    C402, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C400, cosphi, tmp
+               vfmadd231ps    C403, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C399, cosphi, tmp
+               vfmadd231ps    C402, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C399, sinphi, tmp
+               vfmadd231ps    C402, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C401, cosphi, tmp
+               vfmadd231ps    C404, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -53558,10 +54011,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C402, cosphi, tmp
+               vfmadd231ps    C405, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C402, sinphi, tmp
+               vfmadd231ps    C405, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -53570,52 +54023,52 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C403, sinphi, tmp
+               vfmadd231ps    C406, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C404, cosphi, tmp
+               vfmadd231ps    C407, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C403, cosphi, tmp
+               vfmadd231ps    C406, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C403, sinphi, tmp
+               vfmadd231ps    C406, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C405, sinphi, tmp
+               vfmadd231ps    C408, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C406, cosphi, tmp
+               vfmadd231ps    C409, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C405, cosphi, tmp
+               vfmadd231ps    C408, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C405, sinphi, tmp
+               vfmadd231ps    C408, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C407, sinphi, tmp
+               vfmadd231ps    C410, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C408, cosphi, tmp
+               vfmadd231ps    C411, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C407, cosphi, tmp
+               vfmadd231ps    C410, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C407, sinphi, tmp
+               vfmadd231ps    C410, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C409, sinphi, tmp
+               vfmadd231ps    C412, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C410, cosphi, tmp
+               vfmadd231ps    C413, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C409, cosphi, tmp
+               vfmadd231ps    C412, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C409, sinphi, tmp
+               vfmadd231ps    C412, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -53637,35 +54090,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
                vfmadd231ps    C349, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -53673,20 +54135,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C411, sinphi, tmp
+               vfmadd231ps    C414, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, sinphi, tmp
+               vfmadd231ps    C352, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -53694,32 +54162,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, sinphi, tmp
+               vfmadd231ps    C354, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -53727,38 +54201,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C412, sinphi, tmp
+               vfmadd231ps    C415, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, sinphi, tmp
+               vfmadd231ps    C364, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -53766,50 +54252,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, sinphi, tmp
+               vfmadd231ps    C366, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -53817,35 +54315,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -53853,20 +54363,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C413, sinphi, tmp
+               vfmadd231ps    C416, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, sinphi, tmp
+               vfmadd231ps    C378, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -53874,35 +54390,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, sinphi, tmp
+               vfmadd231ps    C380, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C380, sinphi, tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C379, cosphi, tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, sinphi, tmp
+               vfmadd231ps    C384, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -53910,16 +54438,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, sinphi, tmp
+               vfmadd231ps    C386, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -53974,13 +54502,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C050, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C414, sinphi, tmp
+               vfmadd231ps    C417, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C310, sinphi, tmp
@@ -53994,6 +54528,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C310, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -54028,6 +54568,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C314, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -54051,8 +54597,14 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C415, sinphi, tmp
+               vfmadd231ps    C418, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C318, sinphi, tmp
@@ -54066,6 +54618,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C318, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -54089,6 +54647,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C323, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C324, sinphi, tmp
@@ -54118,6 +54682,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C328, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -54141,18 +54711,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
-               vmovaps        tmp, 1184(G)
-               vmovaps        1504(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
+               vfmadd231ps    C334, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C333, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -54160,20 +54742,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C416, sinphi, tmp
+               vfmadd231ps    C419, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, sinphi, tmp
+               vfmadd231ps    C336, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -54181,35 +54769,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, sinphi, tmp
+               vfmadd231ps    C338, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C340, sinphi, tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C339, cosphi, tmp
+               vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, sinphi, tmp
+               vfmadd231ps    C342, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -54217,16 +54817,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, sinphi, tmp
+               vfmadd231ps    C344, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmulps         C001, x0, hdotx
                vfmadd231ps    C002, y0, hdotx
@@ -55458,14 +56058,20 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C542, cosphi, tmp
+               vfmadd231ps    C545, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C542, sinphi, tmp
+               vfmadd231ps    C545, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C178, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -55548,10 +56154,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C543, cosphi, tmp
+               vfmadd231ps    C546, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C543, sinphi, tmp
+               vfmadd231ps    C546, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -55572,10 +56178,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C544, cosphi, tmp
+               vfmadd231ps    C547, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C544, sinphi, tmp
+               vfmadd231ps    C547, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
                vfmadd231ps    C204, sinphi, tmp
@@ -55652,10 +56258,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C222, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C545, cosphi, tmp
+               vfmadd231ps    C548, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C545, sinphi, tmp
+               vfmadd231ps    C548, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -55673,10 +56279,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C228, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C546, cosphi, tmp
+               vfmadd231ps    C549, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C546, sinphi, tmp
+               vfmadd231ps    C549, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
                vfmadd231ps    C230, cosphi, tmp
@@ -55706,10 +56312,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C237, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C547, cosphi, tmp
+               vfmadd231ps    C550, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C547, sinphi, tmp
+               vfmadd231ps    C550, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
                vfmadd231ps    C239, cosphi, tmp
@@ -55718,10 +56324,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C239, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C548, cosphi, tmp
+               vfmadd231ps    C551, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C548, sinphi, tmp
+               vfmadd231ps    C551, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -55787,14 +56393,20 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C542, cosphi, tmp
+               vfmadd231ps    C545, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C542, sinphi, tmp
+               vfmadd231ps    C545, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C177, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -55877,10 +56489,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C543, cosphi, tmp
+               vfmadd231ps    C546, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C543, sinphi, tmp
+               vfmadd231ps    C546, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -55901,10 +56513,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C544, cosphi, tmp
+               vfmadd231ps    C547, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C544, sinphi, tmp
+               vfmadd231ps    C547, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
                vfmadd231ps    C257, sinphi, tmp
@@ -56192,7 +56804,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56228,7 +56840,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56237,10 +56849,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C549, cosphi, tmp
+               vfmadd231ps    C552, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C549, sinphi, tmp
+               vfmadd231ps    C552, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56249,13 +56861,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C424, sinphi, tmp
+               vfmadd231ps    C427, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56264,10 +56876,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C428, sinphi, tmp
+               vfmadd231ps    C431, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C427, cosphi, tmp
+               vfmadd231ps    C430, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56276,10 +56888,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C431, sinphi, tmp
+               vfmadd231ps    C434, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C432, cosphi, tmp
+               vfmadd231ps    C435, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56288,7 +56900,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56297,10 +56909,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C550, cosphi, tmp
+               vfmadd231ps    C553, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C550, sinphi, tmp
+               vfmadd231ps    C553, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56309,10 +56921,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56321,13 +56933,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C551, cosphi, tmp
+               vfmadd231ps    C554, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C551, sinphi, tmp
+               vfmadd231ps    C554, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C442, sinphi, tmp
+               vfmadd231ps    C445, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56336,10 +56948,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C446, sinphi, tmp
+               vfmadd231ps    C449, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C445, cosphi, tmp
+               vfmadd231ps    C448, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56348,10 +56960,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C449, sinphi, tmp
+               vfmadd231ps    C452, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C450, cosphi, tmp
+               vfmadd231ps    C453, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56360,10 +56972,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C454, sinphi, tmp
+               vfmadd231ps    C457, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C453, cosphi, tmp
+               vfmadd231ps    C456, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56390,10 +57002,10 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56402,7 +57014,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56411,13 +57023,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C459, sinphi, tmp
+               vfmadd231ps    C462, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56426,10 +57038,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56438,7 +57050,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56447,10 +57059,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C552, cosphi, tmp
+               vfmadd231ps    C555, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C552, sinphi, tmp
+               vfmadd231ps    C555, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56459,13 +57071,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C468, sinphi, tmp
+               vfmadd231ps    C471, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56474,10 +57086,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C472, sinphi, tmp
+               vfmadd231ps    C475, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C471, cosphi, tmp
+               vfmadd231ps    C474, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56486,10 +57098,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56498,7 +57110,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56507,10 +57119,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C553, cosphi, tmp
+               vfmadd231ps    C556, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C553, sinphi, tmp
+               vfmadd231ps    C556, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56519,10 +57131,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56531,13 +57143,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C483, sinphi, tmp
+               vfmadd231ps    C486, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56546,10 +57158,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C487, sinphi, tmp
+               vfmadd231ps    C490, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C486, cosphi, tmp
+               vfmadd231ps    C489, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56558,10 +57170,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C490, sinphi, tmp
+               vfmadd231ps    C493, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C491, cosphi, tmp
+               vfmadd231ps    C494, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56570,10 +57182,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56599,7 +57211,7 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56608,13 +57220,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C499, cosphi, tmp
+               vfmadd231ps    C502, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C554, cosphi, tmp
+               vfmadd231ps    C557, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C554, sinphi, tmp
+               vfmadd231ps    C557, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56629,19 +57241,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C505, cosphi, tmp
+               vfmadd231ps    C508, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C555, cosphi, tmp
+               vfmadd231ps    C558, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C555, sinphi, tmp
+               vfmadd231ps    C558, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C507, cosphi, tmp
+               vfmadd231ps    C510, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C507, sinphi, tmp
+               vfmadd231ps    C510, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56662,25 +57274,25 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C514, cosphi, tmp
+               vfmadd231ps    C517, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C556, cosphi, tmp
+               vfmadd231ps    C559, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C556, sinphi, tmp
+               vfmadd231ps    C559, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C516, cosphi, tmp
+               vfmadd231ps    C519, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C516, sinphi, tmp
+               vfmadd231ps    C519, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C557, cosphi, tmp
+               vfmadd231ps    C560, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C557, sinphi, tmp
+               vfmadd231ps    C560, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56725,10 +57337,10 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56737,7 +57349,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56746,13 +57358,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C527, sinphi, tmp
+               vfmadd231ps    C530, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56761,10 +57373,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56773,7 +57385,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56782,10 +57394,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C552, cosphi, tmp
+               vfmadd231ps    C555, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C552, sinphi, tmp
+               vfmadd231ps    C555, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56794,13 +57406,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C530, sinphi, tmp
+               vfmadd231ps    C533, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56809,10 +57421,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C471, sinphi, tmp
+               vfmadd231ps    C474, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C472, cosphi, tmp
+               vfmadd231ps    C475, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56821,10 +57433,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56833,7 +57445,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56842,10 +57454,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C553, cosphi, tmp
+               vfmadd231ps    C556, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C553, sinphi, tmp
+               vfmadd231ps    C556, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56854,10 +57466,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56866,13 +57478,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C534, sinphi, tmp
+               vfmadd231ps    C537, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56881,10 +57493,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C486, sinphi, tmp
+               vfmadd231ps    C489, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C487, cosphi, tmp
+               vfmadd231ps    C490, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56893,10 +57505,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C491, sinphi, tmp
+               vfmadd231ps    C494, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C490, cosphi, tmp
+               vfmadd231ps    C493, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56905,10 +57517,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -56947,7 +57559,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56983,7 +57595,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -56992,10 +57604,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C549, cosphi, tmp
+               vfmadd231ps    C552, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C549, sinphi, tmp
+               vfmadd231ps    C552, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57004,13 +57616,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C537, sinphi, tmp
+               vfmadd231ps    C540, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57019,10 +57631,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C427, sinphi, tmp
+               vfmadd231ps    C430, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C428, cosphi, tmp
+               vfmadd231ps    C431, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57031,10 +57643,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C432, sinphi, tmp
+               vfmadd231ps    C435, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C431, cosphi, tmp
+               vfmadd231ps    C434, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57043,7 +57655,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57052,10 +57664,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C550, cosphi, tmp
+               vfmadd231ps    C553, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C550, sinphi, tmp
+               vfmadd231ps    C553, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57064,10 +57676,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57076,13 +57688,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C551, cosphi, tmp
+               vfmadd231ps    C554, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C551, sinphi, tmp
+               vfmadd231ps    C554, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C541, sinphi, tmp
+               vfmadd231ps    C544, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57091,10 +57703,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C445, sinphi, tmp
+               vfmadd231ps    C448, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C446, cosphi, tmp
+               vfmadd231ps    C449, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57103,10 +57715,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C450, sinphi, tmp
+               vfmadd231ps    C453, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C449, cosphi, tmp
+               vfmadd231ps    C452, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57115,10 +57727,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C453, sinphi, tmp
+               vfmadd231ps    C456, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C454, cosphi, tmp
+               vfmadd231ps    C457, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57150,22 +57762,22 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C220, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C558, cosphi, tmp
+               vfmadd231ps    C561, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C559, sinphi, tmp
+               vfmadd231ps    C562, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C560, cosphi, tmp
+               vfmadd231ps    C563, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C561, sinphi, tmp
+               vfmadd231ps    C564, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C562, cosphi, tmp
+               vfmadd231ps    C565, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C563, sinphi, tmp
+               vfmadd231ps    C566, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmulps         C001, z0, hdotx
                sub            $128, %rsp
@@ -57185,28 +57797,28 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C497, sinphi, tmp
+               vfmadd231ps    C500, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C564, cosphi, tmp
+               vfmadd231ps    C567, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C565, sinphi, tmp
+               vfmadd231ps    C568, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C566, cosphi, tmp
+               vfmadd231ps    C569, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C567, sinphi, tmp
+               vfmadd231ps    C570, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C568, cosphi, tmp
+               vfmadd231ps    C571, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C569, sinphi, tmp
+               vfmadd231ps    C572, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        z0, hdotx
                sub            $128, %rsp
@@ -57226,28 +57838,28 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C498, sinphi, tmp
+               vfmadd231ps    C501, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C564, cosphi, tmp
+               vfmadd231ps    C567, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C570, sinphi, tmp
+               vfmadd231ps    C573, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C566, cosphi, tmp
+               vfmadd231ps    C569, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C571, sinphi, tmp
+               vfmadd231ps    C574, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C568, cosphi, tmp
+               vfmadd231ps    C571, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C572, sinphi, tmp
+               vfmadd231ps    C575, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmulps         C002, z0, hdotx
                sub            $128, %rsp
@@ -57273,22 +57885,22 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C221, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C558, cosphi, tmp
+               vfmadd231ps    C561, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C573, sinphi, tmp
+               vfmadd231ps    C576, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C560, cosphi, tmp
+               vfmadd231ps    C563, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C574, sinphi, tmp
+               vfmadd231ps    C577, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C562, cosphi, tmp
+               vfmadd231ps    C565, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C575, sinphi, tmp
+               vfmadd231ps    C578, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        y0, hdotx
                vfmadd231ps    C020, z0, hdotx
@@ -57321,7 +57933,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57357,7 +57969,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57366,10 +57978,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C549, cosphi, tmp
+               vfmadd231ps    C552, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C549, sinphi, tmp
+               vfmadd231ps    C552, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57378,13 +57990,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C424, sinphi, tmp
+               vfmadd231ps    C427, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57393,10 +58005,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C428, sinphi, tmp
+               vfmadd231ps    C431, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C427, cosphi, tmp
+               vfmadd231ps    C430, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57405,10 +58017,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C431, sinphi, tmp
+               vfmadd231ps    C434, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C432, cosphi, tmp
+               vfmadd231ps    C435, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57417,7 +58029,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57426,10 +58038,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C550, cosphi, tmp
+               vfmadd231ps    C553, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C550, sinphi, tmp
+               vfmadd231ps    C553, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57438,10 +58050,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57450,13 +58062,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C551, cosphi, tmp
+               vfmadd231ps    C554, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C551, sinphi, tmp
+               vfmadd231ps    C554, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C442, sinphi, tmp
+               vfmadd231ps    C445, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57465,10 +58077,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C446, sinphi, tmp
+               vfmadd231ps    C449, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C445, cosphi, tmp
+               vfmadd231ps    C448, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57477,10 +58089,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C449, sinphi, tmp
+               vfmadd231ps    C452, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C450, cosphi, tmp
+               vfmadd231ps    C453, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57489,10 +58101,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C454, sinphi, tmp
+               vfmadd231ps    C457, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C453, cosphi, tmp
+               vfmadd231ps    C456, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57519,10 +58131,10 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57531,7 +58143,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57540,13 +58152,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C459, sinphi, tmp
+               vfmadd231ps    C462, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57555,10 +58167,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57567,7 +58179,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57576,10 +58188,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C552, cosphi, tmp
+               vfmadd231ps    C555, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C552, sinphi, tmp
+               vfmadd231ps    C555, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57588,13 +58200,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C468, sinphi, tmp
+               vfmadd231ps    C471, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57603,10 +58215,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C472, sinphi, tmp
+               vfmadd231ps    C475, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C471, cosphi, tmp
+               vfmadd231ps    C474, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57615,10 +58227,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57627,7 +58239,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57636,10 +58248,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C553, cosphi, tmp
+               vfmadd231ps    C556, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C553, sinphi, tmp
+               vfmadd231ps    C556, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57648,10 +58260,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57660,13 +58272,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C483, sinphi, tmp
+               vfmadd231ps    C486, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57675,10 +58287,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C487, sinphi, tmp
+               vfmadd231ps    C490, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C486, cosphi, tmp
+               vfmadd231ps    C489, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57687,10 +58299,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C490, sinphi, tmp
+               vfmadd231ps    C493, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C491, cosphi, tmp
+               vfmadd231ps    C494, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57699,10 +58311,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57728,7 +58340,7 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57737,13 +58349,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C499, cosphi, tmp
+               vfmadd231ps    C502, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C554, cosphi, tmp
+               vfmadd231ps    C557, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C554, sinphi, tmp
+               vfmadd231ps    C557, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57758,19 +58370,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C505, cosphi, tmp
+               vfmadd231ps    C508, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C555, cosphi, tmp
+               vfmadd231ps    C558, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C555, sinphi, tmp
+               vfmadd231ps    C558, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C507, cosphi, tmp
+               vfmadd231ps    C510, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C507, sinphi, tmp
+               vfmadd231ps    C510, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57791,25 +58403,25 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C514, cosphi, tmp
+               vfmadd231ps    C517, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C556, cosphi, tmp
+               vfmadd231ps    C559, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C556, sinphi, tmp
+               vfmadd231ps    C559, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C516, cosphi, tmp
+               vfmadd231ps    C519, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C516, sinphi, tmp
+               vfmadd231ps    C519, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C557, cosphi, tmp
+               vfmadd231ps    C560, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C557, sinphi, tmp
+               vfmadd231ps    C560, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57854,10 +58466,10 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57866,7 +58478,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57875,13 +58487,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C527, sinphi, tmp
+               vfmadd231ps    C530, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57890,10 +58502,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57902,7 +58514,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57911,10 +58523,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C552, cosphi, tmp
+               vfmadd231ps    C555, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C552, sinphi, tmp
+               vfmadd231ps    C555, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57923,13 +58535,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C530, sinphi, tmp
+               vfmadd231ps    C533, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57938,10 +58550,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C471, sinphi, tmp
+               vfmadd231ps    C474, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C472, cosphi, tmp
+               vfmadd231ps    C475, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57950,10 +58562,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -57962,7 +58574,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57971,10 +58583,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C553, cosphi, tmp
+               vfmadd231ps    C556, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C553, sinphi, tmp
+               vfmadd231ps    C556, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57983,10 +58595,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -57995,13 +58607,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C534, sinphi, tmp
+               vfmadd231ps    C537, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58010,10 +58622,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C486, sinphi, tmp
+               vfmadd231ps    C489, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C487, cosphi, tmp
+               vfmadd231ps    C490, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58022,10 +58634,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C491, sinphi, tmp
+               vfmadd231ps    C494, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C490, cosphi, tmp
+               vfmadd231ps    C493, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58034,10 +58646,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58076,7 +58688,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58112,7 +58724,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58121,10 +58733,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C549, cosphi, tmp
+               vfmadd231ps    C552, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C549, sinphi, tmp
+               vfmadd231ps    C552, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58133,13 +58745,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C537, sinphi, tmp
+               vfmadd231ps    C540, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58148,10 +58760,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C427, sinphi, tmp
+               vfmadd231ps    C430, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C428, cosphi, tmp
+               vfmadd231ps    C431, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58160,10 +58772,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C432, sinphi, tmp
+               vfmadd231ps    C435, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C431, cosphi, tmp
+               vfmadd231ps    C434, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58172,7 +58784,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58181,10 +58793,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C550, cosphi, tmp
+               vfmadd231ps    C553, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C550, sinphi, tmp
+               vfmadd231ps    C553, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58193,10 +58805,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58205,13 +58817,13 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C551, cosphi, tmp
+               vfmadd231ps    C554, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C551, sinphi, tmp
+               vfmadd231ps    C554, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C541, sinphi, tmp
+               vfmadd231ps    C544, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58220,10 +58832,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C445, sinphi, tmp
+               vfmadd231ps    C448, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C446, cosphi, tmp
+               vfmadd231ps    C449, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58232,10 +58844,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C450, sinphi, tmp
+               vfmadd231ps    C453, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C449, cosphi, tmp
+               vfmadd231ps    C452, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58244,10 +58856,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C453, sinphi, tmp
+               vfmadd231ps    C456, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C454, cosphi, tmp
+               vfmadd231ps    C457, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58505,14 +59117,20 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C542, cosphi, tmp
+               vfmadd231ps    C545, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C542, sinphi, tmp
+               vfmadd231ps    C545, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C178, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -58595,10 +59213,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C543, cosphi, tmp
+               vfmadd231ps    C546, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C543, sinphi, tmp
+               vfmadd231ps    C546, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58619,10 +59237,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C544, cosphi, tmp
+               vfmadd231ps    C547, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C544, sinphi, tmp
+               vfmadd231ps    C547, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
                vfmadd231ps    C204, sinphi, tmp
@@ -58699,10 +59317,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C222, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C545, cosphi, tmp
+               vfmadd231ps    C548, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C545, sinphi, tmp
+               vfmadd231ps    C548, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58720,10 +59338,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C228, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C546, cosphi, tmp
+               vfmadd231ps    C549, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C546, sinphi, tmp
+               vfmadd231ps    C549, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
                vfmadd231ps    C230, cosphi, tmp
@@ -58753,10 +59371,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C237, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C547, cosphi, tmp
+               vfmadd231ps    C550, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C547, sinphi, tmp
+               vfmadd231ps    C550, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
                vfmadd231ps    C239, cosphi, tmp
@@ -58765,10 +59383,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C239, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C548, cosphi, tmp
+               vfmadd231ps    C551, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C548, sinphi, tmp
+               vfmadd231ps    C551, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
                vfmadd231ps    C022, cosphi, tmp
@@ -58834,14 +59452,20 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C542, cosphi, tmp
+               vfmadd231ps    C545, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C542, sinphi, tmp
+               vfmadd231ps    C545, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C177, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -58924,10 +59548,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C543, cosphi, tmp
+               vfmadd231ps    C546, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C543, sinphi, tmp
+               vfmadd231ps    C546, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -58948,10 +59572,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C544, cosphi, tmp
+               vfmadd231ps    C547, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C544, sinphi, tmp
+               vfmadd231ps    C547, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
                vfmadd231ps    C257, sinphi, tmp
@@ -60241,6 +60865,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C050, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
@@ -60261,6 +60891,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C311, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -60295,6 +60931,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C314, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -60318,6 +60960,12 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
                vfmadd231ps    C317, sinphi, tmp
                vmovaps        tmp, 960(G)
@@ -60333,6 +60981,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C319, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -60356,6 +61010,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C322, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C325, sinphi, tmp
@@ -60385,6 +61045,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C328, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -60408,18 +61074,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
-               vmovaps        tmp, 1184(G)
-               vmovaps        1504(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
+               vfmadd231ps    C334, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C333, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -60427,20 +61105,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C334, sinphi, tmp
+               vfmadd231ps    C335, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -60448,35 +61132,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C339, sinphi, tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
                vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -60484,16 +61180,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -60515,35 +61211,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
-               vmovaps        tmp, 32(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
-               vmovaps        tmp, 224(G)
-               vmovaps        160(G), tmp
-               vfmadd231ps    C349, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
                vfmadd231ps    C348, sinphi, tmp
+               vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, sinphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C349, sinphi, tmp
+               vmovaps        tmp, 224(G)
+               vmovaps        160(G), tmp
+               vfmadd231ps    C350, cosphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -60551,20 +61256,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C350, sinphi, tmp
+               vfmadd231ps    C351, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -60572,32 +61283,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -60605,38 +61322,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C361, sinphi, tmp
+               vfmadd231ps    C363, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -60644,50 +61373,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -60695,35 +61436,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -60731,20 +61484,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C374, sinphi, tmp
+               vfmadd231ps    C377, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -60752,35 +61511,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C379, sinphi, tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C380, cosphi, tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -60788,16 +61559,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -60818,22 +61589,22 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C388, cosphi, tmp
+               vfmadd231ps    C391, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -60842,31 +61613,31 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C390, sinphi, tmp
+               vfmadd231ps    C393, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C389, cosphi, tmp
+               vfmadd231ps    C392, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C390, cosphi, tmp
+               vfmadd231ps    C393, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C390, sinphi, tmp
+               vfmadd231ps    C393, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C392, sinphi, tmp
+               vfmadd231ps    C395, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C391, cosphi, tmp
+               vfmadd231ps    C394, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C392, cosphi, tmp
+               vfmadd231ps    C395, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C392, sinphi, tmp
+               vfmadd231ps    C395, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C393, cosphi, tmp
+               vfmadd231ps    C396, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -60875,49 +61646,49 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C394, cosphi, tmp
+               vfmadd231ps    C397, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C394, sinphi, tmp
+               vfmadd231ps    C397, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C396, sinphi, tmp
+               vfmadd231ps    C399, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C395, cosphi, tmp
+               vfmadd231ps    C398, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C396, cosphi, tmp
+               vfmadd231ps    C399, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C396, sinphi, tmp
+               vfmadd231ps    C399, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C398, sinphi, tmp
+               vfmadd231ps    C401, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C397, cosphi, tmp
+               vfmadd231ps    C400, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C398, cosphi, tmp
+               vfmadd231ps    C401, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C398, sinphi, tmp
+               vfmadd231ps    C401, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C400, sinphi, tmp
+               vfmadd231ps    C403, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C399, cosphi, tmp
+               vfmadd231ps    C402, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C400, cosphi, tmp
+               vfmadd231ps    C403, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C400, sinphi, tmp
+               vfmadd231ps    C403, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C401, cosphi, tmp
+               vfmadd231ps    C404, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -60926,10 +61697,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C402, cosphi, tmp
+               vfmadd231ps    C405, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C402, sinphi, tmp
+               vfmadd231ps    C405, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -60938,52 +61709,52 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C404, sinphi, tmp
+               vfmadd231ps    C407, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C403, cosphi, tmp
+               vfmadd231ps    C406, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C404, cosphi, tmp
+               vfmadd231ps    C407, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C404, sinphi, tmp
+               vfmadd231ps    C407, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C406, sinphi, tmp
+               vfmadd231ps    C409, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C405, cosphi, tmp
+               vfmadd231ps    C408, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C406, cosphi, tmp
+               vfmadd231ps    C409, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C406, sinphi, tmp
+               vfmadd231ps    C409, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C408, sinphi, tmp
+               vfmadd231ps    C411, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C407, cosphi, tmp
+               vfmadd231ps    C410, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C408, cosphi, tmp
+               vfmadd231ps    C411, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C408, sinphi, tmp
+               vfmadd231ps    C411, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C410, sinphi, tmp
+               vfmadd231ps    C413, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C409, cosphi, tmp
+               vfmadd231ps    C412, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C410, cosphi, tmp
+               vfmadd231ps    C413, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C410, sinphi, tmp
+               vfmadd231ps    C413, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -61005,35 +61776,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
-               vmovaps        tmp, 32(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
-               vmovaps        tmp, 224(G)
-               vmovaps        160(G), tmp
                vfmadd231ps    C348, sinphi, tmp
-               vmovaps        tmp, 160(G)
+               vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C349, sinphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, sinphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
+               vmovaps        tmp, 224(G)
+               vmovaps        160(G), tmp
+               vfmadd231ps    C349, cosphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -61041,20 +61821,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C411, sinphi, tmp
+               vfmadd231ps    C414, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -61062,32 +61848,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -61095,38 +61887,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C412, sinphi, tmp
+               vfmadd231ps    C415, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -61134,50 +61938,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -61185,35 +62001,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -61221,20 +62049,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C413, sinphi, tmp
+               vfmadd231ps    C416, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -61242,35 +62076,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C380, sinphi, tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C379, cosphi, tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -61278,16 +62124,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vsubps         y0, hdotx, hdotx
@@ -61342,13 +62188,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C049, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C414, sinphi, tmp
+               vfmadd231ps    C417, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C311, sinphi, tmp
@@ -61362,6 +62214,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C311, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -61396,6 +62254,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C313, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -61419,8 +62283,14 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C415, sinphi, tmp
+               vfmadd231ps    C418, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C319, sinphi, tmp
@@ -61434,6 +62304,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C319, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -61457,6 +62333,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C323, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C325, sinphi, tmp
@@ -61486,6 +62368,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C327, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -61509,18 +62397,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
-               vmovaps        tmp, 1184(G)
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
+               vfmadd231ps    C333, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
+               vfmadd231ps    C333, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C333, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -61528,20 +62428,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C416, sinphi, tmp
+               vfmadd231ps    C419, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -61549,35 +62455,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C340, sinphi, tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C339, cosphi, tmp
+               vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -61585,16 +62503,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vfmadd231ps    C020, z0, hdotx
@@ -61627,7 +62545,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C173, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C250, cosphi, tmp
@@ -61645,10 +62563,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C419, sinphi, tmp
+               vfmadd231ps    C422, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C418, cosphi, tmp
+               vfmadd231ps    C421, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C114, sinphi, tmp
@@ -61663,148 +62581,148 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C292, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C535, cosphi, tmp
+               vfmadd231ps    C538, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C535, sinphi, tmp
+               vfmadd231ps    C538, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C422, cosphi, tmp
+               vfmadd231ps    C425, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C422, sinphi, tmp
+               vfmadd231ps    C425, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C536, cosphi, tmp
+               vfmadd231ps    C539, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C536, sinphi, tmp
+               vfmadd231ps    C539, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C424, sinphi, tmp
+               vfmadd231ps    C427, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C426, sinphi, tmp
+               vfmadd231ps    C429, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C425, cosphi, tmp
+               vfmadd231ps    C428, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C427, sinphi, tmp
+               vfmadd231ps    C430, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C428, cosphi, tmp
+               vfmadd231ps    C431, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C430, sinphi, tmp
+               vfmadd231ps    C433, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C429, cosphi, tmp
+               vfmadd231ps    C432, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C431, sinphi, tmp
+               vfmadd231ps    C434, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C432, cosphi, tmp
+               vfmadd231ps    C435, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C434, sinphi, tmp
+               vfmadd231ps    C437, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C433, cosphi, tmp
+               vfmadd231ps    C436, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C538, cosphi, tmp
+               vfmadd231ps    C541, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C538, sinphi, tmp
+               vfmadd231ps    C541, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C437, cosphi, tmp
+               vfmadd231ps    C440, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C437, sinphi, tmp
+               vfmadd231ps    C440, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C539, cosphi, tmp
+               vfmadd231ps    C542, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C539, sinphi, tmp
+               vfmadd231ps    C542, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C540, cosphi, tmp
+               vfmadd231ps    C543, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C540, sinphi, tmp
+               vfmadd231ps    C543, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C441, cosphi, tmp
+               vfmadd231ps    C444, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C441, sinphi, tmp
+               vfmadd231ps    C444, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C442, sinphi, tmp
+               vfmadd231ps    C445, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C444, sinphi, tmp
+               vfmadd231ps    C447, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C443, cosphi, tmp
+               vfmadd231ps    C446, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C445, sinphi, tmp
+               vfmadd231ps    C448, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C446, cosphi, tmp
+               vfmadd231ps    C449, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C448, sinphi, tmp
+               vfmadd231ps    C451, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C447, cosphi, tmp
+               vfmadd231ps    C450, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C449, sinphi, tmp
+               vfmadd231ps    C452, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C450, cosphi, tmp
+               vfmadd231ps    C453, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C452, sinphi, tmp
+               vfmadd231ps    C455, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C451, cosphi, tmp
+               vfmadd231ps    C454, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C453, sinphi, tmp
+               vfmadd231ps    C456, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C454, cosphi, tmp
+               vfmadd231ps    C457, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C456, sinphi, tmp
+               vfmadd231ps    C459, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C455, cosphi, tmp
+               vfmadd231ps    C458, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vsubps         z0, hdotx, hdotx
@@ -61825,196 +62743,196 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C386, sinphi, tmp
+               vfmadd231ps    C389, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C526, cosphi, tmp
+               vfmadd231ps    C529, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C526, sinphi, tmp
+               vfmadd231ps    C529, sinphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C459, sinphi, tmp
+               vfmadd231ps    C462, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C461, sinphi, tmp
+               vfmadd231ps    C464, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C460, cosphi, tmp
+               vfmadd231ps    C463, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C462, sinphi, tmp
+               vfmadd231ps    C465, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C463, cosphi, tmp
+               vfmadd231ps    C466, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C528, cosphi, tmp
+               vfmadd231ps    C531, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C528, sinphi, tmp
+               vfmadd231ps    C531, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C466, cosphi, tmp
+               vfmadd231ps    C469, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C466, sinphi, tmp
+               vfmadd231ps    C469, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C529, cosphi, tmp
+               vfmadd231ps    C532, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C529, sinphi, tmp
+               vfmadd231ps    C532, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C468, sinphi, tmp
+               vfmadd231ps    C471, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C470, sinphi, tmp
+               vfmadd231ps    C473, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C469, cosphi, tmp
+               vfmadd231ps    C472, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C471, sinphi, tmp
+               vfmadd231ps    C474, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C472, cosphi, tmp
+               vfmadd231ps    C475, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C474, sinphi, tmp
+               vfmadd231ps    C477, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C473, cosphi, tmp
+               vfmadd231ps    C476, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C475, sinphi, tmp
+               vfmadd231ps    C478, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C476, cosphi, tmp
+               vfmadd231ps    C479, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C531, cosphi, tmp
+               vfmadd231ps    C534, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C531, sinphi, tmp
+               vfmadd231ps    C534, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C479, cosphi, tmp
+               vfmadd231ps    C482, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C479, sinphi, tmp
+               vfmadd231ps    C482, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C532, cosphi, tmp
+               vfmadd231ps    C535, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C532, sinphi, tmp
+               vfmadd231ps    C535, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C533, cosphi, tmp
+               vfmadd231ps    C536, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C533, sinphi, tmp
+               vfmadd231ps    C536, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C483, sinphi, tmp
+               vfmadd231ps    C486, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C485, sinphi, tmp
+               vfmadd231ps    C488, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C484, cosphi, tmp
+               vfmadd231ps    C487, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C486, sinphi, tmp
+               vfmadd231ps    C489, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C487, cosphi, tmp
+               vfmadd231ps    C490, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C489, sinphi, tmp
+               vfmadd231ps    C492, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C488, cosphi, tmp
+               vfmadd231ps    C491, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C490, sinphi, tmp
+               vfmadd231ps    C493, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C491, cosphi, tmp
+               vfmadd231ps    C494, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C493, sinphi, tmp
+               vfmadd231ps    C496, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C492, cosphi, tmp
+               vfmadd231ps    C495, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C494, sinphi, tmp
+               vfmadd231ps    C497, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C495, cosphi, tmp
+               vfmadd231ps    C498, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                sub            $128, %rsp
@@ -62034,112 +62952,112 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C496, cosphi, tmp
+               vfmadd231ps    C499, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C498, sinphi, tmp
+               vfmadd231ps    C501, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C497, cosphi, tmp
+               vfmadd231ps    C500, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C499, cosphi, tmp
+               vfmadd231ps    C502, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C500, cosphi, tmp
+               vfmadd231ps    C503, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C500, sinphi, tmp
+               vfmadd231ps    C503, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C502, sinphi, tmp
+               vfmadd231ps    C505, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C501, cosphi, tmp
+               vfmadd231ps    C504, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C504, sinphi, tmp
+               vfmadd231ps    C507, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C503, cosphi, tmp
+               vfmadd231ps    C506, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C505, cosphi, tmp
+               vfmadd231ps    C508, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C506, cosphi, tmp
+               vfmadd231ps    C509, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C506, sinphi, tmp
+               vfmadd231ps    C509, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C507, cosphi, tmp
+               vfmadd231ps    C510, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C507, sinphi, tmp
+               vfmadd231ps    C510, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C509, sinphi, tmp
+               vfmadd231ps    C512, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C508, cosphi, tmp
+               vfmadd231ps    C511, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C511, sinphi, tmp
+               vfmadd231ps    C514, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C510, cosphi, tmp
+               vfmadd231ps    C513, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C513, sinphi, tmp
+               vfmadd231ps    C516, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C512, cosphi, tmp
+               vfmadd231ps    C515, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C514, cosphi, tmp
+               vfmadd231ps    C517, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C515, cosphi, tmp
+               vfmadd231ps    C518, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C515, sinphi, tmp
+               vfmadd231ps    C518, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C516, cosphi, tmp
+               vfmadd231ps    C519, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C516, sinphi, tmp
+               vfmadd231ps    C519, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C517, cosphi, tmp
+               vfmadd231ps    C520, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C517, sinphi, tmp
+               vfmadd231ps    C520, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C519, sinphi, tmp
+               vfmadd231ps    C522, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C518, cosphi, tmp
+               vfmadd231ps    C521, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C521, sinphi, tmp
+               vfmadd231ps    C524, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C520, cosphi, tmp
+               vfmadd231ps    C523, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C523, sinphi, tmp
+               vfmadd231ps    C526, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C522, cosphi, tmp
+               vfmadd231ps    C525, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C525, sinphi, tmp
+               vfmadd231ps    C528, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C524, cosphi, tmp
+               vfmadd231ps    C527, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         z0, hdotx, hdotx
@@ -62160,196 +63078,196 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C457, cosphi, tmp
+               vfmadd231ps    C460, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
-               vfmadd231ps    C458, cosphi, tmp
+               vfmadd231ps    C461, cosphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
-               vfmadd231ps    C458, sinphi, tmp
+               vfmadd231ps    C461, sinphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C527, sinphi, tmp
+               vfmadd231ps    C530, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C461, sinphi, tmp
+               vfmadd231ps    C464, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C460, cosphi, tmp
+               vfmadd231ps    C463, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 448(G)
                vmovaps        320(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C463, sinphi, tmp
+               vfmadd231ps    C466, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C462, cosphi, tmp
+               vfmadd231ps    C465, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C464, cosphi, tmp
+               vfmadd231ps    C467, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C465, cosphi, tmp
+               vfmadd231ps    C468, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C465, sinphi, tmp
+               vfmadd231ps    C468, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C466, cosphi, tmp
+               vfmadd231ps    C469, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C466, sinphi, tmp
+               vfmadd231ps    C469, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C467, cosphi, tmp
+               vfmadd231ps    C470, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C467, sinphi, tmp
+               vfmadd231ps    C470, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C530, sinphi, tmp
+               vfmadd231ps    C533, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C470, sinphi, tmp
+               vfmadd231ps    C473, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C469, cosphi, tmp
+               vfmadd231ps    C472, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C472, sinphi, tmp
+               vfmadd231ps    C475, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C471, cosphi, tmp
+               vfmadd231ps    C474, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C474, sinphi, tmp
+               vfmadd231ps    C477, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C473, cosphi, tmp
+               vfmadd231ps    C476, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C476, sinphi, tmp
+               vfmadd231ps    C479, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C475, cosphi, tmp
+               vfmadd231ps    C478, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C477, cosphi, tmp
+               vfmadd231ps    C480, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C478, cosphi, tmp
+               vfmadd231ps    C481, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C478, sinphi, tmp
+               vfmadd231ps    C481, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C479, cosphi, tmp
+               vfmadd231ps    C482, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C479, sinphi, tmp
+               vfmadd231ps    C482, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C480, cosphi, tmp
+               vfmadd231ps    C483, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C480, sinphi, tmp
+               vfmadd231ps    C483, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C481, cosphi, tmp
+               vfmadd231ps    C484, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C481, sinphi, tmp
+               vfmadd231ps    C484, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C482, cosphi, tmp
+               vfmadd231ps    C485, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C482, sinphi, tmp
+               vfmadd231ps    C485, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C534, sinphi, tmp
+               vfmadd231ps    C537, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C485, sinphi, tmp
+               vfmadd231ps    C488, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C484, cosphi, tmp
+               vfmadd231ps    C487, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C487, sinphi, tmp
+               vfmadd231ps    C490, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C486, cosphi, tmp
+               vfmadd231ps    C489, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C489, sinphi, tmp
+               vfmadd231ps    C492, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C488, cosphi, tmp
+               vfmadd231ps    C491, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C491, sinphi, tmp
+               vfmadd231ps    C494, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C490, cosphi, tmp
+               vfmadd231ps    C493, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C493, sinphi, tmp
+               vfmadd231ps    C496, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C492, cosphi, tmp
+               vfmadd231ps    C495, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C495, sinphi, tmp
+               vfmadd231ps    C498, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C494, cosphi, tmp
+               vfmadd231ps    C497, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vfmadd231ps    C002, z0, hdotx
@@ -62382,7 +63300,7 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C173, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C417, cosphi, tmp
+               vfmadd231ps    C420, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
                vfmadd231ps    C175, cosphi, tmp
@@ -62400,10 +63318,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C419, sinphi, tmp
+               vfmadd231ps    C422, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C418, cosphi, tmp
+               vfmadd231ps    C421, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C113, sinphi, tmp
@@ -62418,148 +63336,148 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C292, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C421, cosphi, tmp
+               vfmadd231ps    C424, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C421, sinphi, tmp
+               vfmadd231ps    C424, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
-               vfmadd231ps    C422, cosphi, tmp
+               vfmadd231ps    C425, cosphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
-               vfmadd231ps    C422, sinphi, tmp
+               vfmadd231ps    C425, sinphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C423, cosphi, tmp
+               vfmadd231ps    C426, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C423, sinphi, tmp
+               vfmadd231ps    C426, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C420, cosphi, tmp
+               vfmadd231ps    C423, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C420, sinphi, tmp
+               vfmadd231ps    C423, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C537, sinphi, tmp
+               vfmadd231ps    C540, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C426, sinphi, tmp
+               vfmadd231ps    C429, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C425, cosphi, tmp
+               vfmadd231ps    C428, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1024(G), tmp
-               vfmadd231ps    C428, sinphi, tmp
+               vfmadd231ps    C431, sinphi, tmp
                vmovaps        tmp, 1024(G)
                vmovaps        896(G), tmp
-               vfmadd231ps    C427, cosphi, tmp
+               vfmadd231ps    C430, cosphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C430, sinphi, tmp
+               vfmadd231ps    C433, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C429, cosphi, tmp
+               vfmadd231ps    C432, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C432, sinphi, tmp
+               vfmadd231ps    C435, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C431, cosphi, tmp
+               vfmadd231ps    C434, cosphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C434, sinphi, tmp
+               vfmadd231ps    C437, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C433, cosphi, tmp
+               vfmadd231ps    C436, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C435, cosphi, tmp
+               vfmadd231ps    C438, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C436, cosphi, tmp
+               vfmadd231ps    C439, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C436, sinphi, tmp
+               vfmadd231ps    C439, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
-               vfmadd231ps    C437, cosphi, tmp
+               vfmadd231ps    C440, cosphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
-               vfmadd231ps    C437, sinphi, tmp
+               vfmadd231ps    C440, sinphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C438, cosphi, tmp
+               vfmadd231ps    C441, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C438, sinphi, tmp
+               vfmadd231ps    C441, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C439, cosphi, tmp
+               vfmadd231ps    C442, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C439, sinphi, tmp
+               vfmadd231ps    C442, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C440, cosphi, tmp
+               vfmadd231ps    C443, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C440, sinphi, tmp
+               vfmadd231ps    C443, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1536(G), tmp
-               vfmadd231ps    C441, cosphi, tmp
+               vfmadd231ps    C444, cosphi, tmp
                vmovaps        tmp, 1536(G)
                vmovaps        1152(G), tmp
-               vfmadd231ps    C441, sinphi, tmp
+               vfmadd231ps    C444, sinphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C541, sinphi, tmp
+               vfmadd231ps    C544, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C444, sinphi, tmp
+               vfmadd231ps    C447, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C443, cosphi, tmp
+               vfmadd231ps    C446, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1856(G), tmp
-               vfmadd231ps    C446, sinphi, tmp
+               vfmadd231ps    C449, sinphi, tmp
                vmovaps        tmp, 1856(G)
                vmovaps        1728(G), tmp
-               vfmadd231ps    C445, cosphi, tmp
+               vfmadd231ps    C448, cosphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C448, sinphi, tmp
+               vfmadd231ps    C451, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C447, cosphi, tmp
+               vfmadd231ps    C450, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C450, sinphi, tmp
+               vfmadd231ps    C453, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C449, cosphi, tmp
+               vfmadd231ps    C452, cosphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C452, sinphi, tmp
+               vfmadd231ps    C455, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C451, cosphi, tmp
+               vfmadd231ps    C454, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1984(G), tmp
-               vfmadd231ps    C454, sinphi, tmp
+               vfmadd231ps    C457, sinphi, tmp
                vmovaps        tmp, 1984(G)
                vmovaps        1600(G), tmp
-               vfmadd231ps    C453, cosphi, tmp
+               vfmadd231ps    C456, cosphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C456, sinphi, tmp
+               vfmadd231ps    C459, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C455, cosphi, tmp
+               vfmadd231ps    C458, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -62614,6 +63532,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C050, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
@@ -62634,6 +63558,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C311, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -62668,6 +63598,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C314, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -62691,6 +63627,12 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
                vfmadd231ps    C317, sinphi, tmp
                vmovaps        tmp, 960(G)
@@ -62706,6 +63648,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C319, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -62729,6 +63677,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C322, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C325, sinphi, tmp
@@ -62758,6 +63712,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C328, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -62781,18 +63741,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
-               vmovaps        tmp, 1184(G)
-               vmovaps        1504(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C333, cosphi, tmp
+               vfmadd231ps    C334, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C333, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C334, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -62800,20 +63772,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C334, sinphi, tmp
+               vfmadd231ps    C335, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -62821,35 +63799,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C339, sinphi, tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
                vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C340, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -62857,16 +63847,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -62888,35 +63878,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C346, sinphi, tmp
+               vfmadd231ps    C347, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
-               vmovaps        tmp, 32(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
-               vmovaps        tmp, 224(G)
-               vmovaps        160(G), tmp
-               vfmadd231ps    C349, sinphi, tmp
-               vmovaps        tmp, 160(G)
-               vmovaps        224(G), tmp
                vfmadd231ps    C348, sinphi, tmp
+               vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C349, cosphi, tmp
+               vfmadd231ps    C350, sinphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C349, sinphi, tmp
+               vmovaps        tmp, 224(G)
+               vmovaps        160(G), tmp
+               vfmadd231ps    C350, cosphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -62924,20 +63923,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C350, sinphi, tmp
+               vfmadd231ps    C351, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -62945,32 +63950,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C357, cosphi, tmp
+               vfmadd231ps    C358, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -62978,38 +63989,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C359, cosphi, tmp
+               vfmadd231ps    C360, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C361, sinphi, tmp
+               vfmadd231ps    C363, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -63017,50 +64040,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C366, sinphi, tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C368, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -63068,35 +64103,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C370, cosphi, tmp
+               vfmadd231ps    C372, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C373, cosphi, tmp
+               vfmadd231ps    C376, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -63104,20 +64151,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C374, sinphi, tmp
+               vfmadd231ps    C377, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -63125,35 +64178,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C379, sinphi, tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C380, cosphi, tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C382, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -63161,16 +64226,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -63191,22 +64256,22 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C385, cosphi, tmp
+               vfmadd231ps    C388, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C386, cosphi, tmp
+               vfmadd231ps    C389, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C387, cosphi, tmp
+               vfmadd231ps    C390, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C387, sinphi, tmp
+               vfmadd231ps    C390, sinphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        192(G), tmp
-               vfmadd231ps    C388, cosphi, tmp
+               vfmadd231ps    C391, cosphi, tmp
                vmovaps        tmp, 192(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -63215,31 +64280,31 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C390, sinphi, tmp
+               vfmadd231ps    C393, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C389, cosphi, tmp
+               vfmadd231ps    C392, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C390, cosphi, tmp
+               vfmadd231ps    C393, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C390, sinphi, tmp
+               vfmadd231ps    C393, sinphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C392, sinphi, tmp
+               vfmadd231ps    C395, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C391, cosphi, tmp
+               vfmadd231ps    C394, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C392, cosphi, tmp
+               vfmadd231ps    C395, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C392, sinphi, tmp
+               vfmadd231ps    C395, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C393, cosphi, tmp
+               vfmadd231ps    C396, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -63248,49 +64313,49 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C394, cosphi, tmp
+               vfmadd231ps    C397, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C394, sinphi, tmp
+               vfmadd231ps    C397, sinphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C396, sinphi, tmp
+               vfmadd231ps    C399, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C395, cosphi, tmp
+               vfmadd231ps    C398, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C396, cosphi, tmp
+               vfmadd231ps    C399, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C396, sinphi, tmp
+               vfmadd231ps    C399, sinphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C398, sinphi, tmp
+               vfmadd231ps    C401, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C397, cosphi, tmp
+               vfmadd231ps    C400, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C398, cosphi, tmp
+               vfmadd231ps    C401, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C398, sinphi, tmp
+               vfmadd231ps    C401, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C400, sinphi, tmp
+               vfmadd231ps    C403, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C399, cosphi, tmp
+               vfmadd231ps    C402, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C400, cosphi, tmp
+               vfmadd231ps    C403, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C400, sinphi, tmp
+               vfmadd231ps    C403, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C401, cosphi, tmp
+               vfmadd231ps    C404, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -63299,10 +64364,10 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C402, cosphi, tmp
+               vfmadd231ps    C405, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C402, sinphi, tmp
+               vfmadd231ps    C405, sinphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
@@ -63311,52 +64376,52 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C404, sinphi, tmp
+               vfmadd231ps    C407, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C403, cosphi, tmp
+               vfmadd231ps    C406, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C404, cosphi, tmp
+               vfmadd231ps    C407, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C404, sinphi, tmp
+               vfmadd231ps    C407, sinphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C406, sinphi, tmp
+               vfmadd231ps    C409, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C405, cosphi, tmp
+               vfmadd231ps    C408, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C406, cosphi, tmp
+               vfmadd231ps    C409, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C406, sinphi, tmp
+               vfmadd231ps    C409, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C408, sinphi, tmp
+               vfmadd231ps    C411, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C407, cosphi, tmp
+               vfmadd231ps    C410, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C408, cosphi, tmp
+               vfmadd231ps    C411, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C408, sinphi, tmp
+               vfmadd231ps    C411, sinphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C410, sinphi, tmp
+               vfmadd231ps    C413, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C409, cosphi, tmp
+               vfmadd231ps    C412, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C410, cosphi, tmp
+               vfmadd231ps    C413, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C410, sinphi, tmp
+               vfmadd231ps    C413, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -63378,35 +64443,44 @@ greens_ewald:  push           %rbp
                vmovaps        64(%rsp), z0
                add            $128, %rsp
                vmovaps        0(G), tmp
-               vfmadd231ps    C345, cosphi, tmp
+               vfmadd231ps    C346, cosphi, tmp
                vmovaps        tmp, 0(G)
                vmovaps        64(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 64(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
+               vfmadd231ps    C348, sinphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C346, cosphi, tmp
+               vfmadd231ps    C347, cosphi, tmp
                vmovaps        tmp, 32(G)
                vmovaps        96(G), tmp
-               vfmadd231ps    C347, cosphi, tmp
+               vfmadd231ps    C348, cosphi, tmp
                vmovaps        tmp, 96(G)
                vmovaps        32(G), tmp
-               vfmadd231ps    C347, sinphi, tmp
-               vmovaps        tmp, 32(G)
-               vmovaps        224(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
-               vmovaps        tmp, 224(G)
-               vmovaps        160(G), tmp
                vfmadd231ps    C348, sinphi, tmp
-               vmovaps        tmp, 160(G)
+               vmovaps        tmp, 32(G)
+               vmovaps        192(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 192(G)
                vmovaps        224(G), tmp
-               vfmadd231ps    C349, sinphi, tmp
+               vfmadd231ps    C349, cosphi, tmp
                vmovaps        tmp, 224(G)
                vmovaps        160(G), tmp
-               vfmadd231ps    C348, cosphi, tmp
+               vfmadd231ps    C349, sinphi, tmp
                vmovaps        tmp, 160(G)
+               vmovaps        224(G), tmp
+               vfmadd231ps    C350, sinphi, tmp
+               vmovaps        tmp, 224(G)
+               vmovaps        160(G), tmp
+               vfmadd231ps    C349, cosphi, tmp
+               vmovaps        tmp, 160(G)
+               vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
                vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
@@ -63414,20 +64488,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C411, sinphi, tmp
+               vfmadd231ps    C414, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C351, cosphi, tmp
+               vfmadd231ps    C352, cosphi, tmp
                vmovaps        tmp, 352(G)
                vmovaps        416(G), tmp
-               vfmadd231ps    C352, cosphi, tmp
+               vfmadd231ps    C353, cosphi, tmp
                vmovaps        tmp, 416(G)
                vmovaps        352(G), tmp
-               vfmadd231ps    C352, sinphi, tmp
+               vfmadd231ps    C353, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -63435,32 +64515,38 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 320(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C353, cosphi, tmp
+               vfmadd231ps    C354, cosphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        480(G), tmp
-               vfmadd231ps    C354, cosphi, tmp
+               vfmadd231ps    C355, cosphi, tmp
                vmovaps        tmp, 480(G)
                vmovaps        288(G), tmp
-               vfmadd231ps    C354, sinphi, tmp
+               vfmadd231ps    C355, sinphi, tmp
                vmovaps        tmp, 288(G)
                vmovaps        640(G), tmp
-               vfmadd231ps    C355, cosphi, tmp
+               vfmadd231ps    C356, cosphi, tmp
                vmovaps        tmp, 640(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, sinphi, tmp
+               vfmadd231ps    C357, sinphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        672(G), tmp
-               vfmadd231ps    C357, sinphi, tmp
+               vfmadd231ps    C358, sinphi, tmp
                vmovaps        tmp, 672(G)
                vmovaps        608(G), tmp
-               vfmadd231ps    C356, cosphi, tmp
+               vfmadd231ps    C357, cosphi, tmp
                vmovaps        tmp, 608(G)
+               vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
                vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
@@ -63468,38 +64554,50 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 576(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, sinphi, tmp
+               vfmadd231ps    C359, sinphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        736(G), tmp
-               vfmadd231ps    C359, sinphi, tmp
+               vfmadd231ps    C360, sinphi, tmp
                vmovaps        tmp, 736(G)
                vmovaps        544(G), tmp
-               vfmadd231ps    C358, cosphi, tmp
+               vfmadd231ps    C359, cosphi, tmp
                vmovaps        tmp, 544(G)
                vmovaps        768(G), tmp
-               vfmadd231ps    C360, cosphi, tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 768(G)
                vmovaps        512(G), tmp
-               vfmadd231ps    C360, sinphi, tmp
+               vfmadd231ps    C361, sinphi, tmp
+               vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C362, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C361, cosphi, tmp
                vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C412, sinphi, tmp
+               vfmadd231ps    C415, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C362, cosphi, tmp
+               vfmadd231ps    C364, cosphi, tmp
                vmovaps        tmp, 928(G)
                vmovaps        992(G), tmp
-               vfmadd231ps    C363, cosphi, tmp
+               vfmadd231ps    C365, cosphi, tmp
                vmovaps        tmp, 992(G)
                vmovaps        928(G), tmp
-               vfmadd231ps    C363, sinphi, tmp
+               vfmadd231ps    C365, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -63507,50 +64605,62 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 896(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C364, cosphi, tmp
+               vfmadd231ps    C366, cosphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1056(G), tmp
-               vfmadd231ps    C365, cosphi, tmp
+               vfmadd231ps    C367, cosphi, tmp
                vmovaps        tmp, 1056(G)
                vmovaps        864(G), tmp
-               vfmadd231ps    C365, sinphi, tmp
+               vfmadd231ps    C367, sinphi, tmp
                vmovaps        tmp, 864(G)
                vmovaps        1088(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C369, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C366, cosphi, tmp
+               vfmadd231ps    C368, cosphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1120(G), tmp
-               vfmadd231ps    C367, cosphi, tmp
+               vfmadd231ps    C369, cosphi, tmp
                vmovaps        tmp, 1120(G)
                vmovaps        800(G), tmp
-               vfmadd231ps    C367, sinphi, tmp
+               vfmadd231ps    C369, sinphi, tmp
                vmovaps        tmp, 800(G)
                vmovaps        1344(G), tmp
-               vfmadd231ps    C368, cosphi, tmp
+               vfmadd231ps    C370, cosphi, tmp
                vmovaps        tmp, 1344(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1376(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1376(G)
                vmovaps        1312(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1312(G)
+               vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
                vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
@@ -63558,35 +64668,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1280(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, sinphi, tmp
+               vfmadd231ps    C371, sinphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1440(G), tmp
-               vfmadd231ps    C370, sinphi, tmp
+               vfmadd231ps    C372, sinphi, tmp
                vmovaps        tmp, 1440(G)
                vmovaps        1248(G), tmp
-               vfmadd231ps    C369, cosphi, tmp
+               vfmadd231ps    C371, cosphi, tmp
                vmovaps        tmp, 1248(G)
                vmovaps        1472(G), tmp
-               vfmadd231ps    C371, cosphi, tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1472(G)
                vmovaps        1216(G), tmp
-               vfmadd231ps    C371, sinphi, tmp
+               vfmadd231ps    C373, sinphi, tmp
+               vmovaps        tmp, 1216(G)
+               vmovaps        1472(G), tmp
+               vfmadd231ps    C374, sinphi, tmp
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C373, cosphi, tmp
                vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, sinphi, tmp
+               vfmadd231ps    C375, sinphi, tmp
                vmovaps        tmp, 1184(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C373, sinphi, tmp
+               vfmadd231ps    C376, sinphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C372, cosphi, tmp
+               vfmadd231ps    C375, cosphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -63594,20 +64716,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C413, sinphi, tmp
+               vfmadd231ps    C416, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C375, cosphi, tmp
+               vfmadd231ps    C378, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C376, cosphi, tmp
+               vfmadd231ps    C379, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C376, sinphi, tmp
+               vfmadd231ps    C379, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -63615,35 +64743,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C377, cosphi, tmp
+               vfmadd231ps    C380, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C378, cosphi, tmp
+               vfmadd231ps    C381, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C378, sinphi, tmp
+               vfmadd231ps    C381, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C380, sinphi, tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C379, cosphi, tmp
+               vfmadd231ps    C382, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C383, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C383, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C381, cosphi, tmp
+               vfmadd231ps    C384, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C382, cosphi, tmp
+               vfmadd231ps    C385, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C382, sinphi, tmp
+               vfmadd231ps    C385, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -63651,16 +64791,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C383, cosphi, tmp
+               vfmadd231ps    C386, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C384, cosphi, tmp
+               vfmadd231ps    C387, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C384, sinphi, tmp
+               vfmadd231ps    C387, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vaddps         y0, hdotx, hdotx
@@ -63715,13 +64855,19 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C049, cosphi, tmp
                vmovaps        tmp, 160(G)
                vmovaps        256(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 256(G)
+               vmovaps        128(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 128(G)
+               vmovaps        256(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 256(G)
                vmovaps        128(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 128(G)
                vmovaps        384(G), tmp
-               vfmadd231ps    C414, sinphi, tmp
+               vfmadd231ps    C417, sinphi, tmp
                vmovaps        tmp, 384(G)
                vmovaps        416(G), tmp
                vfmadd231ps    C311, sinphi, tmp
@@ -63735,6 +64881,12 @@ greens_ewald:  push           %rbp
                vmovaps        352(G), tmp
                vfmadd231ps    C311, sinphi, tmp
                vmovaps        tmp, 352(G)
+               vmovaps        448(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 448(G)
+               vmovaps        320(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 320(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 448(G)
@@ -63769,6 +64921,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C313, cosphi, tmp
                vmovaps        tmp, 608(G)
                vmovaps        704(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 704(G)
+               vmovaps        576(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 576(G)
+               vmovaps        704(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 704(G)
                vmovaps        576(G), tmp
@@ -63792,8 +64950,14 @@ greens_ewald:  push           %rbp
                vmovaps        512(G), tmp
                vfmadd231ps    C315, sinphi, tmp
                vmovaps        tmp, 512(G)
+               vmovaps        768(G), tmp
+               vfmadd231ps    C316, sinphi, tmp
+               vmovaps        tmp, 768(G)
+               vmovaps        512(G), tmp
+               vfmadd231ps    C315, cosphi, tmp
+               vmovaps        tmp, 512(G)
                vmovaps        960(G), tmp
-               vfmadd231ps    C415, sinphi, tmp
+               vfmadd231ps    C418, sinphi, tmp
                vmovaps        tmp, 960(G)
                vmovaps        992(G), tmp
                vfmadd231ps    C319, sinphi, tmp
@@ -63807,6 +64971,12 @@ greens_ewald:  push           %rbp
                vmovaps        928(G), tmp
                vfmadd231ps    C319, sinphi, tmp
                vmovaps        tmp, 928(G)
+               vmovaps        1024(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1024(G)
+               vmovaps        896(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 896(G)
                vmovaps        1024(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1024(G)
@@ -63830,6 +65000,12 @@ greens_ewald:  push           %rbp
                vmovaps        tmp, 1088(G)
                vmovaps        832(G), tmp
                vfmadd231ps    C322, cosphi, tmp
+               vmovaps        tmp, 832(G)
+               vmovaps        1088(G), tmp
+               vfmadd231ps    C323, cosphi, tmp
+               vmovaps        tmp, 1088(G)
+               vmovaps        832(G), tmp
+               vfmadd231ps    C323, sinphi, tmp
                vmovaps        tmp, 832(G)
                vmovaps        1120(G), tmp
                vfmadd231ps    C325, sinphi, tmp
@@ -63859,6 +65035,12 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C327, cosphi, tmp
                vmovaps        tmp, 1312(G)
                vmovaps        1408(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1408(G)
+               vmovaps        1280(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1280(G)
+               vmovaps        1408(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1408(G)
                vmovaps        1280(G), tmp
@@ -63882,18 +65064,30 @@ greens_ewald:  push           %rbp
                vmovaps        1216(G), tmp
                vfmadd231ps    C331, sinphi, tmp
                vmovaps        tmp, 1216(G)
-               vmovaps        1504(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
-               vmovaps        tmp, 1504(G)
-               vmovaps        1184(G), tmp
+               vmovaps        1472(G), tmp
                vfmadd231ps    C332, sinphi, tmp
-               vmovaps        tmp, 1184(G)
+               vmovaps        tmp, 1472(G)
+               vmovaps        1216(G), tmp
+               vfmadd231ps    C331, cosphi, tmp
+               vmovaps        tmp, 1216(G)
                vmovaps        1504(G), tmp
-               vfmadd231ps    C333, sinphi, tmp
+               vfmadd231ps    C333, cosphi, tmp
                vmovaps        tmp, 1504(G)
                vmovaps        1184(G), tmp
-               vfmadd231ps    C332, cosphi, tmp
+               vfmadd231ps    C333, sinphi, tmp
                vmovaps        tmp, 1184(G)
+               vmovaps        1504(G), tmp
+               vfmadd231ps    C334, sinphi, tmp
+               vmovaps        tmp, 1504(G)
+               vmovaps        1184(G), tmp
+               vfmadd231ps    C333, cosphi, tmp
+               vmovaps        tmp, 1184(G)
+               vmovaps        1536(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1536(G)
+               vmovaps        1152(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1152(G)
                vmovaps        1536(G), tmp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1536(G)
@@ -63901,20 +65095,26 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1152(G)
                vmovaps        1792(G), tmp
-               vfmadd231ps    C416, sinphi, tmp
+               vfmadd231ps    C419, sinphi, tmp
                vmovaps        tmp, 1792(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C335, cosphi, tmp
+               vfmadd231ps    C336, cosphi, tmp
                vmovaps        tmp, 1760(G)
                vmovaps        1824(G), tmp
-               vfmadd231ps    C336, cosphi, tmp
+               vfmadd231ps    C337, cosphi, tmp
                vmovaps        tmp, 1824(G)
                vmovaps        1760(G), tmp
-               vfmadd231ps    C336, sinphi, tmp
+               vfmadd231ps    C337, sinphi, tmp
                vmovaps        tmp, 1760(G)
+               vmovaps        1856(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1856(G)
+               vmovaps        1728(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1728(G)
                vmovaps        1856(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1856(G)
@@ -63922,35 +65122,47 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1728(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C337, cosphi, tmp
+               vfmadd231ps    C338, cosphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1888(G), tmp
-               vfmadd231ps    C338, cosphi, tmp
+               vfmadd231ps    C339, cosphi, tmp
                vmovaps        tmp, 1888(G)
                vmovaps        1696(G), tmp
-               vfmadd231ps    C338, sinphi, tmp
+               vfmadd231ps    C339, sinphi, tmp
                vmovaps        tmp, 1696(G)
                vmovaps        1920(G), tmp
-               vfmadd231ps    C340, sinphi, tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1920(G)
                vmovaps        1664(G), tmp
-               vfmadd231ps    C339, cosphi, tmp
+               vfmadd231ps    C340, cosphi, tmp
+               vmovaps        tmp, 1664(G)
+               vmovaps        1920(G), tmp
+               vfmadd231ps    C341, cosphi, tmp
+               vmovaps        tmp, 1920(G)
+               vmovaps        1664(G), tmp
+               vfmadd231ps    C341, sinphi, tmp
                vmovaps        tmp, 1664(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C341, cosphi, tmp
+               vfmadd231ps    C342, cosphi, tmp
                vmovaps        tmp, 1632(G)
                vmovaps        1952(G), tmp
-               vfmadd231ps    C342, cosphi, tmp
+               vfmadd231ps    C343, cosphi, tmp
                vmovaps        tmp, 1952(G)
                vmovaps        1632(G), tmp
-               vfmadd231ps    C342, sinphi, tmp
+               vfmadd231ps    C343, sinphi, tmp
                vmovaps        tmp, 1632(G)
+               vmovaps        1984(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 1984(G)
+               vmovaps        1600(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 1600(G)
                vmovaps        1984(G), tmp
                vfmadd231ps    C022, cosphi, tmp
                vmovaps        tmp, 1984(G)
@@ -63958,16 +65170,16 @@ greens_ewald:  push           %rbp
                vfmadd231ps    C022, sinphi, tmp
                vmovaps        tmp, 1600(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C343, cosphi, tmp
+               vfmadd231ps    C344, cosphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        2016(G), tmp
-               vfmadd231ps    C344, cosphi, tmp
+               vfmadd231ps    C345, cosphi, tmp
                vmovaps        tmp, 2016(G)
                vmovaps        1568(G), tmp
-               vfmadd231ps    C344, sinphi, tmp
+               vfmadd231ps    C345, sinphi, tmp
                vmovaps        tmp, 1568(G)
                vmovaps        x0, hdotx
                vfmadd231ps    C002, y0, hdotx
@@ -66373,6 +67585,12 @@ greens_ewald:  push           %rbp
                vmovaps        384(G), tmp
                vfmadd231ps    C113, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C177, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -66702,6 +67920,12 @@ greens_ewald:  push           %rbp
                vmovaps        384(G), tmp
                vfmadd231ps    C114, sinphi, tmp
                vmovaps        tmp, 384(G)
+               vmovaps        416(G), tmp
+               vfmadd231ps    C022, sinphi, tmp
+               vmovaps        tmp, 416(G)
+               vmovaps        352(G), tmp
+               vfmadd231ps    C022, cosphi, tmp
+               vmovaps        tmp, 352(G)
                vmovaps        448(G), tmp
                vfmadd231ps    C178, sinphi, tmp
                vmovaps        tmp, 448(G)
@@ -68234,7 +69458,7 @@ greens_ewald:  push           %rbp
                vmovaps        1568(G), tmp
                vfmadd231ps    C044, sinphi, tmp
                vmovaps        tmp, 1568(G)
-               vmovaps        C576, %ymm0
+               vmovaps        C579, %ymm0
                vmovaps        %ymm0, 64(G)
                mov            %rbp, %rsp
                pop            %rbp
@@ -70897,7 +72121,15 @@ C331:          .float         -1.6778645367e-02
                .float         -1.6778645367e-02 
                .float         -1.6778645367e-02 
                .float         -1.6778645367e-02 
-C332:          .float         -9.7139525811e-03 
+C332:          .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+               .float         1.6778645367e-02  
+C333:          .float         -9.7139525811e-03 
                .float         -9.7139525811e-03 
                .float         -9.7139525811e-03 
                .float         -9.7139525811e-03 
@@ -70905,7 +72137,7 @@ C332:          .float         -9.7139525811e-03
                .float         -9.7139525811e-03 
                .float         -9.7139525811e-03 
                .float         -9.7139525811e-03 
-C333:          .float         9.7139525811e-03  
+C334:          .float         9.7139525811e-03  
                .float         9.7139525811e-03  
                .float         9.7139525811e-03  
                .float         9.7139525811e-03  
@@ -70913,7 +72145,7 @@ C333:          .float         9.7139525811e-03
                .float         9.7139525811e-03  
                .float         9.7139525811e-03  
                .float         9.7139525811e-03  
-C334:          .float         -4.5242404182e-02 
+C335:          .float         -4.5242404182e-02 
                .float         -4.5242404182e-02 
                .float         -4.5242404182e-02 
                .float         -4.5242404182e-02 
@@ -70921,7 +72153,7 @@ C334:          .float         -4.5242404182e-02
                .float         -4.5242404182e-02 
                .float         -4.5242404182e-02 
                .float         -4.5242404182e-02 
-C335:          .float         -3.0303874499e-02 
+C336:          .float         -3.0303874499e-02 
                .float         -3.0303874499e-02 
                .float         -3.0303874499e-02 
                .float         -3.0303874499e-02 
@@ -70929,7 +72161,7 @@ C335:          .float         -3.0303874499e-02
                .float         -3.0303874499e-02 
                .float         -3.0303874499e-02 
                .float         -3.0303874499e-02 
-C336:          .float         3.0303874499e-02  
+C337:          .float         3.0303874499e-02  
                .float         3.0303874499e-02  
                .float         3.0303874499e-02  
                .float         3.0303874499e-02  
@@ -70937,7 +72169,7 @@ C336:          .float         3.0303874499e-02
                .float         3.0303874499e-02  
                .float         3.0303874499e-02  
                .float         3.0303874499e-02  
-C337:          .float         -8.6643472159e-02 
+C338:          .float         -8.6643472159e-02 
                .float         -8.6643472159e-02 
                .float         -8.6643472159e-02 
                .float         -8.6643472159e-02 
@@ -70945,7 +72177,7 @@ C337:          .float         -8.6643472159e-02
                .float         -8.6643472159e-02 
                .float         -8.6643472159e-02 
                .float         -8.6643472159e-02 
-C338:          .float         8.6643472159e-02  
+C339:          .float         8.6643472159e-02  
                .float         8.6643472159e-02  
                .float         8.6643472159e-02  
                .float         8.6643472159e-02  
@@ -70953,7 +72185,7 @@ C338:          .float         8.6643472159e-02
                .float         8.6643472159e-02  
                .float         8.6643472159e-02  
                .float         8.6643472159e-02  
-C339:          .float         -1.5962886004e-01 
+C340:          .float         -1.5962886004e-01 
                .float         -1.5962886004e-01 
                .float         -1.5962886004e-01 
                .float         -1.5962886004e-01 
@@ -70961,7 +72193,7 @@ C339:          .float         -1.5962886004e-01
                .float         -1.5962886004e-01 
                .float         -1.5962886004e-01 
                .float         -1.5962886004e-01 
-C340:          .float         1.5962886004e-01  
+C341:          .float         1.5962886004e-01  
                .float         1.5962886004e-01  
                .float         1.5962886004e-01  
                .float         1.5962886004e-01  
@@ -70969,7 +72201,7 @@ C340:          .float         1.5962886004e-01
                .float         1.5962886004e-01  
                .float         1.5962886004e-01  
                .float         1.5962886004e-01  
-C341:          .float         -1.0798422885e-01 
+C342:          .float         -1.0798422885e-01 
                .float         -1.0798422885e-01 
                .float         -1.0798422885e-01 
                .float         -1.0798422885e-01 
@@ -70977,7 +72209,7 @@ C341:          .float         -1.0798422885e-01
                .float         -1.0798422885e-01 
                .float         -1.0798422885e-01 
                .float         -1.0798422885e-01 
-C342:          .float         1.0798422885e-01  
+C343:          .float         1.0798422885e-01  
                .float         1.0798422885e-01  
                .float         1.0798422885e-01  
                .float         1.0798422885e-01  
@@ -70985,7 +72217,7 @@ C342:          .float         1.0798422885e-01
                .float         1.0798422885e-01  
                .float         1.0798422885e-01  
                .float         1.0798422885e-01  
-C343:          .float         6.1034564132e-02  
+C344:          .float         6.1034564132e-02  
                .float         6.1034564132e-02  
                .float         6.1034564132e-02  
                .float         6.1034564132e-02  
@@ -70993,7 +72225,7 @@ C343:          .float         6.1034564132e-02
                .float         6.1034564132e-02  
                .float         6.1034564132e-02  
                .float         6.1034564132e-02  
-C344:          .float         -6.1034564132e-02 
+C345:          .float         -6.1034564132e-02 
                .float         -6.1034564132e-02 
                .float         -6.1034564132e-02 
                .float         -6.1034564132e-02 
@@ -71001,7 +72233,7 @@ C344:          .float         -6.1034564132e-02
                .float         -6.1034564132e-02 
                .float         -6.1034564132e-02 
                .float         -6.1034564132e-02 
-C345:          .float         -6.4713192453e-05 
+C346:          .float         -6.4713192453e-05 
                .float         -6.4713192453e-05 
                .float         -6.4713192453e-05 
                .float         -6.4713192453e-05 
@@ -71009,7 +72241,7 @@ C345:          .float         -6.4713192453e-05
                .float         -6.4713192453e-05 
                .float         -6.4713192453e-05 
                .float         -6.4713192453e-05 
-C346:          .float         -4.0660498000e-04 
+C347:          .float         -4.0660498000e-04 
                .float         -4.0660498000e-04 
                .float         -4.0660498000e-04 
                .float         -4.0660498000e-04 
@@ -71017,7 +72249,7 @@ C346:          .float         -4.0660498000e-04
                .float         -4.0660498000e-04 
                .float         -4.0660498000e-04 
                .float         -4.0660498000e-04 
-C347:          .float         4.0660498000e-04  
+C348:          .float         4.0660498000e-04  
                .float         4.0660498000e-04  
                .float         4.0660498000e-04  
                .float         4.0660498000e-04  
@@ -71025,7 +72257,7 @@ C347:          .float         4.0660498000e-04
                .float         4.0660498000e-04  
                .float         4.0660498000e-04  
                .float         4.0660498000e-04  
-C348:          .float         2.5547744362e-03  
+C349:          .float         2.5547744362e-03  
                .float         2.5547744362e-03  
                .float         2.5547744362e-03  
                .float         2.5547744362e-03  
@@ -71033,7 +72265,7 @@ C348:          .float         2.5547744362e-03
                .float         2.5547744362e-03  
                .float         2.5547744362e-03  
                .float         2.5547744362e-03  
-C349:          .float         -2.5547744362e-03 
+C350:          .float         -2.5547744362e-03 
                .float         -2.5547744362e-03 
                .float         -2.5547744362e-03 
                .float         -2.5547744362e-03 
@@ -71041,7 +72273,7 @@ C349:          .float         -2.5547744362e-03
                .float         -2.5547744362e-03 
                .float         -2.5547744362e-03 
                .float         -2.5547744362e-03 
-C350:          .float         -1.2841696960e-02 
+C351:          .float         -1.2841696960e-02 
                .float         -1.2841696960e-02 
                .float         -1.2841696960e-02 
                .float         -1.2841696960e-02 
@@ -71049,7 +72281,7 @@ C350:          .float         -1.2841696960e-02
                .float         -1.2841696960e-02 
                .float         -1.2841696960e-02 
                .float         -1.2841696960e-02 
-C351:          .float         6.4208484802e-03  
+C352:          .float         6.4208484802e-03  
                .float         6.4208484802e-03  
                .float         6.4208484802e-03  
                .float         6.4208484802e-03  
@@ -71057,7 +72289,7 @@ C351:          .float         6.4208484802e-03
                .float         6.4208484802e-03  
                .float         6.4208484802e-03  
                .float         6.4208484802e-03  
-C352:          .float         -6.4208484802e-03 
+C353:          .float         -6.4208484802e-03 
                .float         -6.4208484802e-03 
                .float         -6.4208484802e-03 
                .float         -6.4208484802e-03 
@@ -71065,7 +72297,7 @@ C352:          .float         -6.4208484802e-03
                .float         -6.4208484802e-03 
                .float         -6.4208484802e-03 
                .float         -6.4208484802e-03 
-C353:          .float         -3.2104242401e-02 
+C354:          .float         -3.2104242401e-02 
                .float         -3.2104242401e-02 
                .float         -3.2104242401e-02 
                .float         -3.2104242401e-02 
@@ -71073,7 +72305,7 @@ C353:          .float         -3.2104242401e-02
                .float         -3.2104242401e-02 
                .float         -3.2104242401e-02 
                .float         -3.2104242401e-02 
-C354:          .float         3.2104242401e-02  
+C355:          .float         3.2104242401e-02  
                .float         3.2104242401e-02  
                .float         3.2104242401e-02  
                .float         3.2104242401e-02  
@@ -71081,7 +72313,7 @@ C354:          .float         3.2104242401e-02
                .float         3.2104242401e-02  
                .float         3.2104242401e-02  
                .float         3.2104242401e-02  
-C355:          .float         8.0686761661e-02  
+C356:          .float         8.0686761661e-02  
                .float         8.0686761661e-02  
                .float         8.0686761661e-02  
                .float         8.0686761661e-02  
@@ -71089,7 +72321,7 @@ C355:          .float         8.0686761661e-02
                .float         8.0686761661e-02  
                .float         8.0686761661e-02  
                .float         8.0686761661e-02  
-C356:          .float         2.8816700593e-02  
+C357:          .float         2.8816700593e-02  
                .float         2.8816700593e-02  
                .float         2.8816700593e-02  
                .float         2.8816700593e-02  
@@ -71097,7 +72329,7 @@ C356:          .float         2.8816700593e-02
                .float         2.8816700593e-02  
                .float         2.8816700593e-02  
                .float         2.8816700593e-02  
-C357:          .float         -2.8816700593e-02 
+C358:          .float         -2.8816700593e-02 
                .float         -2.8816700593e-02 
                .float         -2.8816700593e-02 
                .float         -2.8816700593e-02 
@@ -71105,7 +72337,7 @@ C357:          .float         -2.8816700593e-02
                .float         -2.8816700593e-02 
                .float         -2.8816700593e-02 
                .float         -2.8816700593e-02 
-C358:          .float         2.0171690415e-01  
+C359:          .float         2.0171690415e-01  
                .float         2.0171690415e-01  
                .float         2.0171690415e-01  
                .float         2.0171690415e-01  
@@ -71113,7 +72345,7 @@ C358:          .float         2.0171690415e-01
                .float         2.0171690415e-01  
                .float         2.0171690415e-01  
                .float         2.0171690415e-01  
-C359:          .float         -2.0171690415e-01 
+C360:          .float         -2.0171690415e-01 
                .float         -2.0171690415e-01 
                .float         -2.0171690415e-01 
                .float         -2.0171690415e-01 
@@ -71121,7 +72353,7 @@ C359:          .float         -2.0171690415e-01
                .float         -2.0171690415e-01 
                .float         -2.0171690415e-01 
                .float         -2.0171690415e-01 
-C360:          .float         4.0343380831e-01  
+C361:          .float         4.0343380831e-01  
                .float         4.0343380831e-01  
                .float         4.0343380831e-01  
                .float         4.0343380831e-01  
@@ -71129,7 +72361,15 @@ C360:          .float         4.0343380831e-01
                .float         4.0343380831e-01  
                .float         4.0343380831e-01  
                .float         4.0343380831e-01  
-C361:          .float         1.2070711318e-01  
+C362:          .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+               .float         -4.0343380831e-01 
+C363:          .float         1.2070711318e-01  
                .float         1.2070711318e-01  
                .float         1.2070711318e-01  
                .float         1.2070711318e-01  
@@ -71137,7 +72377,7 @@ C361:          .float         1.2070711318e-01
                .float         1.2070711318e-01  
                .float         1.2070711318e-01  
                .float         1.2070711318e-01  
-C362:          .float         3.6212133954e-01  
+C364:          .float         3.6212133954e-01  
                .float         3.6212133954e-01  
                .float         3.6212133954e-01  
                .float         3.6212133954e-01  
@@ -71145,7 +72385,7 @@ C362:          .float         3.6212133954e-01
                .float         3.6212133954e-01  
                .float         3.6212133954e-01  
                .float         3.6212133954e-01  
-C363:          .float         -3.6212133954e-01 
+C365:          .float         -3.6212133954e-01 
                .float         -3.6212133954e-01 
                .float         -3.6212133954e-01 
                .float         -3.6212133954e-01 
@@ -71153,7 +72393,7 @@ C363:          .float         -3.6212133954e-01
                .float         -3.6212133954e-01 
                .float         -3.6212133954e-01 
                .float         -3.6212133954e-01 
-C364:          .float         8.4494979226e-01  
+C366:          .float         8.4494979226e-01  
                .float         8.4494979226e-01  
                .float         8.4494979226e-01  
                .float         8.4494979226e-01  
@@ -71161,7 +72401,7 @@ C364:          .float         8.4494979226e-01
                .float         8.4494979226e-01  
                .float         8.4494979226e-01  
                .float         8.4494979226e-01  
-C365:          .float         -8.4494979226e-01 
+C367:          .float         -8.4494979226e-01 
                .float         -8.4494979226e-01 
                .float         -8.4494979226e-01 
                .float         -8.4494979226e-01 
@@ -71169,7 +72409,7 @@ C365:          .float         -8.4494979226e-01
                .float         -8.4494979226e-01 
                .float         -8.4494979226e-01 
                .float         -8.4494979226e-01 
-C366:          .float         2.5348493768e+00  
+C368:          .float         2.5348493768e+00  
                .float         2.5348493768e+00  
                .float         2.5348493768e+00  
                .float         2.5348493768e+00  
@@ -71177,7 +72417,7 @@ C366:          .float         2.5348493768e+00
                .float         2.5348493768e+00  
                .float         2.5348493768e+00  
                .float         2.5348493768e+00  
-C367:          .float         -2.5348493768e+00 
+C369:          .float         -2.5348493768e+00 
                .float         -2.5348493768e+00 
                .float         -2.5348493768e+00 
                .float         -2.5348493768e+00 
@@ -71185,7 +72425,7 @@ C367:          .float         -2.5348493768e+00
                .float         -2.5348493768e+00 
                .float         -2.5348493768e+00 
                .float         -2.5348493768e+00 
-C368:          .float         1.6547458036e+00  
+C370:          .float         1.6547458036e+00  
                .float         1.6547458036e+00  
                .float         1.6547458036e+00  
                .float         1.6547458036e+00  
@@ -71193,7 +72433,7 @@ C368:          .float         1.6547458036e+00
                .float         1.6547458036e+00  
                .float         1.6547458036e+00  
                .float         1.6547458036e+00  
-C369:          .float         -1.4479025782e+00 
+C371:          .float         -1.4479025782e+00 
                .float         -1.4479025782e+00 
                .float         -1.4479025782e+00 
                .float         -1.4479025782e+00 
@@ -71201,7 +72441,7 @@ C369:          .float         -1.4479025782e+00
                .float         -1.4479025782e+00 
                .float         -1.4479025782e+00 
                .float         -1.4479025782e+00 
-C370:          .float         1.4479025782e+00  
+C372:          .float         1.4479025782e+00  
                .float         1.4479025782e+00  
                .float         1.4479025782e+00  
                .float         1.4479025782e+00  
@@ -71209,7 +72449,7 @@ C370:          .float         1.4479025782e+00
                .float         1.4479025782e+00  
                .float         1.4479025782e+00  
                .float         1.4479025782e+00  
-C371:          .float         -1.1583220626e+01 
+C373:          .float         -1.1583220626e+01 
                .float         -1.1583220626e+01 
                .float         -1.1583220626e+01 
                .float         -1.1583220626e+01 
@@ -71217,7 +72457,15 @@ C371:          .float         -1.1583220626e+01
                .float         -1.1583220626e+01 
                .float         -1.1583220626e+01 
                .float         -1.1583220626e+01 
-C372:          .float         -1.5926928360e+01 
+C374:          .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+               .float         1.1583220626e+01  
+C375:          .float         -1.5926928360e+01 
                .float         -1.5926928360e+01 
                .float         -1.5926928360e+01 
                .float         -1.5926928360e+01 
@@ -71225,7 +72473,7 @@ C372:          .float         -1.5926928360e+01
                .float         -1.5926928360e+01 
                .float         -1.5926928360e+01 
                .float         -1.5926928360e+01 
-C373:          .float         1.5926928360e+01  
+C376:          .float         1.5926928360e+01  
                .float         1.5926928360e+01  
                .float         1.5926928360e+01  
                .float         1.5926928360e+01  
@@ -71233,7 +72481,7 @@ C373:          .float         1.5926928360e+01
                .float         1.5926928360e+01  
                .float         1.5926928360e+01  
                .float         1.5926928360e+01  
-C374:          .float         1.3996061855e+01  
+C377:          .float         1.3996061855e+01  
                .float         1.3996061855e+01  
                .float         1.3996061855e+01  
                .float         1.3996061855e+01  
@@ -71241,7 +72489,7 @@ C374:          .float         1.3996061855e+01
                .float         1.3996061855e+01  
                .float         1.3996061855e+01  
                .float         1.3996061855e+01  
-C375:          .float         1.3996061855e+00  
+C378:          .float         1.3996061855e+00  
                .float         1.3996061855e+00  
                .float         1.3996061855e+00  
                .float         1.3996061855e+00  
@@ -71249,7 +72497,7 @@ C375:          .float         1.3996061855e+00
                .float         1.3996061855e+00  
                .float         1.3996061855e+00  
                .float         1.3996061855e+00  
-C376:          .float         -1.3996061855e+00 
+C379:          .float         -1.3996061855e+00 
                .float         -1.3996061855e+00 
                .float         -1.3996061855e+00 
                .float         -1.3996061855e+00 
@@ -71257,7 +72505,7 @@ C376:          .float         -1.3996061855e+00
                .float         -1.3996061855e+00 
                .float         -1.3996061855e+00 
                .float         -1.3996061855e+00 
-C377:          .float         9.7972432982e+00  
+C380:          .float         9.7972432982e+00  
                .float         9.7972432982e+00  
                .float         9.7972432982e+00  
                .float         9.7972432982e+00  
@@ -71265,7 +72513,7 @@ C377:          .float         9.7972432982e+00
                .float         9.7972432982e+00  
                .float         9.7972432982e+00  
                .float         9.7972432982e+00  
-C378:          .float         -9.7972432982e+00 
+C381:          .float         -9.7972432982e+00 
                .float         -9.7972432982e+00 
                .float         -9.7972432982e+00 
                .float         -9.7972432982e+00 
@@ -71273,7 +72521,7 @@ C378:          .float         -9.7972432982e+00
                .float         -9.7972432982e+00 
                .float         -9.7972432982e+00 
                .float         -9.7972432982e+00 
-C379:          .float         -3.0791336080e+01 
+C382:          .float         -3.0791336080e+01 
                .float         -3.0791336080e+01 
                .float         -3.0791336080e+01 
                .float         -3.0791336080e+01 
@@ -71281,7 +72529,7 @@ C379:          .float         -3.0791336080e+01
                .float         -3.0791336080e+01 
                .float         -3.0791336080e+01 
                .float         -3.0791336080e+01 
-C380:          .float         3.0791336080e+01  
+C383:          .float         3.0791336080e+01  
                .float         3.0791336080e+01  
                .float         3.0791336080e+01  
                .float         3.0791336080e+01  
@@ -71289,7 +72537,7 @@ C380:          .float         3.0791336080e+01
                .float         3.0791336080e+01  
                .float         3.0791336080e+01  
                .float         3.0791336080e+01  
-C381:          .float         -7.6978340200e+01 
+C384:          .float         -7.6978340200e+01 
                .float         -7.6978340200e+01 
                .float         -7.6978340200e+01 
                .float         -7.6978340200e+01 
@@ -71297,7 +72545,7 @@ C381:          .float         -7.6978340200e+01
                .float         -7.6978340200e+01 
                .float         -7.6978340200e+01 
                .float         -7.6978340200e+01 
-C382:          .float         7.6978340200e+01  
+C385:          .float         7.6978340200e+01  
                .float         7.6978340200e+01  
                .float         7.6978340200e+01  
                .float         7.6978340200e+01  
@@ -71305,7 +72553,7 @@ C382:          .float         7.6978340200e+01
                .float         7.6978340200e+01  
                .float         7.6978340200e+01  
                .float         7.6978340200e+01  
-C383:          .float         2.0014368452e+02  
+C386:          .float         2.0014368452e+02  
                .float         2.0014368452e+02  
                .float         2.0014368452e+02  
                .float         2.0014368452e+02  
@@ -71313,7 +72561,7 @@ C383:          .float         2.0014368452e+02
                .float         2.0014368452e+02  
                .float         2.0014368452e+02  
                .float         2.0014368452e+02  
-C384:          .float         -2.0014368452e+02 
+C387:          .float         -2.0014368452e+02 
                .float         -2.0014368452e+02 
                .float         -2.0014368452e+02 
                .float         -2.0014368452e+02 
@@ -71321,7 +72569,7 @@ C384:          .float         -2.0014368452e+02
                .float         -2.0014368452e+02 
                .float         -2.0014368452e+02 
                .float         -2.0014368452e+02 
-C385:          .float         -1.1446237862e-03 
+C388:          .float         -1.1446237862e-03 
                .float         -1.1446237862e-03 
                .float         -1.1446237862e-03 
                .float         -1.1446237862e-03 
@@ -71329,7 +72577,7 @@ C385:          .float         -1.1446237862e-03
                .float         -1.1446237862e-03 
                .float         -1.1446237862e-03 
                .float         -1.1446237862e-03 
-C386:          .float         -7.1918833558e-03 
+C389:          .float         -7.1918833558e-03 
                .float         -7.1918833558e-03 
                .float         -7.1918833558e-03 
                .float         -7.1918833558e-03 
@@ -71337,7 +72585,7 @@ C386:          .float         -7.1918833558e-03
                .float         -7.1918833558e-03 
                .float         -7.1918833558e-03 
                .float         -7.1918833558e-03 
-C387:          .float         7.1918833558e-03  
+C390:          .float         7.1918833558e-03  
                .float         7.1918833558e-03  
                .float         7.1918833558e-03  
                .float         7.1918833558e-03  
@@ -71345,7 +72593,7 @@ C387:          .float         7.1918833558e-03
                .float         7.1918833558e-03  
                .float         7.1918833558e-03  
                .float         7.1918833558e-03  
-C388:          .float         -3.0125290555e-02 
+C391:          .float         -3.0125290555e-02 
                .float         -3.0125290555e-02 
                .float         -3.0125290555e-02 
                .float         -3.0125290555e-02 
@@ -71353,7 +72601,7 @@ C388:          .float         -3.0125290555e-02
                .float         -3.0125290555e-02 
                .float         -3.0125290555e-02 
                .float         -3.0125290555e-02 
-C389:          .float         -1.1356966979e-01 
+C392:          .float         -1.1356966979e-01 
                .float         -1.1356966979e-01 
                .float         -1.1356966979e-01 
                .float         -1.1356966979e-01 
@@ -71361,7 +72609,7 @@ C389:          .float         -1.1356966979e-01
                .float         -1.1356966979e-01 
                .float         -1.1356966979e-01 
                .float         -1.1356966979e-01 
-C390:          .float         1.1356966979e-01  
+C393:          .float         1.1356966979e-01  
                .float         1.1356966979e-01  
                .float         1.1356966979e-01  
                .float         1.1356966979e-01  
@@ -71369,7 +72617,7 @@ C390:          .float         1.1356966979e-01
                .float         1.1356966979e-01  
                .float         1.1356966979e-01  
                .float         1.1356966979e-01  
-C391:          .float         -5.6784834897e-01 
+C394:          .float         -5.6784834897e-01 
                .float         -5.6784834897e-01 
                .float         -5.6784834897e-01 
                .float         -5.6784834897e-01 
@@ -71377,7 +72625,7 @@ C391:          .float         -5.6784834897e-01
                .float         -5.6784834897e-01 
                .float         -5.6784834897e-01 
                .float         -5.6784834897e-01 
-C392:          .float         5.6784834897e-01  
+C395:          .float         5.6784834897e-01  
                .float         5.6784834897e-01  
                .float         5.6784834897e-01  
                .float         5.6784834897e-01  
@@ -71385,7 +72633,7 @@ C392:          .float         5.6784834897e-01
                .float         5.6784834897e-01  
                .float         5.6784834897e-01  
                .float         5.6784834897e-01  
-C393:          .float         -6.1163938336e-01 
+C396:          .float         -6.1163938336e-01 
                .float         -6.1163938336e-01 
                .float         -6.1163938336e-01 
                .float         -6.1163938336e-01 
@@ -71393,7 +72641,7 @@ C393:          .float         -6.1163938336e-01
                .float         -6.1163938336e-01 
                .float         -6.1163938336e-01 
                .float         -6.1163938336e-01 
-C394:          .float         7.1357928059e+00  
+C397:          .float         7.1357928059e+00  
                .float         7.1357928059e+00  
                .float         7.1357928059e+00  
                .float         7.1357928059e+00  
@@ -71401,7 +72649,7 @@ C394:          .float         7.1357928059e+00
                .float         7.1357928059e+00  
                .float         7.1357928059e+00  
                .float         7.1357928059e+00  
-C395:          .float         -2.1350242149e+00 
+C398:          .float         -2.1350242149e+00 
                .float         -2.1350242149e+00 
                .float         -2.1350242149e+00 
                .float         -2.1350242149e+00 
@@ -71409,7 +72657,7 @@ C395:          .float         -2.1350242149e+00
                .float         -2.1350242149e+00 
                .float         -2.1350242149e+00 
                .float         -2.1350242149e+00 
-C396:          .float         2.1350242149e+00  
+C399:          .float         2.1350242149e+00  
                .float         2.1350242149e+00  
                .float         2.1350242149e+00  
                .float         2.1350242149e+00  
@@ -71417,7 +72665,7 @@ C396:          .float         2.1350242149e+00
                .float         2.1350242149e+00  
                .float         2.1350242149e+00  
                .float         2.1350242149e+00  
-C397:          .float         -4.9817231681e+00 
+C400:          .float         -4.9817231681e+00 
                .float         -4.9817231681e+00 
                .float         -4.9817231681e+00 
                .float         -4.9817231681e+00 
@@ -71425,7 +72673,7 @@ C397:          .float         -4.9817231681e+00
                .float         -4.9817231681e+00 
                .float         -4.9817231681e+00 
                .float         -4.9817231681e+00 
-C398:          .float         4.9817231681e+00  
+C401:          .float         4.9817231681e+00  
                .float         4.9817231681e+00  
                .float         4.9817231681e+00  
                .float         4.9817231681e+00  
@@ -71433,7 +72681,7 @@ C398:          .float         4.9817231681e+00
                .float         4.9817231681e+00  
                .float         4.9817231681e+00  
                .float         4.9817231681e+00  
-C399:          .float         4.4835508513e+01  
+C402:          .float         4.4835508513e+01  
                .float         4.4835508513e+01  
                .float         4.4835508513e+01  
                .float         4.4835508513e+01  
@@ -71441,7 +72689,7 @@ C399:          .float         4.4835508513e+01
                .float         4.4835508513e+01  
                .float         4.4835508513e+01  
                .float         4.4835508513e+01  
-C400:          .float         -4.4835508513e+01 
+C403:          .float         -4.4835508513e+01 
                .float         -4.4835508513e+01 
                .float         -4.4835508513e+01 
                .float         -4.4835508513e+01 
@@ -71449,7 +72697,7 @@ C400:          .float         -4.4835508513e+01
                .float         -4.4835508513e+01 
                .float         -4.4835508513e+01 
                .float         -4.4835508513e+01 
-C401:          .float         -1.2195229798e+01 
+C404:          .float         -1.2195229798e+01 
                .float         -1.2195229798e+01 
                .float         -1.2195229798e+01 
                .float         -1.2195229798e+01 
@@ -71457,7 +72705,7 @@ C401:          .float         -1.2195229798e+01
                .float         -1.2195229798e+01 
                .float         -1.2195229798e+01 
                .float         -1.2195229798e+01 
-C402:          .float         5.1219965151e+01  
+C405:          .float         5.1219965151e+01  
                .float         5.1219965151e+01  
                .float         5.1219965151e+01  
                .float         5.1219965151e+01  
@@ -71465,7 +72713,7 @@ C402:          .float         5.1219965151e+01
                .float         5.1219965151e+01  
                .float         5.1219965151e+01  
                .float         5.1219965151e+01  
-C403:          .float         -4.1259555445e+01 
+C406:          .float         -4.1259555445e+01 
                .float         -4.1259555445e+01 
                .float         -4.1259555445e+01 
                .float         -4.1259555445e+01 
@@ -71473,7 +72721,7 @@ C403:          .float         -4.1259555445e+01
                .float         -4.1259555445e+01 
                .float         -4.1259555445e+01 
                .float         -4.1259555445e+01 
-C404:          .float         4.1259555445e+01  
+C407:          .float         4.1259555445e+01  
                .float         4.1259555445e+01  
                .float         4.1259555445e+01  
                .float         4.1259555445e+01  
@@ -71481,7 +72729,7 @@ C404:          .float         4.1259555445e+01
                .float         4.1259555445e+01  
                .float         4.1259555445e+01  
                .float         4.1259555445e+01  
-C405:          .float         -7.4267199800e+01 
+C408:          .float         -7.4267199800e+01 
                .float         -7.4267199800e+01 
                .float         -7.4267199800e+01 
                .float         -7.4267199800e+01 
@@ -71489,7 +72737,7 @@ C405:          .float         -7.4267199800e+01
                .float         -7.4267199800e+01 
                .float         -7.4267199800e+01 
                .float         -7.4267199800e+01 
-C406:          .float         7.4267199800e+01  
+C409:          .float         7.4267199800e+01  
                .float         7.4267199800e+01  
                .float         7.4267199800e+01  
                .float         7.4267199800e+01  
@@ -71497,7 +72745,7 @@ C406:          .float         7.4267199800e+01
                .float         7.4267199800e+01  
                .float         7.4267199800e+01  
                .float         7.4267199800e+01  
-C407:          .float         2.7231306593e+02  
+C410:          .float         2.7231306593e+02  
                .float         2.7231306593e+02  
                .float         2.7231306593e+02  
                .float         2.7231306593e+02  
@@ -71505,7 +72753,7 @@ C407:          .float         2.7231306593e+02
                .float         2.7231306593e+02  
                .float         2.7231306593e+02  
                .float         2.7231306593e+02  
-C408:          .float         -2.7231306593e+02 
+C411:          .float         -2.7231306593e+02 
                .float         -2.7231306593e+02 
                .float         -2.7231306593e+02 
                .float         -2.7231306593e+02 
@@ -71513,7 +72761,7 @@ C408:          .float         -2.7231306593e+02
                .float         -2.7231306593e+02 
                .float         -2.7231306593e+02 
                .float         -2.7231306593e+02 
-C409:          .float         3.5400698571e+03  
+C412:          .float         3.5400698571e+03  
                .float         3.5400698571e+03  
                .float         3.5400698571e+03  
                .float         3.5400698571e+03  
@@ -71521,7 +72769,7 @@ C409:          .float         3.5400698571e+03
                .float         3.5400698571e+03  
                .float         3.5400698571e+03  
                .float         3.5400698571e+03  
-C410:          .float         -3.5400698571e+03 
+C413:          .float         -3.5400698571e+03 
                .float         -3.5400698571e+03 
                .float         -3.5400698571e+03 
                .float         -3.5400698571e+03 
@@ -71529,7 +72777,7 @@ C410:          .float         -3.5400698571e+03
                .float         -3.5400698571e+03 
                .float         -3.5400698571e+03 
                .float         -3.5400698571e+03 
-C411:          .float         1.2841696960e-02  
+C414:          .float         1.2841696960e-02  
                .float         1.2841696960e-02  
                .float         1.2841696960e-02  
                .float         1.2841696960e-02  
@@ -71537,7 +72785,7 @@ C411:          .float         1.2841696960e-02
                .float         1.2841696960e-02  
                .float         1.2841696960e-02  
                .float         1.2841696960e-02  
-C412:          .float         -1.2070711318e-01 
+C415:          .float         -1.2070711318e-01 
                .float         -1.2070711318e-01 
                .float         -1.2070711318e-01 
                .float         -1.2070711318e-01 
@@ -71545,7 +72793,7 @@ C412:          .float         -1.2070711318e-01
                .float         -1.2070711318e-01 
                .float         -1.2070711318e-01 
                .float         -1.2070711318e-01 
-C413:          .float         -1.3996061855e+01 
+C416:          .float         -1.3996061855e+01 
                .float         -1.3996061855e+01 
                .float         -1.3996061855e+01 
                .float         -1.3996061855e+01 
@@ -71553,7 +72801,7 @@ C413:          .float         -1.3996061855e+01
                .float         -1.3996061855e+01 
                .float         -1.3996061855e+01 
                .float         -1.3996061855e+01 
-C414:          .float         -3.9161234519e-06 
+C417:          .float         -3.9161234519e-06 
                .float         -3.9161234519e-06 
                .float         -3.9161234519e-06 
                .float         -3.9161234519e-06 
@@ -71561,7 +72809,7 @@ C414:          .float         -3.9161234519e-06
                .float         -3.9161234519e-06 
                .float         -3.9161234519e-06 
                .float         -3.9161234519e-06 
-C415:          .float         -8.0982187012e-04 
+C418:          .float         -8.0982187012e-04 
                .float         -8.0982187012e-04 
                .float         -8.0982187012e-04 
                .float         -8.0982187012e-04 
@@ -71569,7 +72817,7 @@ C415:          .float         -8.0982187012e-04
                .float         -8.0982187012e-04 
                .float         -8.0982187012e-04 
                .float         -8.0982187012e-04 
-C416:          .float         4.5242404182e-02  
+C419:          .float         4.5242404182e-02  
                .float         4.5242404182e-02  
                .float         4.5242404182e-02  
                .float         4.5242404182e-02  
@@ -71577,7 +72825,7 @@ C416:          .float         4.5242404182e-02
                .float         4.5242404182e-02  
                .float         4.5242404182e-02  
                .float         4.5242404182e-02  
-C417:          .float         2.5723095644e-05  
+C420:          .float         2.5723095644e-05  
                .float         2.5723095644e-05  
                .float         2.5723095644e-05  
                .float         2.5723095644e-05  
@@ -71585,7 +72833,7 @@ C417:          .float         2.5723095644e-05
                .float         2.5723095644e-05  
                .float         2.5723095644e-05  
                .float         2.5723095644e-05  
-C418:          .float         2.0780096992e-04  
+C421:          .float         2.0780096992e-04  
                .float         2.0780096992e-04  
                .float         2.0780096992e-04  
                .float         2.0780096992e-04  
@@ -71593,7 +72841,7 @@ C418:          .float         2.0780096992e-04
                .float         2.0780096992e-04  
                .float         2.0780096992e-04  
                .float         2.0780096992e-04  
-C419:          .float         -2.0780096992e-04 
+C422:          .float         -2.0780096992e-04 
                .float         -2.0780096992e-04 
                .float         -2.0780096992e-04 
                .float         -2.0780096992e-04 
@@ -71601,7 +72849,7 @@ C419:          .float         -2.0780096992e-04
                .float         -2.0780096992e-04 
                .float         -2.0780096992e-04 
                .float         -2.0780096992e-04 
-C420:          .float         -4.3521733367e-04 
+C423:          .float         -4.3521733367e-04 
                .float         -4.3521733367e-04 
                .float         -4.3521733367e-04 
                .float         -4.3521733367e-04 
@@ -71609,7 +72857,7 @@ C420:          .float         -4.3521733367e-04
                .float         -4.3521733367e-04 
                .float         -4.3521733367e-04 
                .float         -4.3521733367e-04 
-C421:          .float         -1.6165215251e-03 
+C424:          .float         -1.6165215251e-03 
                .float         -1.6165215251e-03 
                .float         -1.6165215251e-03 
                .float         -1.6165215251e-03 
@@ -71617,7 +72865,7 @@ C421:          .float         -1.6165215251e-03
                .float         -1.6165215251e-03 
                .float         -1.6165215251e-03 
                .float         -1.6165215251e-03 
-C422:          .float         -1.4299998106e-03 
+C425:          .float         -1.4299998106e-03 
                .float         -1.4299998106e-03 
                .float         -1.4299998106e-03 
                .float         -1.4299998106e-03 
@@ -71625,7 +72873,7 @@ C422:          .float         -1.4299998106e-03
                .float         -1.4299998106e-03 
                .float         -1.4299998106e-03 
                .float         -1.4299998106e-03 
-C423:          .float         -8.7043466734e-04 
+C426:          .float         -8.7043466734e-04 
                .float         -8.7043466734e-04 
                .float         -8.7043466734e-04 
                .float         -8.7043466734e-04 
@@ -71633,7 +72881,7 @@ C423:          .float         -8.7043466734e-04
                .float         -8.7043466734e-04 
                .float         -8.7043466734e-04 
                .float         -8.7043466734e-04 
-C424:          .float         1.4757895130e-03  
+C427:          .float         1.4757895130e-03  
                .float         1.4757895130e-03  
                .float         1.4757895130e-03  
                .float         1.4757895130e-03  
@@ -71641,7 +72889,7 @@ C424:          .float         1.4757895130e-03
                .float         1.4757895130e-03  
                .float         1.4757895130e-03  
                .float         1.4757895130e-03  
-C425:          .float         -1.0547554460e-02 
+C428:          .float         -1.0547554460e-02 
                .float         -1.0547554460e-02 
                .float         -1.0547554460e-02 
                .float         -1.0547554460e-02 
@@ -71649,7 +72897,7 @@ C425:          .float         -1.0547554460e-02
                .float         -1.0547554460e-02 
                .float         -1.0547554460e-02 
                .float         -1.0547554460e-02 
-C426:          .float         1.0547554460e-02  
+C429:          .float         1.0547554460e-02  
                .float         1.0547554460e-02  
                .float         1.0547554460e-02  
                .float         1.0547554460e-02  
@@ -71657,7 +72905,7 @@ C426:          .float         1.0547554460e-02
                .float         1.0547554460e-02  
                .float         1.0547554460e-02  
                .float         1.0547554460e-02  
-C427:          .float         -1.2761238730e-02 
+C430:          .float         -1.2761238730e-02 
                .float         -1.2761238730e-02 
                .float         -1.2761238730e-02 
                .float         -1.2761238730e-02 
@@ -71665,7 +72913,7 @@ C427:          .float         -1.2761238730e-02
                .float         -1.2761238730e-02 
                .float         -1.2761238730e-02 
                .float         -1.2761238730e-02 
-C428:          .float         1.2761238730e-02  
+C431:          .float         1.2761238730e-02  
                .float         1.2761238730e-02  
                .float         1.2761238730e-02  
                .float         1.2761238730e-02  
@@ -71673,7 +72921,7 @@ C428:          .float         1.2761238730e-02
                .float         1.2761238730e-02  
                .float         1.2761238730e-02  
                .float         1.2761238730e-02  
-C429:          .float         -9.4190095385e-03 
+C432:          .float         -9.4190095385e-03 
                .float         -9.4190095385e-03 
                .float         -9.4190095385e-03 
                .float         -9.4190095385e-03 
@@ -71681,7 +72929,7 @@ C429:          .float         -9.4190095385e-03
                .float         -9.4190095385e-03 
                .float         -9.4190095385e-03 
                .float         -9.4190095385e-03 
-C430:          .float         9.4190095385e-03  
+C433:          .float         9.4190095385e-03  
                .float         9.4190095385e-03  
                .float         9.4190095385e-03  
                .float         9.4190095385e-03  
@@ -71689,7 +72937,7 @@ C430:          .float         9.4190095385e-03
                .float         9.4190095385e-03  
                .float         9.4190095385e-03  
                .float         9.4190095385e-03  
-C431:          .float         -5.4691023127e-03 
+C434:          .float         -5.4691023127e-03 
                .float         -5.4691023127e-03 
                .float         -5.4691023127e-03 
                .float         -5.4691023127e-03 
@@ -71697,7 +72945,7 @@ C431:          .float         -5.4691023127e-03
                .float         -5.4691023127e-03 
                .float         -5.4691023127e-03 
                .float         -5.4691023127e-03 
-C432:          .float         5.4691023127e-03  
+C435:          .float         5.4691023127e-03  
                .float         5.4691023127e-03  
                .float         5.4691023127e-03  
                .float         5.4691023127e-03  
@@ -71705,7 +72953,7 @@ C432:          .float         5.4691023127e-03
                .float         5.4691023127e-03  
                .float         5.4691023127e-03  
                .float         5.4691023127e-03  
-C433:          .float         -2.7345511564e-03 
+C436:          .float         -2.7345511564e-03 
                .float         -2.7345511564e-03 
                .float         -2.7345511564e-03 
                .float         -2.7345511564e-03 
@@ -71713,7 +72961,7 @@ C433:          .float         -2.7345511564e-03
                .float         -2.7345511564e-03 
                .float         -2.7345511564e-03 
                .float         -2.7345511564e-03 
-C434:          .float         2.7345511564e-03  
+C437:          .float         2.7345511564e-03  
                .float         2.7345511564e-03  
                .float         2.7345511564e-03  
                .float         2.7345511564e-03  
@@ -71721,7 +72969,7 @@ C434:          .float         2.7345511564e-03
                .float         2.7345511564e-03  
                .float         2.7345511564e-03  
                .float         2.7345511564e-03  
-C435:          .float         -4.0239373079e-02 
+C438:          .float         -4.0239373079e-02 
                .float         -4.0239373079e-02 
                .float         -4.0239373079e-02 
                .float         -4.0239373079e-02 
@@ -71729,7 +72977,7 @@ C435:          .float         -4.0239373079e-02
                .float         -4.0239373079e-02 
                .float         -4.0239373079e-02 
                .float         -4.0239373079e-02 
-C436:          .float         5.5189676201e-02  
+C439:          .float         5.5189676201e-02  
                .float         5.5189676201e-02  
                .float         5.5189676201e-02  
                .float         5.5189676201e-02  
@@ -71737,7 +72985,7 @@ C436:          .float         5.5189676201e-02
                .float         5.5189676201e-02  
                .float         5.5189676201e-02  
                .float         5.5189676201e-02  
-C437:          .float         1.0048686327e-01  
+C440:          .float         1.0048686327e-01  
                .float         1.0048686327e-01  
                .float         1.0048686327e-01  
                .float         1.0048686327e-01  
@@ -71745,7 +72993,7 @@ C437:          .float         1.0048686327e-01
                .float         1.0048686327e-01  
                .float         1.0048686327e-01  
                .float         1.0048686327e-01  
-C438:          .float         9.0594374140e-02  
+C441:          .float         9.0594374140e-02  
                .float         9.0594374140e-02  
                .float         9.0594374140e-02  
                .float         9.0594374140e-02  
@@ -71753,7 +73001,7 @@ C438:          .float         9.0594374140e-02
                .float         9.0594374140e-02  
                .float         9.0594374140e-02  
                .float         9.0594374140e-02  
-C439:          .float         6.0916906750e-02  
+C442:          .float         6.0916906750e-02  
                .float         6.0916906750e-02  
                .float         6.0916906750e-02  
                .float         6.0916906750e-02  
@@ -71761,7 +73009,7 @@ C439:          .float         6.0916906750e-02
                .float         6.0916906750e-02  
                .float         6.0916906750e-02  
                .float         6.0916906750e-02  
-C440:          .float         3.4363383295e-02  
+C443:          .float         3.4363383295e-02  
                .float         3.4363383295e-02  
                .float         3.4363383295e-02  
                .float         3.4363383295e-02  
@@ -71769,7 +73017,7 @@ C440:          .float         3.4363383295e-02
                .float         3.4363383295e-02  
                .float         3.4363383295e-02  
                .float         3.4363383295e-02  
-C441:          .float         1.7181691647e-02  
+C444:          .float         1.7181691647e-02  
                .float         1.7181691647e-02  
                .float         1.7181691647e-02  
                .float         1.7181691647e-02  
@@ -71777,7 +73025,7 @@ C441:          .float         1.7181691647e-02
                .float         1.7181691647e-02  
                .float         1.7181691647e-02  
                .float         1.7181691647e-02  
-C442:          .float         -4.3232630027e-01 
+C445:          .float         -4.3232630027e-01 
                .float         -4.3232630027e-01 
                .float         -4.3232630027e-01 
                .float         -4.3232630027e-01 
@@ -71785,7 +73033,7 @@ C442:          .float         -4.3232630027e-01
                .float         -4.3232630027e-01 
                .float         -4.3232630027e-01 
                .float         -4.3232630027e-01 
-C443:          .float         1.8395257596e-01  
+C446:          .float         1.8395257596e-01  
                .float         1.8395257596e-01  
                .float         1.8395257596e-01  
                .float         1.8395257596e-01  
@@ -71793,7 +73041,7 @@ C443:          .float         1.8395257596e-01
                .float         1.8395257596e-01  
                .float         1.8395257596e-01  
                .float         1.8395257596e-01  
-C444:          .float         -1.8395257596e-01 
+C447:          .float         -1.8395257596e-01 
                .float         -1.8395257596e-01 
                .float         -1.8395257596e-01 
                .float         -1.8395257596e-01 
@@ -71801,7 +73049,7 @@ C444:          .float         -1.8395257596e-01
                .float         -1.8395257596e-01 
                .float         -1.8395257596e-01 
                .float         -1.8395257596e-01 
-C445:          .float         6.9907011766e-01  
+C448:          .float         6.9907011766e-01  
                .float         6.9907011766e-01  
                .float         6.9907011766e-01  
                .float         6.9907011766e-01  
@@ -71809,7 +73057,7 @@ C445:          .float         6.9907011766e-01
                .float         6.9907011766e-01  
                .float         6.9907011766e-01  
                .float         6.9907011766e-01  
-C446:          .float         -6.9907011766e-01 
+C449:          .float         -6.9907011766e-01 
                .float         -6.9907011766e-01 
                .float         -6.9907011766e-01 
                .float         -6.9907011766e-01 
@@ -71817,7 +73065,7 @@ C446:          .float         -6.9907011766e-01
                .float         -6.9907011766e-01 
                .float         -6.9907011766e-01 
                .float         -6.9907011766e-01 
-C447:          .float         7.8739755153e-01  
+C450:          .float         7.8739755153e-01  
                .float         7.8739755153e-01  
                .float         7.8739755153e-01  
                .float         7.8739755153e-01  
@@ -71825,7 +73073,7 @@ C447:          .float         7.8739755153e-01
                .float         7.8739755153e-01  
                .float         7.8739755153e-01  
                .float         7.8739755153e-01  
-C448:          .float         -7.8739755153e-01 
+C451:          .float         -7.8739755153e-01 
                .float         -7.8739755153e-01 
                .float         -7.8739755153e-01 
                .float         -7.8739755153e-01 
@@ -71833,7 +73081,7 @@ C448:          .float         -7.8739755153e-01
                .float         -7.8739755153e-01 
                .float         -7.8739755153e-01 
                .float         -7.8739755153e-01 
-C449:          .float         6.1451736045e-01  
+C452:          .float         6.1451736045e-01  
                .float         6.1451736045e-01  
                .float         6.1451736045e-01  
                .float         6.1451736045e-01  
@@ -71841,7 +73089,7 @@ C449:          .float         6.1451736045e-01
                .float         6.1451736045e-01  
                .float         6.1451736045e-01  
                .float         6.1451736045e-01  
-C450:          .float         -6.1451736045e-01 
+C453:          .float         -6.1451736045e-01 
                .float         -6.1451736045e-01 
                .float         -6.1451736045e-01 
                .float         -6.1451736045e-01 
@@ -71849,7 +73097,7 @@ C450:          .float         -6.1451736045e-01
                .float         -6.1451736045e-01 
                .float         -6.1451736045e-01 
                .float         -6.1451736045e-01 
-C451:          .float         3.9030156677e-01  
+C454:          .float         3.9030156677e-01  
                .float         3.9030156677e-01  
                .float         3.9030156677e-01  
                .float         3.9030156677e-01  
@@ -71857,7 +73105,7 @@ C451:          .float         3.9030156677e-01
                .float         3.9030156677e-01  
                .float         3.9030156677e-01  
                .float         3.9030156677e-01  
-C452:          .float         -3.9030156677e-01 
+C455:          .float         -3.9030156677e-01 
                .float         -3.9030156677e-01 
                .float         -3.9030156677e-01 
                .float         -3.9030156677e-01 
@@ -71865,7 +73113,7 @@ C452:          .float         -3.9030156677e-01
                .float         -3.9030156677e-01 
                .float         -3.9030156677e-01 
                .float         -3.9030156677e-01 
-C453:          .float         2.1591150502e-01  
+C456:          .float         2.1591150502e-01  
                .float         2.1591150502e-01  
                .float         2.1591150502e-01  
                .float         2.1591150502e-01  
@@ -71873,7 +73121,7 @@ C453:          .float         2.1591150502e-01
                .float         2.1591150502e-01  
                .float         2.1591150502e-01  
                .float         2.1591150502e-01  
-C454:          .float         -2.1591150502e-01 
+C457:          .float         -2.1591150502e-01 
                .float         -2.1591150502e-01 
                .float         -2.1591150502e-01 
                .float         -2.1591150502e-01 
@@ -71881,7 +73129,7 @@ C454:          .float         -2.1591150502e-01
                .float         -2.1591150502e-01 
                .float         -2.1591150502e-01 
                .float         -2.1591150502e-01 
-C455:          .float         1.0795575251e-01  
+C458:          .float         1.0795575251e-01  
                .float         1.0795575251e-01  
                .float         1.0795575251e-01  
                .float         1.0795575251e-01  
@@ -71889,7 +73137,7 @@ C455:          .float         1.0795575251e-01
                .float         1.0795575251e-01  
                .float         1.0795575251e-01  
                .float         1.0795575251e-01  
-C456:          .float         -1.0795575251e-01 
+C459:          .float         -1.0795575251e-01 
                .float         -1.0795575251e-01 
                .float         -1.0795575251e-01 
                .float         -1.0795575251e-01 
@@ -71897,7 +73145,7 @@ C456:          .float         -1.0795575251e-01
                .float         -1.0795575251e-01 
                .float         -1.0795575251e-01 
                .float         -1.0795575251e-01 
-C457:          .float         1.5062645277e-02  
+C460:          .float         1.5062645277e-02  
                .float         1.5062645277e-02  
                .float         1.5062645277e-02  
                .float         1.5062645277e-02  
@@ -71905,7 +73153,7 @@ C457:          .float         1.5062645277e-02
                .float         1.5062645277e-02  
                .float         1.5062645277e-02  
                .float         1.5062645277e-02  
-C458:          .float         4.5187935832e-02  
+C461:          .float         4.5187935832e-02  
                .float         4.5187935832e-02  
                .float         4.5187935832e-02  
                .float         4.5187935832e-02  
@@ -71913,7 +73161,7 @@ C458:          .float         4.5187935832e-02
                .float         4.5187935832e-02  
                .float         4.5187935832e-02  
                .float         4.5187935832e-02  
-C459:          .float         -5.6784834897e-02 
+C462:          .float         -5.6784834897e-02 
                .float         -5.6784834897e-02 
                .float         -5.6784834897e-02 
                .float         -5.6784834897e-02 
@@ -71921,7 +73169,7 @@ C459:          .float         -5.6784834897e-02
                .float         -5.6784834897e-02 
                .float         -5.6784834897e-02 
                .float         -5.6784834897e-02 
-C460:          .float         1.7035450469e-01  
+C463:          .float         1.7035450469e-01  
                .float         1.7035450469e-01  
                .float         1.7035450469e-01  
                .float         1.7035450469e-01  
@@ -71929,7 +73177,7 @@ C460:          .float         1.7035450469e-01
                .float         1.7035450469e-01  
                .float         1.7035450469e-01  
                .float         1.7035450469e-01  
-C461:          .float         -1.7035450469e-01 
+C464:          .float         -1.7035450469e-01 
                .float         -1.7035450469e-01 
                .float         -1.7035450469e-01 
                .float         -1.7035450469e-01 
@@ -71937,7 +73185,7 @@ C461:          .float         -1.7035450469e-01
                .float         -1.7035450469e-01 
                .float         -1.7035450469e-01 
                .float         -1.7035450469e-01 
-C462:          .float         2.8392417448e-01  
+C465:          .float         2.8392417448e-01  
                .float         2.8392417448e-01  
                .float         2.8392417448e-01  
                .float         2.8392417448e-01  
@@ -71945,7 +73193,7 @@ C462:          .float         2.8392417448e-01
                .float         2.8392417448e-01  
                .float         2.8392417448e-01  
                .float         2.8392417448e-01  
-C463:          .float         -2.8392417448e-01 
+C466:          .float         -2.8392417448e-01 
                .float         -2.8392417448e-01 
                .float         -2.8392417448e-01 
                .float         -2.8392417448e-01 
@@ -71953,7 +73201,7 @@ C463:          .float         -2.8392417448e-01
                .float         -2.8392417448e-01 
                .float         -2.8392417448e-01 
                .float         -2.8392417448e-01 
-C464:          .float         6.6260933197e-01  
+C467:          .float         6.6260933197e-01  
                .float         6.6260933197e-01  
                .float         6.6260933197e-01  
                .float         6.6260933197e-01  
@@ -71961,7 +73209,7 @@ C464:          .float         6.6260933197e-01
                .float         6.6260933197e-01  
                .float         6.6260933197e-01  
                .float         6.6260933197e-01  
-C465:          .float         -2.5484974307e-01 
+C468:          .float         -2.5484974307e-01 
                .float         -2.5484974307e-01 
                .float         -2.5484974307e-01 
                .float         -2.5484974307e-01 
@@ -71969,7 +73217,7 @@ C465:          .float         -2.5484974307e-01
                .float         -2.5484974307e-01 
                .float         -2.5484974307e-01 
                .float         -2.5484974307e-01 
-C466:          .float         -1.2742487153e+00 
+C469:          .float         -1.2742487153e+00 
                .float         -1.2742487153e+00 
                .float         -1.2742487153e+00 
                .float         -1.2742487153e+00 
@@ -71977,7 +73225,7 @@ C466:          .float         -1.2742487153e+00
                .float         -1.2742487153e+00 
                .float         -1.2742487153e+00 
                .float         -1.2742487153e+00 
-C467:          .float         -1.7839482015e+00 
+C470:          .float         -1.7839482015e+00 
                .float         -1.7839482015e+00 
                .float         -1.7839482015e+00 
                .float         -1.7839482015e+00 
@@ -71985,7 +73233,7 @@ C467:          .float         -1.7839482015e+00
                .float         -1.7839482015e+00 
                .float         -1.7839482015e+00 
                .float         -1.7839482015e+00 
-C468:          .float         3.0246176378e+00  
+C471:          .float         3.0246176378e+00  
                .float         3.0246176378e+00  
                .float         3.0246176378e+00  
                .float         3.0246176378e+00  
@@ -71993,7 +73241,7 @@ C468:          .float         3.0246176378e+00
                .float         3.0246176378e+00  
                .float         3.0246176378e+00  
                .float         3.0246176378e+00  
-C469:          .float         1.6012681612e+00  
+C472:          .float         1.6012681612e+00  
                .float         1.6012681612e+00  
                .float         1.6012681612e+00  
                .float         1.6012681612e+00  
@@ -72001,7 +73249,7 @@ C469:          .float         1.6012681612e+00
                .float         1.6012681612e+00  
                .float         1.6012681612e+00  
                .float         1.6012681612e+00  
-C470:          .float         -1.6012681612e+00 
+C473:          .float         -1.6012681612e+00 
                .float         -1.6012681612e+00 
                .float         -1.6012681612e+00 
                .float         -1.6012681612e+00 
@@ -72009,7 +73257,7 @@ C470:          .float         -1.6012681612e+00
                .float         -1.6012681612e+00 
                .float         -1.6012681612e+00 
                .float         -1.6012681612e+00 
-C471:          .float         -3.7362923761e+00 
+C474:          .float         -3.7362923761e+00 
                .float         -3.7362923761e+00 
                .float         -3.7362923761e+00 
                .float         -3.7362923761e+00 
@@ -72017,7 +73265,7 @@ C471:          .float         -3.7362923761e+00
                .float         -3.7362923761e+00 
                .float         -3.7362923761e+00 
                .float         -3.7362923761e+00 
-C472:          .float         3.7362923761e+00  
+C475:          .float         3.7362923761e+00  
                .float         3.7362923761e+00  
                .float         3.7362923761e+00  
                .float         3.7362923761e+00  
@@ -72025,7 +73273,7 @@ C472:          .float         3.7362923761e+00
                .float         3.7362923761e+00  
                .float         3.7362923761e+00  
                .float         3.7362923761e+00  
-C473:          .float         -8.7180155442e+00 
+C476:          .float         -8.7180155442e+00 
                .float         -8.7180155442e+00 
                .float         -8.7180155442e+00 
                .float         -8.7180155442e+00 
@@ -72033,7 +73281,7 @@ C473:          .float         -8.7180155442e+00
                .float         -8.7180155442e+00 
                .float         -8.7180155442e+00 
                .float         -8.7180155442e+00 
-C474:          .float         8.7180155442e+00  
+C477:          .float         8.7180155442e+00  
                .float         8.7180155442e+00  
                .float         8.7180155442e+00  
                .float         8.7180155442e+00  
@@ -72041,7 +73289,7 @@ C474:          .float         8.7180155442e+00
                .float         8.7180155442e+00  
                .float         8.7180155442e+00  
                .float         8.7180155442e+00  
-C475:          .float         -1.1208877128e+01 
+C478:          .float         -1.1208877128e+01 
                .float         -1.1208877128e+01 
                .float         -1.1208877128e+01 
                .float         -1.1208877128e+01 
@@ -72049,7 +73297,7 @@ C475:          .float         -1.1208877128e+01
                .float         -1.1208877128e+01 
                .float         -1.1208877128e+01 
                .float         -1.1208877128e+01 
-C476:          .float         1.1208877128e+01  
+C479:          .float         1.1208877128e+01  
                .float         1.1208877128e+01  
                .float         1.1208877128e+01  
                .float         1.1208877128e+01  
@@ -72057,7 +73305,7 @@ C476:          .float         1.1208877128e+01
                .float         1.1208877128e+01  
                .float         1.1208877128e+01  
                .float         1.1208877128e+01  
-C477:          .float         -5.7927341539e+00 
+C480:          .float         -5.7927341539e+00 
                .float         -5.7927341539e+00 
                .float         -5.7927341539e+00 
                .float         -5.7927341539e+00 
@@ -72065,7 +73313,7 @@ C477:          .float         -5.7927341539e+00
                .float         -5.7927341539e+00 
                .float         -5.7927341539e+00 
                .float         -5.7927341539e+00 
-C478:          .float         -1.4939156502e+01 
+C481:          .float         -1.4939156502e+01 
                .float         -1.4939156502e+01 
                .float         -1.4939156502e+01 
                .float         -1.4939156502e+01 
@@ -72073,7 +73321,7 @@ C478:          .float         -1.4939156502e+01
                .float         -1.4939156502e+01 
                .float         -1.4939156502e+01 
                .float         -1.4939156502e+01 
-C479:          .float         2.1341652146e+00  
+C482:          .float         2.1341652146e+00  
                .float         2.1341652146e+00  
                .float         2.1341652146e+00  
                .float         2.1341652146e+00  
@@ -72081,7 +73329,7 @@ C479:          .float         2.1341652146e+00
                .float         2.1341652146e+00  
                .float         2.1341652146e+00  
                .float         2.1341652146e+00  
-C480:          .float         3.2012478219e+01  
+C483:          .float         3.2012478219e+01  
                .float         3.2012478219e+01  
                .float         3.2012478219e+01  
                .float         3.2012478219e+01  
@@ -72089,7 +73337,7 @@ C480:          .float         3.2012478219e+01
                .float         3.2012478219e+01  
                .float         3.2012478219e+01  
                .float         3.2012478219e+01  
-C481:          .float         5.7622460794e+01  
+C484:          .float         5.7622460794e+01  
                .float         5.7622460794e+01  
                .float         5.7622460794e+01  
                .float         5.7622460794e+01  
@@ -72097,7 +73345,7 @@ C481:          .float         5.7622460794e+01
                .float         5.7622460794e+01  
                .float         5.7622460794e+01  
                .float         5.7622460794e+01  
-C482:          .float         7.0427452082e+01  
+C485:          .float         7.0427452082e+01  
                .float         7.0427452082e+01  
                .float         7.0427452082e+01  
                .float         7.0427452082e+01  
@@ -72105,7 +73353,7 @@ C482:          .float         7.0427452082e+01
                .float         7.0427452082e+01  
                .float         7.0427452082e+01  
                .float         7.0427452082e+01  
-C483:          .float         2.3724244381e+01  
+C486:          .float         2.3724244381e+01  
                .float         2.3724244381e+01  
                .float         2.3724244381e+01  
                .float         2.3724244381e+01  
@@ -72113,7 +73361,7 @@ C483:          .float         2.3724244381e+01
                .float         2.3724244381e+01  
                .float         2.3724244381e+01  
                .float         2.3724244381e+01  
-C484:          .float         -6.2920822053e+01 
+C487:          .float         -6.2920822053e+01 
                .float         -6.2920822053e+01 
                .float         -6.2920822053e+01 
                .float         -6.2920822053e+01 
@@ -72121,7 +73369,7 @@ C484:          .float         -6.2920822053e+01
                .float         -6.2920822053e+01 
                .float         -6.2920822053e+01 
                .float         -6.2920822053e+01 
-C485:          .float         6.2920822053e+01  
+C488:          .float         6.2920822053e+01  
                .float         6.2920822053e+01  
                .float         6.2920822053e+01  
                .float         6.2920822053e+01  
@@ -72129,7 +73377,7 @@ C485:          .float         6.2920822053e+01
                .float         6.2920822053e+01  
                .float         6.2920822053e+01  
                .float         6.2920822053e+01  
-C486:          .float         -5.2605933192e+01 
+C489:          .float         -5.2605933192e+01 
                .float         -5.2605933192e+01 
                .float         -5.2605933192e+01 
                .float         -5.2605933192e+01 
@@ -72137,7 +73385,7 @@ C486:          .float         -5.2605933192e+01
                .float         -5.2605933192e+01 
                .float         -5.2605933192e+01 
                .float         -5.2605933192e+01 
-C487:          .float         5.2605933192e+01  
+C490:          .float         5.2605933192e+01  
                .float         5.2605933192e+01  
                .float         5.2605933192e+01  
                .float         5.2605933192e+01  
@@ -72145,7 +73393,7 @@ C487:          .float         5.2605933192e+01
                .float         5.2605933192e+01  
                .float         5.2605933192e+01  
                .float         5.2605933192e+01  
-C488:          .float         7.1172733142e+01  
+C491:          .float         7.1172733142e+01  
                .float         7.1172733142e+01  
                .float         7.1172733142e+01  
                .float         7.1172733142e+01  
@@ -72153,7 +73401,7 @@ C488:          .float         7.1172733142e+01
                .float         7.1172733142e+01  
                .float         7.1172733142e+01  
                .float         7.1172733142e+01  
-C489:          .float         -7.1172733142e+01 
+C492:          .float         -7.1172733142e+01 
                .float         -7.1172733142e+01 
                .float         -7.1172733142e+01 
                .float         -7.1172733142e+01 
@@ -72161,7 +73409,7 @@ C489:          .float         -7.1172733142e+01
                .float         -7.1172733142e+01 
                .float         -7.1172733142e+01 
                .float         -7.1172733142e+01 
-C490:          .float         2.3827393269e+02  
+C493:          .float         2.3827393269e+02  
                .float         2.3827393269e+02  
                .float         2.3827393269e+02  
                .float         2.3827393269e+02  
@@ -72169,7 +73417,7 @@ C490:          .float         2.3827393269e+02
                .float         2.3827393269e+02  
                .float         2.3827393269e+02  
                .float         2.3827393269e+02  
-C491:          .float         -2.3827393269e+02 
+C494:          .float         -2.3827393269e+02 
                .float         -2.3827393269e+02 
                .float         -2.3827393269e+02 
                .float         -2.3827393269e+02 
@@ -72177,7 +73425,7 @@ C491:          .float         -2.3827393269e+02
                .float         -2.3827393269e+02 
                .float         -2.3827393269e+02 
                .float         -2.3827393269e+02 
-C492:          .float         3.7443046566e+02  
+C495:          .float         3.7443046566e+02  
                .float         3.7443046566e+02  
                .float         3.7443046566e+02  
                .float         3.7443046566e+02  
@@ -72185,7 +73433,7 @@ C492:          .float         3.7443046566e+02
                .float         3.7443046566e+02  
                .float         3.7443046566e+02  
                .float         3.7443046566e+02  
-C493:          .float         -3.7443046566e+02 
+C496:          .float         -3.7443046566e+02 
                .float         -3.7443046566e+02 
                .float         -3.7443046566e+02 
                .float         -3.7443046566e+02 
@@ -72193,7 +73441,7 @@ C493:          .float         -3.7443046566e+02
                .float         -3.7443046566e+02 
                .float         -3.7443046566e+02 
                .float         -3.7443046566e+02 
-C494:          .float         4.4250873214e+02  
+C497:          .float         4.4250873214e+02  
                .float         4.4250873214e+02  
                .float         4.4250873214e+02  
                .float         4.4250873214e+02  
@@ -72201,7 +73449,7 @@ C494:          .float         4.4250873214e+02
                .float         4.4250873214e+02  
                .float         4.4250873214e+02  
                .float         4.4250873214e+02  
-C495:          .float         -4.4250873214e+02 
+C498:          .float         -4.4250873214e+02 
                .float         -4.4250873214e+02 
                .float         -4.4250873214e+02 
                .float         -4.4250873214e+02 
@@ -72209,7 +73457,7 @@ C495:          .float         -4.4250873214e+02
                .float         -4.4250873214e+02 
                .float         -4.4250873214e+02 
                .float         -4.4250873214e+02 
-C496:          .float         -2.6994261135e-02 
+C499:          .float         -2.6994261135e-02 
                .float         -2.6994261135e-02 
                .float         -2.6994261135e-02 
                .float         -2.6994261135e-02 
@@ -72217,7 +73465,7 @@ C496:          .float         -2.6994261135e-02
                .float         -2.6994261135e-02 
                .float         -2.6994261135e-02 
                .float         -2.6994261135e-02 
-C497:          .float         -1.6960994494e-01 
+C500:          .float         -1.6960994494e-01 
                .float         -1.6960994494e-01 
                .float         -1.6960994494e-01 
                .float         -1.6960994494e-01 
@@ -72225,7 +73473,7 @@ C497:          .float         -1.6960994494e-01
                .float         -1.6960994494e-01 
                .float         -1.6960994494e-01 
                .float         -1.6960994494e-01 
-C498:          .float         1.6960994494e-01  
+C501:          .float         1.6960994494e-01  
                .float         1.6960994494e-01  
                .float         1.6960994494e-01  
                .float         1.6960994494e-01  
@@ -72233,7 +73481,7 @@ C498:          .float         1.6960994494e-01
                .float         1.6960994494e-01  
                .float         1.6960994494e-01  
                .float         1.6960994494e-01  
-C499:          .float         -3.5523023800e-01 
+C502:          .float         -3.5523023800e-01 
                .float         -3.5523023800e-01 
                .float         -3.5523023800e-01 
                .float         -3.5523023800e-01 
@@ -72241,7 +73489,7 @@ C499:          .float         -3.5523023800e-01
                .float         -3.5523023800e-01 
                .float         -3.5523023800e-01 
                .float         -3.5523023800e-01 
-C500:          .float         1.0656907140e+00  
+C503:          .float         1.0656907140e+00  
                .float         1.0656907140e+00  
                .float         1.0656907140e+00  
                .float         1.0656907140e+00  
@@ -72249,7 +73497,7 @@ C500:          .float         1.0656907140e+00
                .float         1.0656907140e+00  
                .float         1.0656907140e+00  
                .float         1.0656907140e+00  
-C501:          .float         -1.3391864473e+00 
+C504:          .float         -1.3391864473e+00 
                .float         -1.3391864473e+00 
                .float         -1.3391864473e+00 
                .float         -1.3391864473e+00 
@@ -72257,7 +73505,7 @@ C501:          .float         -1.3391864473e+00
                .float         -1.3391864473e+00 
                .float         -1.3391864473e+00 
                .float         -1.3391864473e+00 
-C502:          .float         1.3391864473e+00  
+C505:          .float         1.3391864473e+00  
                .float         1.3391864473e+00  
                .float         1.3391864473e+00  
                .float         1.3391864473e+00  
@@ -72265,7 +73513,7 @@ C502:          .float         1.3391864473e+00
                .float         1.3391864473e+00  
                .float         1.3391864473e+00  
                .float         1.3391864473e+00  
-C503:          .float         6.6959322363e+00  
+C506:          .float         6.6959322363e+00  
                .float         6.6959322363e+00  
                .float         6.6959322363e+00  
                .float         6.6959322363e+00  
@@ -72273,7 +73521,7 @@ C503:          .float         6.6959322363e+00
                .float         6.6959322363e+00  
                .float         6.6959322363e+00  
                .float         6.6959322363e+00  
-C504:          .float         -6.6959322363e+00 
+C507:          .float         -6.6959322363e+00 
                .float         -6.6959322363e+00 
                .float         -6.6959322363e+00 
                .float         -6.6959322363e+00 
@@ -72281,7 +73529,7 @@ C504:          .float         -6.6959322363e+00
                .float         -6.6959322363e+00 
                .float         -6.6959322363e+00 
                .float         -6.6959322363e+00 
-C505:          .float         -3.6061528324e+00 
+C508:          .float         -3.6061528324e+00 
                .float         -3.6061528324e+00 
                .float         -3.6061528324e+00 
                .float         -3.6061528324e+00 
@@ -72289,7 +73537,7 @@ C505:          .float         -3.6061528324e+00
                .float         -3.6061528324e+00 
                .float         -3.6061528324e+00 
                .float         -3.6061528324e+00 
-C506:          .float         6.0102547207e+00  
+C509:          .float         6.0102547207e+00  
                .float         6.0102547207e+00  
                .float         6.0102547207e+00  
                .float         6.0102547207e+00  
@@ -72297,7 +73545,7 @@ C506:          .float         6.0102547207e+00
                .float         6.0102547207e+00  
                .float         6.0102547207e+00  
                .float         6.0102547207e+00  
-C507:          .float         -4.2071783045e+01 
+C510:          .float         -4.2071783045e+01 
                .float         -4.2071783045e+01 
                .float         -4.2071783045e+01 
                .float         -4.2071783045e+01 
@@ -72305,7 +73553,7 @@ C507:          .float         -4.2071783045e+01
                .float         -4.2071783045e+01 
                .float         -4.2071783045e+01 
                .float         -4.2071783045e+01 
-C508:          .float         -1.2587848051e+01 
+C511:          .float         -1.2587848051e+01 
                .float         -1.2587848051e+01 
                .float         -1.2587848051e+01 
                .float         -1.2587848051e+01 
@@ -72313,7 +73561,7 @@ C508:          .float         -1.2587848051e+01
                .float         -1.2587848051e+01 
                .float         -1.2587848051e+01 
                .float         -1.2587848051e+01 
-C509:          .float         1.2587848051e+01  
+C512:          .float         1.2587848051e+01  
                .float         1.2587848051e+01  
                .float         1.2587848051e+01  
                .float         1.2587848051e+01  
@@ -72321,7 +73569,7 @@ C509:          .float         1.2587848051e+01
                .float         1.2587848051e+01  
                .float         1.2587848051e+01  
                .float         1.2587848051e+01  
-C510:          .float         2.9371645453e+01  
+C513:          .float         2.9371645453e+01  
                .float         2.9371645453e+01  
                .float         2.9371645453e+01  
                .float         2.9371645453e+01  
@@ -72329,7 +73577,7 @@ C510:          .float         2.9371645453e+01
                .float         2.9371645453e+01  
                .float         2.9371645453e+01  
                .float         2.9371645453e+01  
-C511:          .float         -2.9371645453e+01 
+C514:          .float         -2.9371645453e+01 
                .float         -2.9371645453e+01 
                .float         -2.9371645453e+01 
                .float         -2.9371645453e+01 
@@ -72337,7 +73585,7 @@ C511:          .float         -2.9371645453e+01
                .float         -2.9371645453e+01 
                .float         -2.9371645453e+01 
                .float         -2.9371645453e+01 
-C512:          .float         -2.6434480907e+02 
+C515:          .float         -2.6434480907e+02 
                .float         -2.6434480907e+02 
                .float         -2.6434480907e+02 
                .float         -2.6434480907e+02 
@@ -72345,7 +73593,7 @@ C512:          .float         -2.6434480907e+02
                .float         -2.6434480907e+02 
                .float         -2.6434480907e+02 
                .float         -2.6434480907e+02 
-C513:          .float         2.6434480907e+02  
+C516:          .float         2.6434480907e+02  
                .float         2.6434480907e+02  
                .float         2.6434480907e+02  
                .float         2.6434480907e+02  
@@ -72353,7 +73601,7 @@ C513:          .float         2.6434480907e+02
                .float         2.6434480907e+02  
                .float         2.6434480907e+02  
                .float         2.6434480907e+02  
-C514:          .float         -3.5950809965e+01 
+C517:          .float         -3.5950809965e+01 
                .float         -3.5950809965e+01 
                .float         -3.5950809965e+01 
                .float         -3.5950809965e+01 
@@ -72361,7 +73609,7 @@ C514:          .float         -3.5950809965e+01
                .float         -3.5950809965e+01 
                .float         -3.5950809965e+01 
                .float         -3.5950809965e+01 
-C515:          .float         5.0331133952e+01  
+C518:          .float         5.0331133952e+01  
                .float         5.0331133952e+01  
                .float         5.0331133952e+01  
                .float         5.0331133952e+01  
@@ -72369,7 +73617,7 @@ C515:          .float         5.0331133952e+01
                .float         5.0331133952e+01  
                .float         5.0331133952e+01  
                .float         5.0331133952e+01  
-C516:          .float         -1.5099340186e+02 
+C519:          .float         -1.5099340186e+02 
                .float         -1.5099340186e+02 
                .float         -1.5099340186e+02 
                .float         -1.5099340186e+02 
@@ -72377,7 +73625,7 @@ C516:          .float         -1.5099340186e+02
                .float         -1.5099340186e+02 
                .float         -1.5099340186e+02 
                .float         -1.5099340186e+02 
-C517:          .float         1.6609274204e+03  
+C520:          .float         1.6609274204e+03  
                .float         1.6609274204e+03  
                .float         1.6609274204e+03  
                .float         1.6609274204e+03  
@@ -72385,7 +73633,7 @@ C517:          .float         1.6609274204e+03
                .float         1.6609274204e+03  
                .float         1.6609274204e+03  
                .float         1.6609274204e+03  
-C518:          .float         -1.2163070821e+02 
+C521:          .float         -1.2163070821e+02 
                .float         -1.2163070821e+02 
                .float         -1.2163070821e+02 
                .float         -1.2163070821e+02 
@@ -72393,7 +73641,7 @@ C518:          .float         -1.2163070821e+02
                .float         -1.2163070821e+02 
                .float         -1.2163070821e+02 
                .float         -1.2163070821e+02 
-C519:          .float         1.2163070821e+02  
+C522:          .float         1.2163070821e+02  
                .float         1.2163070821e+02  
                .float         1.2163070821e+02  
                .float         1.2163070821e+02  
@@ -72401,7 +73649,7 @@ C519:          .float         1.2163070821e+02
                .float         1.2163070821e+02  
                .float         1.2163070821e+02  
                .float         1.2163070821e+02  
-C520:          .float         2.1893527477e+02  
+C523:          .float         2.1893527477e+02  
                .float         2.1893527477e+02  
                .float         2.1893527477e+02  
                .float         2.1893527477e+02  
@@ -72409,7 +73657,7 @@ C520:          .float         2.1893527477e+02
                .float         2.1893527477e+02  
                .float         2.1893527477e+02  
                .float         2.1893527477e+02  
-C521:          .float         -2.1893527477e+02 
+C524:          .float         -2.1893527477e+02 
                .float         -2.1893527477e+02 
                .float         -2.1893527477e+02 
                .float         -2.1893527477e+02 
@@ -72417,7 +73665,7 @@ C521:          .float         -2.1893527477e+02
                .float         -2.1893527477e+02 
                .float         -2.1893527477e+02 
                .float         -2.1893527477e+02 
-C522:          .float         -8.0276267417e+02 
+C525:          .float         -8.0276267417e+02 
                .float         -8.0276267417e+02 
                .float         -8.0276267417e+02 
                .float         -8.0276267417e+02 
@@ -72425,7 +73673,7 @@ C522:          .float         -8.0276267417e+02
                .float         -8.0276267417e+02 
                .float         -8.0276267417e+02 
                .float         -8.0276267417e+02 
-C523:          .float         8.0276267417e+02  
+C526:          .float         8.0276267417e+02  
                .float         8.0276267417e+02  
                .float         8.0276267417e+02  
                .float         8.0276267417e+02  
@@ -72433,7 +73681,7 @@ C523:          .float         8.0276267417e+02
                .float         8.0276267417e+02  
                .float         8.0276267417e+02  
                .float         8.0276267417e+02  
-C524:          .float         1.0435914764e+04  
+C527:          .float         1.0435914764e+04  
                .float         1.0435914764e+04  
                .float         1.0435914764e+04  
                .float         1.0435914764e+04  
@@ -72441,7 +73689,7 @@ C524:          .float         1.0435914764e+04
                .float         1.0435914764e+04  
                .float         1.0435914764e+04  
                .float         1.0435914764e+04  
-C525:          .float         -1.0435914764e+04 
+C528:          .float         -1.0435914764e+04 
                .float         -1.0435914764e+04 
                .float         -1.0435914764e+04 
                .float         -1.0435914764e+04 
@@ -72449,7 +73697,7 @@ C525:          .float         -1.0435914764e+04
                .float         -1.0435914764e+04 
                .float         -1.0435914764e+04 
                .float         -1.0435914764e+04 
-C526:          .float         -4.5187935832e-02 
+C529:          .float         -4.5187935832e-02 
                .float         -4.5187935832e-02 
                .float         -4.5187935832e-02 
                .float         -4.5187935832e-02 
@@ -72457,7 +73705,7 @@ C526:          .float         -4.5187935832e-02
                .float         -4.5187935832e-02 
                .float         -4.5187935832e-02 
                .float         -4.5187935832e-02 
-C527:          .float         5.6784834897e-02  
+C530:          .float         5.6784834897e-02  
                .float         5.6784834897e-02  
                .float         5.6784834897e-02  
                .float         5.6784834897e-02  
@@ -72465,7 +73713,7 @@ C527:          .float         5.6784834897e-02
                .float         5.6784834897e-02  
                .float         5.6784834897e-02  
                .float         5.6784834897e-02  
-C528:          .float         2.5484974307e-01  
+C531:          .float         2.5484974307e-01  
                .float         2.5484974307e-01  
                .float         2.5484974307e-01  
                .float         2.5484974307e-01  
@@ -72473,7 +73721,7 @@ C528:          .float         2.5484974307e-01
                .float         2.5484974307e-01  
                .float         2.5484974307e-01  
                .float         2.5484974307e-01  
-C529:          .float         1.7839482015e+00  
+C532:          .float         1.7839482015e+00  
                .float         1.7839482015e+00  
                .float         1.7839482015e+00  
                .float         1.7839482015e+00  
@@ -72481,7 +73729,7 @@ C529:          .float         1.7839482015e+00
                .float         1.7839482015e+00  
                .float         1.7839482015e+00  
                .float         1.7839482015e+00  
-C530:          .float         -3.0246176378e+00 
+C533:          .float         -3.0246176378e+00 
                .float         -3.0246176378e+00 
                .float         -3.0246176378e+00 
                .float         -3.0246176378e+00 
@@ -72489,7 +73737,7 @@ C530:          .float         -3.0246176378e+00
                .float         -3.0246176378e+00 
                .float         -3.0246176378e+00 
                .float         -3.0246176378e+00 
-C531:          .float         1.4939156502e+01  
+C534:          .float         1.4939156502e+01  
                .float         1.4939156502e+01  
                .float         1.4939156502e+01  
                .float         1.4939156502e+01  
@@ -72497,7 +73745,7 @@ C531:          .float         1.4939156502e+01
                .float         1.4939156502e+01  
                .float         1.4939156502e+01  
                .float         1.4939156502e+01  
-C532:          .float         -3.2012478219e+01 
+C535:          .float         -3.2012478219e+01 
                .float         -3.2012478219e+01 
                .float         -3.2012478219e+01 
                .float         -3.2012478219e+01 
@@ -72505,7 +73753,7 @@ C532:          .float         -3.2012478219e+01
                .float         -3.2012478219e+01 
                .float         -3.2012478219e+01 
                .float         -3.2012478219e+01 
-C533:          .float         -7.0427452082e+01 
+C536:          .float         -7.0427452082e+01 
                .float         -7.0427452082e+01 
                .float         -7.0427452082e+01 
                .float         -7.0427452082e+01 
@@ -72513,7 +73761,7 @@ C533:          .float         -7.0427452082e+01
                .float         -7.0427452082e+01 
                .float         -7.0427452082e+01 
                .float         -7.0427452082e+01 
-C534:          .float         -2.3724244381e+01 
+C537:          .float         -2.3724244381e+01 
                .float         -2.3724244381e+01 
                .float         -2.3724244381e+01 
                .float         -2.3724244381e+01 
@@ -72521,7 +73769,7 @@ C534:          .float         -2.3724244381e+01
                .float         -2.3724244381e+01 
                .float         -2.3724244381e+01 
                .float         -2.3724244381e+01 
-C535:          .float         1.6165215251e-03  
+C538:          .float         1.6165215251e-03  
                .float         1.6165215251e-03  
                .float         1.6165215251e-03  
                .float         1.6165215251e-03  
@@ -72529,7 +73777,7 @@ C535:          .float         1.6165215251e-03
                .float         1.6165215251e-03  
                .float         1.6165215251e-03  
                .float         1.6165215251e-03  
-C536:          .float         8.7043466734e-04  
+C539:          .float         8.7043466734e-04  
                .float         8.7043466734e-04  
                .float         8.7043466734e-04  
                .float         8.7043466734e-04  
@@ -72537,7 +73785,7 @@ C536:          .float         8.7043466734e-04
                .float         8.7043466734e-04  
                .float         8.7043466734e-04  
                .float         8.7043466734e-04  
-C537:          .float         -1.4757895130e-03 
+C540:          .float         -1.4757895130e-03 
                .float         -1.4757895130e-03 
                .float         -1.4757895130e-03 
                .float         -1.4757895130e-03 
@@ -72545,7 +73793,7 @@ C537:          .float         -1.4757895130e-03
                .float         -1.4757895130e-03 
                .float         -1.4757895130e-03 
                .float         -1.4757895130e-03 
-C538:          .float         -5.5189676201e-02 
+C541:          .float         -5.5189676201e-02 
                .float         -5.5189676201e-02 
                .float         -5.5189676201e-02 
                .float         -5.5189676201e-02 
@@ -72553,7 +73801,7 @@ C538:          .float         -5.5189676201e-02
                .float         -5.5189676201e-02 
                .float         -5.5189676201e-02 
                .float         -5.5189676201e-02 
-C539:          .float         -9.0594374140e-02 
+C542:          .float         -9.0594374140e-02 
                .float         -9.0594374140e-02 
                .float         -9.0594374140e-02 
                .float         -9.0594374140e-02 
@@ -72561,7 +73809,7 @@ C539:          .float         -9.0594374140e-02
                .float         -9.0594374140e-02 
                .float         -9.0594374140e-02 
                .float         -9.0594374140e-02 
-C540:          .float         -3.4363383295e-02 
+C543:          .float         -3.4363383295e-02 
                .float         -3.4363383295e-02 
                .float         -3.4363383295e-02 
                .float         -3.4363383295e-02 
@@ -72569,7 +73817,7 @@ C540:          .float         -3.4363383295e-02
                .float         -3.4363383295e-02 
                .float         -3.4363383295e-02 
                .float         -3.4363383295e-02 
-C541:          .float         4.3232630027e-01  
+C544:          .float         4.3232630027e-01  
                .float         4.3232630027e-01  
                .float         4.3232630027e-01  
                .float         4.3232630027e-01  
@@ -72577,7 +73825,7 @@ C541:          .float         4.3232630027e-01
                .float         4.3232630027e-01  
                .float         4.3232630027e-01  
                .float         4.3232630027e-01  
-C542:          .float         -4.4096735389e-05 
+C545:          .float         -4.4096735389e-05 
                .float         -4.4096735389e-05 
                .float         -4.4096735389e-05 
                .float         -4.4096735389e-05 
@@ -72585,7 +73833,7 @@ C542:          .float         -4.4096735389e-05
                .float         -4.4096735389e-05 
                .float         -4.4096735389e-05 
                .float         -4.4096735389e-05 
-C543:          .float         6.6644137299e-02  
+C546:          .float         6.6644137299e-02  
                .float         6.6644137299e-02  
                .float         6.6644137299e-02  
                .float         6.6644137299e-02  
@@ -72593,7 +73841,7 @@ C543:          .float         6.6644137299e-02
                .float         6.6644137299e-02  
                .float         6.6644137299e-02  
                .float         6.6644137299e-02  
-C544:          .float         -1.0996282654e+00 
+C547:          .float         -1.0996282654e+00 
                .float         -1.0996282654e+00 
                .float         -1.0996282654e+00 
                .float         -1.0996282654e+00 
@@ -72601,7 +73849,7 @@ C544:          .float         -1.0996282654e+00
                .float         -1.0996282654e+00 
                .float         -1.0996282654e+00 
                .float         -1.0996282654e+00 
-C545:          .float         -6.4997272719e-04 
+C548:          .float         -6.4997272719e-04 
                .float         -6.4997272719e-04 
                .float         -6.4997272719e-04 
                .float         -6.4997272719e-04 
@@ -72609,7 +73857,7 @@ C545:          .float         -6.4997272719e-04
                .float         -6.4997272719e-04 
                .float         -6.4997272719e-04 
                .float         -6.4997272719e-04 
-C546:          .float         -1.4662797003e-02 
+C549:          .float         -1.4662797003e-02 
                .float         -1.4662797003e-02 
                .float         -1.4662797003e-02 
                .float         -1.4662797003e-02 
@@ -72617,7 +73865,7 @@ C546:          .float         -1.4662797003e-02
                .float         -1.4662797003e-02 
                .float         -1.4662797003e-02 
                .float         -1.4662797003e-02 
-C547:          .float         -4.9115735314e-01 
+C550:          .float         -4.9115735314e-01 
                .float         -4.9115735314e-01 
                .float         -4.9115735314e-01 
                .float         -4.9115735314e-01 
@@ -72625,7 +73873,7 @@ C547:          .float         -4.9115735314e-01
                .float         -4.9115735314e-01 
                .float         -4.9115735314e-01 
                .float         -4.9115735314e-01 
-C548:          .float         -1.6208192653e+01 
+C551:          .float         -1.6208192653e+01 
                .float         -1.6208192653e+01 
                .float         -1.6208192653e+01 
                .float         -1.6208192653e+01 
@@ -72633,7 +73881,7 @@ C548:          .float         -1.6208192653e+01
                .float         -1.6208192653e+01 
                .float         -1.6208192653e+01 
                .float         -1.6208192653e+01 
-C549:          .float         1.4299998106e-03  
+C552:          .float         1.4299998106e-03  
                .float         1.4299998106e-03  
                .float         1.4299998106e-03  
                .float         1.4299998106e-03  
@@ -72641,7 +73889,7 @@ C549:          .float         1.4299998106e-03
                .float         1.4299998106e-03  
                .float         1.4299998106e-03  
                .float         1.4299998106e-03  
-C550:          .float         -1.0048686327e-01 
+C553:          .float         -1.0048686327e-01 
                .float         -1.0048686327e-01 
                .float         -1.0048686327e-01 
                .float         -1.0048686327e-01 
@@ -72649,7 +73897,7 @@ C550:          .float         -1.0048686327e-01
                .float         -1.0048686327e-01 
                .float         -1.0048686327e-01 
                .float         -1.0048686327e-01 
-C551:          .float         -1.7181691647e-02 
+C554:          .float         -1.7181691647e-02 
                .float         -1.7181691647e-02 
                .float         -1.7181691647e-02 
                .float         -1.7181691647e-02 
@@ -72657,7 +73905,7 @@ C551:          .float         -1.7181691647e-02
                .float         -1.7181691647e-02 
                .float         -1.7181691647e-02 
                .float         -1.7181691647e-02 
-C552:          .float         1.2742487153e+00  
+C555:          .float         1.2742487153e+00  
                .float         1.2742487153e+00  
                .float         1.2742487153e+00  
                .float         1.2742487153e+00  
@@ -72665,7 +73913,7 @@ C552:          .float         1.2742487153e+00
                .float         1.2742487153e+00  
                .float         1.2742487153e+00  
                .float         1.2742487153e+00  
-C553:          .float         -2.1341652146e+00 
+C556:          .float         -2.1341652146e+00 
                .float         -2.1341652146e+00 
                .float         -2.1341652146e+00 
                .float         -2.1341652146e+00 
@@ -72673,7 +73921,7 @@ C553:          .float         -2.1341652146e+00
                .float         -2.1341652146e+00 
                .float         -2.1341652146e+00 
                .float         -2.1341652146e+00 
-C554:          .float         -1.0656907140e+00 
+C557:          .float         -1.0656907140e+00 
                .float         -1.0656907140e+00 
                .float         -1.0656907140e+00 
                .float         -1.0656907140e+00 
@@ -72681,7 +73929,7 @@ C554:          .float         -1.0656907140e+00
                .float         -1.0656907140e+00 
                .float         -1.0656907140e+00 
                .float         -1.0656907140e+00 
-C555:          .float         -6.0102547207e+00 
+C558:          .float         -6.0102547207e+00 
                .float         -6.0102547207e+00 
                .float         -6.0102547207e+00 
                .float         -6.0102547207e+00 
@@ -72689,7 +73937,7 @@ C555:          .float         -6.0102547207e+00
                .float         -6.0102547207e+00 
                .float         -6.0102547207e+00 
                .float         -6.0102547207e+00 
-C556:          .float         -5.0331133952e+01 
+C559:          .float         -5.0331133952e+01 
                .float         -5.0331133952e+01 
                .float         -5.0331133952e+01 
                .float         -5.0331133952e+01 
@@ -72697,7 +73945,7 @@ C556:          .float         -5.0331133952e+01
                .float         -5.0331133952e+01 
                .float         -5.0331133952e+01 
                .float         -5.0331133952e+01 
-C557:          .float         -1.6609274204e+03 
+C560:          .float         -1.6609274204e+03 
                .float         -1.6609274204e+03 
                .float         -1.6609274204e+03 
                .float         -1.6609274204e+03 
@@ -72705,7 +73953,7 @@ C557:          .float         -1.6609274204e+03
                .float         -1.6609274204e+03 
                .float         -1.6609274204e+03 
                .float         -1.6609274204e+03 
-C558:          .float         4.3331515146e-04  
+C561:          .float         4.3331515146e-04  
                .float         4.3331515146e-04  
                .float         4.3331515146e-04  
                .float         4.3331515146e-04  
@@ -72713,7 +73961,7 @@ C558:          .float         4.3331515146e-04
                .float         4.3331515146e-04  
                .float         4.3331515146e-04  
                .float         4.3331515146e-04  
-C559:          .float         3.2671192717e-03  
+C562:          .float         3.2671192717e-03  
                .float         3.2671192717e-03  
                .float         3.2671192717e-03  
                .float         3.2671192717e-03  
@@ -72721,7 +73969,7 @@ C559:          .float         3.2671192717e-03
                .float         3.2671192717e-03  
                .float         3.2671192717e-03  
                .float         3.2671192717e-03  
-C560:          .float         -2.3460475205e-02 
+C563:          .float         -2.3460475205e-02 
                .float         -2.3460475205e-02 
                .float         -2.3460475205e-02 
                .float         -2.3460475205e-02 
@@ -72729,7 +73977,7 @@ C560:          .float         -2.3460475205e-02
                .float         -2.3460475205e-02 
                .float         -2.3460475205e-02 
                .float         -2.3460475205e-02 
-C561:          .float         -1.6378501456e-01 
+C564:          .float         -1.6378501456e-01 
                .float         -1.6378501456e-01 
                .float         -1.6378501456e-01 
                .float         -1.6378501456e-01 
@@ -72737,7 +73985,7 @@ C561:          .float         -1.6378501456e-01
                .float         -1.6378501456e-01 
                .float         -1.6378501456e-01 
                .float         -1.6378501456e-01 
-C562:          .float         1.1226453786e+00  
+C565:          .float         1.1226453786e+00  
                .float         1.1226453786e+00  
                .float         1.1226453786e+00  
                .float         1.1226453786e+00  
@@ -72745,7 +73993,7 @@ C562:          .float         1.1226453786e+00
                .float         1.1226453786e+00  
                .float         1.1226453786e+00  
                .float         1.1226453786e+00  
-C563:          .float         7.5963880978e+00  
+C566:          .float         7.5963880978e+00  
                .float         7.5963880978e+00  
                .float         7.5963880978e+00  
                .float         7.5963880978e+00  
@@ -72753,7 +74001,7 @@ C563:          .float         7.5963880978e+00
                .float         7.5963880978e+00  
                .float         7.5963880978e+00  
                .float         7.5963880978e+00  
-C564:          .float         7.1046047601e-01  
+C567:          .float         7.1046047601e-01  
                .float         7.1046047601e-01  
                .float         7.1046047601e-01  
                .float         7.1046047601e-01  
@@ -72761,7 +74009,7 @@ C564:          .float         7.1046047601e-01
                .float         7.1046047601e-01  
                .float         7.1046047601e-01  
                .float         7.1046047601e-01  
-C565:          .float         2.6783728945e+00  
+C568:          .float         2.6783728945e+00  
                .float         2.6783728945e+00  
                .float         2.6783728945e+00  
                .float         2.6783728945e+00  
@@ -72769,7 +74017,7 @@ C565:          .float         2.6783728945e+00
                .float         2.6783728945e+00  
                .float         2.6783728945e+00  
                .float         2.6783728945e+00  
-C566:          .float         -9.6164075531e+00 
+C569:          .float         -9.6164075531e+00 
                .float         -9.6164075531e+00 
                .float         -9.6164075531e+00 
                .float         -9.6164075531e+00 
@@ -72777,7 +74025,7 @@ C566:          .float         -9.6164075531e+00
                .float         -9.6164075531e+00 
                .float         -9.6164075531e+00 
                .float         -9.6164075531e+00 
-C567:          .float         -3.3567594803e+01 
+C570:          .float         -3.3567594803e+01 
                .float         -3.3567594803e+01 
                .float         -3.3567594803e+01 
                .float         -3.3567594803e+01 
@@ -72785,7 +74033,7 @@ C567:          .float         -3.3567594803e+01
                .float         -3.3567594803e+01 
                .float         -3.3567594803e+01 
                .float         -3.3567594803e+01 
-C568:          .float         1.1504259189e+02  
+C571:          .float         1.1504259189e+02  
                .float         1.1504259189e+02  
                .float         1.1504259189e+02  
                .float         1.1504259189e+02  
@@ -72793,7 +74041,7 @@ C568:          .float         1.1504259189e+02
                .float         1.1504259189e+02  
                .float         1.1504259189e+02  
                .float         1.1504259189e+02  
-C569:          .float         3.8921826626e+02  
+C572:          .float         3.8921826626e+02  
                .float         3.8921826626e+02  
                .float         3.8921826626e+02  
                .float         3.8921826626e+02  
@@ -72801,7 +74049,7 @@ C569:          .float         3.8921826626e+02
                .float         3.8921826626e+02  
                .float         3.8921826626e+02  
                .float         3.8921826626e+02  
-C570:          .float         -2.6783728945e+00 
+C573:          .float         -2.6783728945e+00 
                .float         -2.6783728945e+00 
                .float         -2.6783728945e+00 
                .float         -2.6783728945e+00 
@@ -72809,7 +74057,7 @@ C570:          .float         -2.6783728945e+00
                .float         -2.6783728945e+00 
                .float         -2.6783728945e+00 
                .float         -2.6783728945e+00 
-C571:          .float         3.3567594803e+01  
+C574:          .float         3.3567594803e+01  
                .float         3.3567594803e+01  
                .float         3.3567594803e+01  
                .float         3.3567594803e+01  
@@ -72817,7 +74065,7 @@ C571:          .float         3.3567594803e+01
                .float         3.3567594803e+01  
                .float         3.3567594803e+01  
                .float         3.3567594803e+01  
-C572:          .float         -3.8921826626e+02 
+C575:          .float         -3.8921826626e+02 
                .float         -3.8921826626e+02 
                .float         -3.8921826626e+02 
                .float         -3.8921826626e+02 
@@ -72825,7 +74073,7 @@ C572:          .float         -3.8921826626e+02
                .float         -3.8921826626e+02 
                .float         -3.8921826626e+02 
                .float         -3.8921826626e+02 
-C573:          .float         -3.2671192717e-03 
+C576:          .float         -3.2671192717e-03 
                .float         -3.2671192717e-03 
                .float         -3.2671192717e-03 
                .float         -3.2671192717e-03 
@@ -72833,7 +74081,7 @@ C573:          .float         -3.2671192717e-03
                .float         -3.2671192717e-03 
                .float         -3.2671192717e-03 
                .float         -3.2671192717e-03 
-C574:          .float         1.6378501456e-01  
+C577:          .float         1.6378501456e-01  
                .float         1.6378501456e-01  
                .float         1.6378501456e-01  
                .float         1.6378501456e-01  
@@ -72841,7 +74089,7 @@ C574:          .float         1.6378501456e-01
                .float         1.6378501456e-01  
                .float         1.6378501456e-01  
                .float         1.6378501456e-01  
-C575:          .float         -7.5963880978e+00 
+C578:          .float         -7.5963880978e+00 
                .float         -7.5963880978e+00 
                .float         -7.5963880978e+00 
                .float         -7.5963880978e+00 
@@ -72849,7 +74097,7 @@ C575:          .float         -7.5963880978e+00
                .float         -7.5963880978e+00 
                .float         -7.5963880978e+00 
                .float         -7.5963880978e+00 
-C576:          .float         4.1887902048e+00  
+C579:          .float         4.1887902048e+00  
                .float         4.1887902048e+00  
                .float         4.1887902048e+00  
                .float         4.1887902048e+00  

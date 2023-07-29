@@ -31,13 +31,17 @@ set(cosmictiger_source_files
     src/particles.cpp
     src/erfc.S
     src/exp.S
+    src/fft_complex.S
+    src/fft_real.S
     src/greens.S
     src/greens_ewald.S
     src/L2P.S
     src/M2L.S
     src/P2M.S
     src/trig.S
+    src/scramble.S
     src/sort.S
+    src/twiddles.S
 )      
                        
 set(cosmictiger_header_files

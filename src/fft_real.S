@@ -101,7 +101,9 @@ radix4:        mov            N, N2o2
                mov            N, N2
                shr            $2, N2
                shr            $3, N2o2
-               lea            (X, N2, 4), %rbx
+               xor            vindex, vindex
+loop0:         lea            (X, vindex, 4), %rax
+               lea            (%rax, N2, 4), %rbx
                lea            (%rbx, N2, 4), %rcx
                lea            (%rcx, N2, 4), %rdx
                vmovaps        (%rax), er0
@@ -118,12 +120,21 @@ radix4:        mov            N, N2o2
                vmovaps        ei2, (%rbx)
                vmovaps        er2, (%rcx)
                vmovaps        ei3, (%rdx)
+               add            $8, vindex
+               cmp            vlen, vindex
+               jne            loop0
                cmp            $8, N
                jl             radix4done
-               vmovaps        (%rax, N2o2, 4), ei0
-               vmovaps        (%rbx, N2o2, 4), ei1
-               vmovaps        (%rcx, N2o2, 4), ei2
-               vmovaps        (%rdx, N2o2, 4), ei3
+               xor            vindex, vindex
+loopny:        lea            (X, vindex, 4), %rax
+               lea            (%rax, N2o2, 4), %rax
+               lea            (%rax, N2, 4), %rbx
+               lea            (%rbx, N2, 4), %rcx
+               lea            (%rcx, N2, 4), %rdx
+               vmovaps        (%rax), ei0
+               vmovaps        (%rbx), ei1
+               vmovaps        (%rcx), ei2
+               vmovaps        (%rdx), ei3
                vaddps         ei3, ei1, er0
                vsubps         ei3, ei1, er2
                vmulps         tw45, er2, er1
@@ -139,6 +150,9 @@ radix4:        mov            N, N2o2
                vmovaps        ei1, (%rbx, N2o2, 4)
                vmovaps        ei2, (%rcx, N2o2, 4)
                vmovaps        ei3, (%rdx, N2o2, 4)
+               add            $8, vindex
+               cmp            vlen, vindex
+               jne            loopny
                cmp            $16, N
                jl             radix4done
                mov            $1, k2
@@ -164,10 +178,10 @@ iloop4:        mov            k2, %rax
                vmovaps        (%rbx), er1
                vmovaps        (%rcx), er2
                vmovaps        (%rdx), er3
-               vmovaps        (%rax, %rdi, 8), ei0
-               vmovaps        (%rbx, %rdi, 8), ei1
-               vmovaps        (%rcx, %rdi, 8), ei2
-               vmovaps        (%rdx, %rdi, 8), ei3
+               vmovaps        (%rax, %rdi, 4), ei0
+               vmovaps        (%rbx, %rdi, 4), ei1
+               vmovaps        (%rcx, %rdi, 4), ei2
+               vmovaps        (%rdx, %rdi, 4), ei3
                vmovaps        er0, tr
                vmovaps        ei0, ti
                vfmadd231ps    sin2, ei2, tr
@@ -204,10 +218,10 @@ iloop4:        mov            k2, %rax
                vmovaps        er2, (%rbx)
                vmovaps        er3, (%rcx)
                vmovaps        er1, (%rdx)
-               vmovaps        ei1, (%rax, %rdi, 8)
-               vmovaps        ei3, (%rbx, %rdi, 8)
-               vmovaps        ei2, (%rcx, %rdi, 8)
-               vmovaps        ei0, (%rdx, %rdi, 8)
+               vmovaps        ei1, (%rax, %rdi, 4)
+               vmovaps        ei3, (%rbx, %rdi, 4)
+               vmovaps        ei2, (%rcx, %rdi, 4)
+               vmovaps        ei0, (%rdx, %rdi, 4)
                add            $8, vindex
                cmp            vlen, vindex
                jne            iloop4
