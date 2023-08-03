@@ -11,5 +11,4 @@
 #define NDIM 3
 
 
-
 #endif /* COSMICTIGER_HPP_ */

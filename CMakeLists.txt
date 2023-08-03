@@ -29,19 +29,6 @@ set(cosmictiger_source_files
     src/main.cpp
     src/memory.cpp
     src/particles.cpp
-    src/erfc.S
-    src/exp.S
-    src/fft_complex.S
-    src/fft_real.S
-    src/greens.S
-    src/greens_ewald.S
-    src/L2P.S
-    src/M2L.S
-    src/P2M.S
-    src/trig.S
-    src/scramble.S
-    src/sort.S
-    src/twiddles.S
 )      
                        
 set(cosmictiger_header_files
@@ -67,18 +54,10 @@ if( COSMICTIGER_WITH_CUDA )
 	set_property(TARGET cosmictiger PROPERTY CUDA_SEPARABLE_COMPILATION ON)
 endif()
  
-add_executable( codegen src/codegen.cpp )
-target_include_directories(codegen PUBLIC ${PROJECT_SOURCE_DIR})
+target_link_libraries(cosmictiger PUBLIC sfmm simd)
 target_include_directories(cosmictiger PUBLIC ${PROJECT_SOURCE_DIR})
+target_include_directories(cosmictiger PUBLIC ${PROJECT_SOURCE_DIR}/spherical_fmm)
 target_compile_definitions(cosmictiger PUBLIC ORDER=${COSMICTIGER_WITH_ORDER})
-target_compile_definitions(codegen PUBLIC ORDER=${COSMICTIGER_WITH_ORDER})
-add_custom_command(
-    OUTPUT src/kernels.S
-    COMMAND ./codegen > ${PROJECT_SOURCE_DIR}/src/kernels.S
-    DEPENDS codegen
-    COMMENT "generating cosmictiger/kernels.S"
-)
-add_custom_target( generate_kernels DEPENDS cosmictiger/kernels.S )
 
 
 
