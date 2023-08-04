@@ -93,10 +93,9 @@ int kick(const std::pair<size_t, size_t>& snk, const sfmm::vec3<float> C0, const
 			auto& vx = particle_vx(i);
 			auto& vy = particle_vy(i);
 			auto& vz = particle_vz(i);
-			float dt;
 			const float sgn = params.sign * (params.top ? 1.f : -1.f);
 			if (params.ascending) {
-				dt = 0.5f * params.t0 / (1 << params.rung);
+				const float dt = 0.5f * params.t0 / (1 << params.rung);
 				if (!params.first) {
 					vx += sgn * f.force[0][i] * dt;
 					vy += sgn * f.force[1][i] * dt;
@@ -105,7 +104,7 @@ int kick(const std::pair<size_t, size_t>& snk, const sfmm::vec3<float> C0, const
 			}
 			if (params.descending) {
 				const float g2 = sqr(f.force[0][i]) + sqr(f.force[1][i]) + sqr(f.force[2][i]);
-				dt = fminf(params.eta * sqrt(params.scale * h / sqrtf(g2)), params.t0);
+				float dt = fminf(params.eta * sqrt(params.scale * h / sqrtf(g2)), params.t0);
 				dt = fminf(params.max_dt, dt);
 				int rung = particle_rung(i);
 				rung = std::max(params.rung + int((int) ceilf(log2f(params.t0 / dt)) > params.rung), rung - 1);

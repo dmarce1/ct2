@@ -55,5 +55,7 @@ inline char& particle_rung(int i) {
 	return particle_rung_ptr[i];
 }
 
+size_t particle_count();
+
 
 #endif /* PARTICLES_HPP_ */

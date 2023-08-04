@@ -26,13 +26,24 @@ endif()
 
 
 set(cosmictiger_source_files
+    src/drift.cpp
+    src/kick.cpp
     src/main.cpp
     src/memory.cpp
-    src/particles.cpp
+    src/options.cpp
+    src/particle.cpp
+    src/fft/fft.cpp
+    src/fft/fft_3d.cpp
+    src/fft/scramble.cpp
+    src/fft/transpose.cpp
+    src/fft/twiddles.cpp
 )      
                        
 set(cosmictiger_header_files
-    include/particles.hpp
+    include/cosmictiger.hpp
+    include/fft.hpp
+    include/options.hpp
+    include/particle.hpp
     include/util.hpp
 )
 

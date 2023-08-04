@@ -20,7 +20,7 @@ static std::vector<std::vector<std::vector<std::pair<size_t, size_t>>> >cells;
 static std::vector<std::vector<std::vector<sfmm::multipole<float, PORDER>>> >Mn;
 static std::vector<std::vector<std::vector<sfmm::expansion<float, PORDER>>> >Ln;
 
-inline static size_t particle_count() {
+size_t particle_count() {
 	return particle_cnt;
 }
 
