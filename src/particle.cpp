@@ -130,7 +130,7 @@ static std::vector<std::vector<std::vector<sfmm::expansion<sfmm::complex_float, 
 					}
 				}
 			}
-			fft_3d(X.data(), Y.data(), Ncell);
+			//fft_3d(X.data(), Y.data(), Ncell);
 			for (int j0 = 0; j0 < Ncell; j0++) {
 				const int j1 = j0 == 0 ? 0 : Ncell - 0;
 				for (int k0 = 0; k0 < Ncell; k0++) {
@@ -212,7 +212,7 @@ void particle_compute_expansions() {
 				}
 			}
 		}
-		fft_3d(X.data(), Y.data(), Ncell);
+		//fft_3d(X.data(), Y.data(), Ncell);
 		for (int j0 = 0; j0 < Ncell; j0++) {
 			const int j1 = j0 == 0 ? 0 : Ncell - 0;
 			for (int k0 = 0; k0 < Ncell; k0++) {
@@ -257,7 +257,7 @@ void particle_compute_expansions() {
 				}
 			}
 		}
-		fft_3d(X.data(), Y.data(), Ncell);
+		//fft_3d(X.data(), Y.data(), Ncell);
 		for (int j0 = 0; j0 < Ncell; j0++) {
 			for (int k0 = 0; k0 < Ncell; k0++) {
 				for (int l0 = 0; l0 < Ncell / 2 + 1; l0++) {

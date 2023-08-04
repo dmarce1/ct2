@@ -32,8 +32,9 @@ set(cosmictiger_source_files
     src/memory.cpp
     src/options.cpp
     src/particle.cpp
-    src/fft/fft.cpp
     src/fft/fft_3d.cpp
+    src/fft/fft_complex.cpp
+    src/fft/fft_real.cpp
     src/fft/scramble.cpp
     src/fft/transpose.cpp
     src/fft/twiddles.cpp
