@@ -9,8 +9,9 @@
 #define PARTICLES_HPP_
 
 #include <cstdint>
+#include <sfmm.hpp>
 
-using fixed32 = std::uint32_t;
+using fixed32 = sfmm::fixed32;
 
 #ifdef PARTICLES_CPP
 #define PARTICLES_EXTERN
@@ -26,44 +27,32 @@ PARTICLES_EXTERN float* particle_vy_ptr;
 PARTICLES_EXTERN float* particle_vz_ptr;
 PARTICLES_EXTERN char* particle_rung_ptr;
 
-fixed32& particle_x(int i) {
+inline fixed32& particle_x(int i) {
 	return particle_x_ptr[i];
 }
 
-fixed32& particle_y(int i) {
+inline fixed32& particle_y(int i) {
 	return particle_y_ptr[i];
 }
 
-fixed32& particle_z(int i) {
+inline fixed32& particle_z(int i) {
 	return particle_z_ptr[i];
 }
 
-float& particle_vx(int i) {
+inline float& particle_vx(int i) {
 	return particle_vx_ptr[i];
 }
 
-float& particle_vy(int i) {
+inline float& particle_vy(int i) {
 	return particle_vy_ptr[i];
 }
 
-float& particle_vz(int i) {
+inline float& particle_vz(int i) {
 	return particle_vz_ptr[i];
 }
 
-char& particle_rung(int i) {
+inline char& particle_rung(int i) {
 	return particle_rung_ptr[i];
-}
-
-void particle_set_x(fixed32 x, int n) {
-	particle_x_ptr[n] = x;
-}
-
-void particle_set_y(fixed32 x, int n) {
-	particle_y_ptr[n] = x;
-}
-
-void particle_set_z(fixed32 x, int n) {
-	particle_z_ptr[n] = x;
 }
 
 

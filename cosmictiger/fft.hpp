@@ -17,5 +17,6 @@ void scramble(float* X, int N);
 const std::vector<float>& cos_twiddles(int N);
 const std::vector<float>& sin_twiddles(int N);
 void fft(float* X, float* Y, int N);
+void fft_3d(float* X, float* Y, int N);
 
 #endif /* FFT_HPP_ */
