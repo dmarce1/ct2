@@ -1,7 +1,7 @@
 #include "cosmictiger/fft.hpp"
 #include <hpx/async.hpp>
 
-void fft_3d(float* xin, float* xout, int N) {
+void fft_r2c_3d(fft_float* xin, fft_float* xout, int N) {
 	const int N2 = N * N;
 	const int No2 = N >> 1;
 	transpose_yz(xin, N);

@@ -8,20 +8,52 @@
 #include "cosmictiger/cosmictiger.hpp"
 #include "cosmictiger/particle.hpp"
 #include "cosmictiger/fft.hpp"
+#include "cosmictiger/options.hpp"
+#include "cosmictiger/util.hpp"
+#include <stack>
 
 #define MAXPARDEPTH 10
 
-static std::array<fixed32*, NDIM> particle_pos_ptr;
+static std::array<pos_fixed*, NDIM> particle_pos_ptr;
 static size_t particle_cnt = 0;
 static size_t rung_begin;
+static std::stack<size_t> rung_begins;
 static int Ncell;
 static void* particle_ptr;
 static std::vector<std::vector<std::vector<std::pair<size_t, size_t>>> >cells;
-static std::vector<std::vector<std::vector<sfmm::multipole<float, PORDER>>> >Mn;
-static std::vector<std::vector<std::vector<sfmm::expansion<float, PORDER>>> >Ln;
+static std::vector<std::vector<std::vector<sfmm::multipole<fft_float, PORDER>>> >Mn;
+static std::vector<std::vector<std::vector<sfmm::expansion<fft_float, PORDER>>> >Ln;
 
 size_t particle_count() {
 	return particle_cnt;
+}
+
+void particle_pop_rungs() {
+	rung_begin = rung_begins.top();
+	rung_begins.pop();
+}
+
+void particle_push_rungs() {
+	rung_begins.push(rung_begin);
+}
+
+std::vector<size_t> particle_rung_counts() {
+	std::vector < size_t > counts;
+	for (size_t i = 0; i < particle_cnt; i++) {
+		const auto rung = particle_rung(i);
+		if (counts.size() <= rung) {
+			counts.resize(rung + 1, 0);
+		}
+		counts[rung]++;
+	}
+	return counts;
+}
+
+std::pair<size_t, size_t> particle_current_range() {
+	std::pair < size_t, size_t > rc;
+	rc.first = rung_begin;
+	rc.second = particle_cnt;
+	return rc;
 }
 
 inline static void particle_swap(size_t a, size_t b) {
@@ -34,10 +66,10 @@ inline static void particle_swap(size_t a, size_t b) {
 	std::swap(particle_rung(a), particle_rung(b));
 }
 
-static size_t particle_sort_by_pos(std::pair<size_t, size_t> rng, int xdim, fixed32 xmid) {
+static size_t particle_sort_by_pos(std::pair<size_t, size_t> rng, int xdim, pos_fixed xmid) {
 	size_t lo = rng.first;
 	size_t hi = rng.second;
-	const fixed32* xptr = particle_pos_ptr[xdim];
+	const pos_fixed* xptr = particle_pos_ptr[xdim];
 	int flops = 0;
 	while (lo < hi) {
 		if (xptr[lo] >= xmid) {
@@ -68,41 +100,41 @@ static void particle_to_grid(std::pair<size_t, size_t> rng, std::array<size_t, N
 		auto rr = rng;
 		No2[xdim] >>= 1;
 		Ir[xdim] += No2[xdim];
-		fixed32 xmid = (double) (I[xdim] + No2[xdim]) / (double) Ncell;
+		pos_fixed xmid = (double) (I[xdim] + No2[xdim]) / (double) Ncell;
 		rl.second = rr.first = particle_sort_by_pos(rng, xdim, xmid);
 		if (depth > MAXPARDEPTH) {
 			particle_to_grid(rr, Ir, No2, dp1);
 			particle_to_grid(rl, Il, No2, dp1);
 		} else {
-			auto fut = hpx::async(particle_to_grid, rr, Ir, No2, dp1);
+			auto fut = hpx::async([rr, Ir, No2, dp1]() {particle_to_grid(rr, Ir, No2, dp1);});
 			particle_to_grid(rl, Il, No2, dp1);
 			fut.get();
 		}
 	}
 }
 
-static std::vector<std::vector<std::vector<sfmm::expansion<sfmm::complex_float, PORDER>>> >& particle_greens() {
+static std::vector<std::vector<std::vector<sfmm::expansion<sfmm::complex<fft_float>, PORDER>>> >& particle_greens() {
 	using namespace sfmm;
 	const size_t vol = Ncell * Ncell * Ncell;
-	std::vector<float> X(vol);
-	std::vector<float> Y(vol);
-	std::unordered_map<int, std::vector < std::vector<std::vector<expansion<complex_float, PORDER>>> >> values;
+	std::vector<fft_float> X(vol);
+	std::vector<fft_float> Y(vol + Ncell * Ncell);
+	std::unordered_map<int, std::vector < std::vector<std::vector<expansion<complex<fft_float>, PORDER>>> >> values;
 	auto i = values.find(Ncell);
 	if( i == values.end()) {
-		static const complex_float J(0.0, 1.0);
-		std::vector<std::vector<std::vector<expansion<float, PORDER>>>> Gn(Ncell, std::vector < std::vector<expansion<float, PORDER>>>(Ncell, std::vector<expansion<float, PORDER>>(Ncell)));
-		std::vector < std::vector<std::vector<expansion<complex_float, PORDER>>>> Gk(Ncell, std::vector < std::vector<expansion<complex_float, PORDER>>>(Ncell, std::vector<expansion<complex_float, PORDER>>(Ncell / 2 + 1)));
-		vec3<float> x;
+		static const complex<fft_float> J(0.0, 1.0);
+		std::vector<std::vector<std::vector<expansion<fft_float, PORDER>>>> Gn(Ncell, std::vector < std::vector<expansion<fft_float, PORDER>>>(Ncell, std::vector<expansion<fft_float, PORDER>>(Ncell)));
+		std::vector < std::vector<std::vector<expansion<complex<fft_float>, PORDER>>>> Gk(Ncell, std::vector < std::vector<expansion<complex<fft_float>, PORDER>>>(Ncell, std::vector<expansion<complex<fft_float>, PORDER>>(Ncell / 2 + 1)));
+		vec3<fft_float> x;
 		for (int j = 0; j < Ncell; j++) {
-			x[0] = (float) j / Ncell;
+			x[0] = (fft_float) j / Ncell;
 			for (int k = 0; k < Ncell; k++) {
-				x[1] = (float) k / Ncell;
+				x[1] = (fft_float) k / Ncell;
 				for (int l = 0; l < Ncell; l++) {
-					x[2] = (float) l / Ncell;
-					expansion<float, PORDER> g;
-					expansion<float, PORDER> ge;
+					x[2] = (fft_float) l / Ncell;
+					expansion<fft_float, PORDER> g;
+					expansion<fft_float, PORDER> ge;
 					if( j * j + k * k + l * l <= 10) {
-						for( int n = 0; n < expansion<float, PORDER>::size(); n++) {
+						for( int n = 0; n < expansion<fft_float, PORDER>::size(); n++) {
 							g[n] = 0.0;
 						}
 					} else {
@@ -110,45 +142,32 @@ static std::vector<std::vector<std::vector<sfmm::expansion<sfmm::complex_float, 
 					}
 					greens_ewald(ge, x);
 					g += ge;
-					for( int n = 0; n < expansion<float, PORDER>::size(); n++) {
+					for( int n = 0; n < expansion<fft_float, PORDER>::size(); n++) {
 						Gn[j][k][l][n] = g[n];
 					}
 				}
 			}
 		}
-		for (int i = 0; i < expansion<float, PORDER>::size(); i += 2) {
+		const int dimag = Ncell * Ncell * (Ncell / 2 + 1);
+		const fft_float norm = 1.0 / (Ncell * Ncell * Ncell);
+		for (int i = 0; i < expansion<fft_float, PORDER>::size(); i ++) {
 			for (int j = 0; j < Ncell; j++) {
 				for (int k = 0; k < Ncell; k++) {
 					for (int l = 0; l < Ncell; l++) {
 						const int cell = Ncell * (Ncell * j + k) + l;
 						X[cell] = Gn[j][k][l][i];
-						if (i + 1 < expansion<float, PORDER>::size()) {
-							Y[cell] = Gn[j][k][l][i + 1];
-						} else {
-							Y[cell] = 0.0;
-						}
 					}
 				}
 			}
-			//fft_3d(X.data(), Y.data(), Ncell);
+			fft_r2c_3d(X.data(), Y.data(), Ncell);
 			for (int j0 = 0; j0 < Ncell; j0++) {
-				const int j1 = j0 == 0 ? 0 : Ncell - 0;
 				for (int k0 = 0; k0 < Ncell; k0++) {
-					const int k1 = k0 == 0 ? 0 : Ncell - k0;
 					for (int l0 = 0; l0 < Ncell / 2 + 1; l0++) {
-						const int l1 = l0 == 0 ? 0 : Ncell - l0;
 						const int n0 = Ncell * (Ncell * j0 + k0) + l0;
-						const int n1 = Ncell * (Ncell * j1 + k1) + l1;
-						complex<float> Z0;
-						complex<float> Z1;
-						Z0.real() = X[n0];
-						Z0.imag() = Y[n0];
-						Z1.real() = X[n1];
-						Z1.imag() = -Y[n1];
-						Gk[j0][k0][l0][i + 0] = (Z0 + Z1) * 0.5f;
-						if (i + 1 < expansion<float, PORDER>::size()) {
-							Gk[j0][k0][l0][i + 1] = J * (Z1 - Z0) * 0.5f;
-						}
+						complex<fft_float> Z;
+						Z.real() = Y[n0];
+						Z.imag() = Y[n0 + dimag];
+						Gk[j0][k0][l0][i + 0] = Z * norm;
 					}
 				}
 			}
@@ -160,7 +179,7 @@ static std::vector<std::vector<std::vector<sfmm::expansion<sfmm::complex_float, 
 
 void particle_compute_multipoles() {
 	using namespace sfmm;
-	Mn.resize(Ncell, std::vector < std::vector<multipole<float, PORDER>>>(Ncell, std::vector<multipole<float, PORDER>>(Ncell)));
+	Mn.resize(Ncell, std::vector < std::vector<multipole<fft_float, PORDER>>>(Ncell, std::vector<multipole<fft_float, PORDER>>(Ncell)));
 	std::vector<hpx::future<void>> futs;
 	for (int j = 0; j < Ncell; j++) {
 		for (int k = 0; k < Ncell; k++) {
@@ -169,16 +188,16 @@ void particle_compute_multipoles() {
 					const auto rng = cells[j][k][l];
 					multipole < simd_f32, PORDER > M = 0.0;
 					int i;
-					vec3<simd_fixed32> y;
-					y[0] = fixed32((j + 0.5) / Ncell);
-					y[1] = fixed32((k + 0.5) / Ncell);
-					y[2] = fixed32((l + 0.5) / Ncell);
-					for (i = rng.first; i < rng.second; i += SIMD_SIZE) {
-						vec3<simd_fixed32> x;
-						const simd_f32 m = simd_f32::mask(std::min((size_t) SIMD_SIZE, rng.second - i));
-						x[0] = *((simd_fixed32*) &particle_x(i));
-						x[1] = *((simd_fixed32*) &particle_y(i));
-						x[2] = *((simd_fixed32*) &particle_z(i));
+					vec3<pos_simd> y;
+					y[0] = pos_fixed((j + 0.5) / Ncell);
+					y[1] = pos_fixed((k + 0.5) / Ncell);
+					y[2] = pos_fixed((l + 0.5) / Ncell);
+					for (i = rng.first; i < rng.second; i += FFT_SIMD_SIZE) {
+						vec3<pos_simd> x;
+						const simd_f32 m = simd_f32::mask(std::min((size_t) FFT_SIMD_SIZE, rng.second - i));
+						x[0] = *((pos_simd*) &particle_x(i));
+						x[1] = *((pos_simd*) &particle_y(i));
+						x[2] = *((pos_simd*) &particle_z(i));
 						P2M(M, m, distance(y, x));
 					}
 					Mn[j][k][l] = reduce_sum(M);
@@ -191,46 +210,32 @@ void particle_compute_multipoles() {
 
 void particle_compute_expansions() {
 	using namespace sfmm;
-	std::vector < std::vector<std::vector<multipole<complex_float, PORDER>>> >Mk(Ncell, std::vector < std::vector<multipole<complex_float, PORDER>>>(Ncell, std::vector<multipole<complex_float, PORDER>>(Ncell / 2 + 1)));
-	std::vector < std::vector<std::vector<expansion<complex_float, PORDER>>> >Lk(Ncell, std::vector < std::vector<expansion<complex_float, PORDER>>>(Ncell, std::vector<expansion<complex_float, PORDER>>(Ncell / 2 + 1)));
-	Ln.resize(Ncell, std::vector < std::vector<expansion<float, PORDER>>>(Ncell, std::vector<expansion<float, PORDER>>(Ncell)));
+	std::vector < std::vector<std::vector<multipole<complex<fft_float>, PORDER>>> >Mk(Ncell, std::vector < std::vector<multipole<complex<fft_float>, PORDER>>>(Ncell, std::vector<multipole<complex<fft_float>, PORDER>>(Ncell / 2 + 1)));
+	std::vector < std::vector<std::vector<expansion<complex<fft_float>, PORDER>>> >Lk(Ncell, std::vector < std::vector<expansion<complex<fft_float>, PORDER>>>(Ncell, std::vector<expansion<complex<fft_float>, PORDER>>(Ncell / 2 + 1)));
+	Ln.resize(Ncell, std::vector < std::vector<expansion<fft_float, PORDER>>>(Ncell, std::vector<expansion<fft_float, PORDER>>(Ncell)));
 	const size_t vol = Ncell * Ncell * Ncell;
-	std::vector<float> X(vol);
-	std::vector<float> Y(vol);
-	static const complex<float> J(0.0, 1.0);
-	for (int i = 0; i < multipole<float, PORDER>::size(); i += 2) {
+	std::vector<fft_float> X(vol);
+	std::vector<fft_float> Y(vol + Ncell * Ncell);
+	static const complex<fft_float> J(0.0, 1.0);
+	const int dimag = Ncell * Ncell * (Ncell / 2 + 1);
+	for (int i = 0; i < multipole<fft_float, PORDER>::size(); i ++) {
 		for (int j = 0; j < Ncell; j++) {
 			for (int k = 0; k < Ncell; k++) {
 				for (int l = 0; l < Ncell; l++) {
 					const int cell = Ncell * (Ncell * j + k) + l;
 					X[cell] = Mn[j][k][l][i];
-					if (i + 1 < multipole<float, PORDER>::size()) {
-						Y[cell] = Mn[j][k][l][i + 1];
-					} else {
-						Y[cell] = 0.0;
-					}
 				}
 			}
 		}
-		//fft_3d(X.data(), Y.data(), Ncell);
+		fft_r2c_3d(X.data(), Y.data(), Ncell);
 		for (int j0 = 0; j0 < Ncell; j0++) {
-			const int j1 = j0 == 0 ? 0 : Ncell - 0;
 			for (int k0 = 0; k0 < Ncell; k0++) {
-				const int k1 = k0 == 0 ? 0 : Ncell - k0;
 				for (int l0 = 0; l0 < Ncell / 2 + 1; l0++) {
-					const int l1 = l0 == 0 ? 0 : Ncell - l0;
 					const int n0 = Ncell * (Ncell * j0 + k0) + l0;
-					const int n1 = Ncell * (Ncell * j1 + k1) + l1;
-					complex<float> Z0;
-					complex<float> Z1;
-					Z0.real() = X[n0];
-					Z0.imag() = Y[n0];
-					Z1.real() = X[n1];
-					Z1.imag() = -Y[n1];
-					Mk[j0][k0][l0][i] = (Z0 + Z1) * 0.5f;
-					if (i + 1 < multipole<float, PORDER>::size()) {
-						Mk[j0][k0][l0][i + 1] = J * (Z1 - Z0) * 0.5f;
-					}
+					complex<fft_float> Z;
+					Z.real() = Y[n0];
+					Z.imag() = Y[n0 + dimag];
+					Mk[j0][k0][l0][i] = Z;
 				}
 			}
 		}
@@ -243,29 +248,22 @@ void particle_compute_expansions() {
 			}
 		}
 	}
-	for (int i = 0; i < expansion<float, PORDER>::size(); i += 2) {
+	for (int i = 0; i < expansion<fft_float, PORDER>::size(); i++) {
 		for (int j = 0; j < Ncell; j++) {
 			for (int k = 0; k < Ncell; k++) {
 				for (int l = 0; l < Ncell; l++) {
 					const int cell = Ncell * (Ncell * j + k) + l;
-					X[cell] = Gk[j][k][l][i].real();
-					Y[cell] = Gk[j][k][l][i].imag();
-					if (i + 1 < expansion<float, PORDER>::size()) {
-						X[cell] -= Gk[j][k][l][i + 1].imag();
-						Y[cell] += Gk[j][k][l][i + 1].real();
-					}
+					X[cell] = Lk[j][k][l][i].real();
+					X[cell + dimag] = Lk[j][k][l][i].imag();
 				}
 			}
 		}
-		//fft_3d(X.data(), Y.data(), Ncell);
+		fft_c2r_3d(X.data(), Y.data(), Ncell);
 		for (int j0 = 0; j0 < Ncell; j0++) {
 			for (int k0 = 0; k0 < Ncell; k0++) {
 				for (int l0 = 0; l0 < Ncell / 2 + 1; l0++) {
 					const int n0 = Ncell * (Ncell * j0 + k0) + l0;
-					Ln[j0][k0][l0][i] = X[n0];
-					if (i + 1 < expansion<float, PORDER>::size()) {
-						Ln[j0][k0][l0][i + 1] = Y[n0];
-					}
+					Ln[j0][k0][l0][i] = Y[n0];
 				}
 			}
 		}
@@ -274,11 +272,11 @@ void particle_compute_expansions() {
 
 void particle_allocate(size_t count) {
 	particle_cnt = count;
-	const size_t nbytes = count * (NDIM * (sizeof(fixed32) + sizeof(float) + sizeof(char)));
+	const size_t nbytes = count * (NDIM * (sizeof(pos_fixed) + sizeof(float) + sizeof(char)));
 	char* ptr = new char[nbytes];
-	particle_x_ptr = (fixed32*) ptr;
-	particle_y_ptr = (fixed32*) (ptr + NDIM * count);
-	particle_z_ptr = (fixed32*) (ptr + 2 * NDIM * count);
+	particle_x_ptr = (pos_fixed*) ptr;
+	particle_y_ptr = (pos_fixed*) (ptr + NDIM * count);
+	particle_z_ptr = (pos_fixed*) (ptr + 2 * NDIM * count);
 	particle_vx_ptr = (float*) (ptr + 3 * NDIM * count);
 	particle_vy_ptr = (float*) (ptr + 4 * NDIM * count);
 	particle_vz_ptr = (float*) (ptr + 5 * NDIM * count);
@@ -287,6 +285,36 @@ void particle_allocate(size_t count) {
 	particle_pos_ptr[1] = particle_y_ptr;
 	particle_pos_ptr[2] = particle_z_ptr;
 	particle_ptr = ptr;
+}
+
+int particle_cell_dim() {
+	return Ncell;
+}
+
+std::pair<size_t, size_t> particle_get_cell(int i, int j, int k) {
+	return cells[i][j][k];
+}
+
+sfmm::expansion<fft_float, PORDER> particle_get_expansion(int i, int j, int k) {
+	return Ln[i][j][k];
+}
+
+std::vector<std::pair<size_t, size_t>> particle_cell_neighbors(int i, int j, int k) {
+	const auto bwidth = get_options().bwidth;
+	std::vector<std::pair<size_t, size_t>> neighbors;
+	for (int i0 = -bwidth; i0 <= bwidth; i0++) {
+		const int i1 = (i + i0 + Ncell) % Ncell;
+		for (int j0 = -bwidth; j0 <= bwidth; j0++) {
+			const int j1 = (j + j0 + Ncell) % Ncell;
+			for (int k0 = -bwidth; k0 <= bwidth; k0++) {
+				const int k1 = (k + k0 + Ncell) % Ncell;
+				if (i1 * i1 + j1 * j1 + k1 * k1 <= bwidth * bwidth) {
+					neighbors.push_back(cells[i][j][k]);
+				}
+			}
+		}
+	}
+	return neighbors;
 }
 
 void particle_sort_by_rung(int minrung) {
@@ -311,17 +339,36 @@ void particle_sort_by_rung(int minrung) {
 	}
 }
 
-void particle_to_grid(int ncell) {
-	cells.resize(Ncell, std::vector < std::vector<std::pair<size_t, size_t>>>(Ncell, std::vector<std::pair<size_t, size_t >>(Ncell)));
-	Ncell = ncell;
-	std::pair < size_t, size_t > rng;
+void particle_set_minrung(int minrung) {
+	for (size_t i = 0; i < particle_cnt; i++) {
+		auto& rung = particle_rung(i);
+		rung = std::max((int) rung, minrung);
+	}
+}
+
+void particle_to_grid() {
+	const int ppcell = get_options().ppcell;
+	const std::pair<size_t, size_t> rng = particle_current_range();
+	const size_t count = rng.second - rng.first;
 	std::array < size_t, NDIM > I;
 	std::array < size_t, NDIM > N;
-	rng.first = rung_begin;
-	rng.second = particle_cnt;
+	Ncell = std::pow(count / ppcell, 1.0 / 3.0) + 4;
+	cells.resize(Ncell, std::vector < std::vector<std::pair<size_t, size_t>>>(Ncell, std::vector<std::pair<size_t, size_t>>(Ncell)));
 	for (int n = 0; n < NDIM; n++) {
 		I[n] = 0;
 		N[n] = Ncell;
 	}
 	particle_to_grid(rng, I, N, 0);
+}
+
+void particles_init() {
+	for (int n = 0; n < particle_cnt; n++) {
+		particle_x(n) = rand1();
+		particle_y(n) = rand1();
+		particle_z(n) = rand1();
+		particle_vx(n) = 0.f;
+		particle_vy(n) = 0.f;
+		particle_vz(n) = 0.f;
+		particle_rung(n) = 0;
+	}
 }
