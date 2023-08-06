@@ -272,14 +272,14 @@ void particle_compute_expansions() {
 
 void particle_allocate(size_t count) {
 	particle_cnt = count;
-	const size_t nbytes = count * (NDIM * (sizeof(pos_fixed) + sizeof(float) + sizeof(char)));
+	const size_t nbytes = count * (NDIM * (sizeof(pos_fixed) + sizeof(force_float) + sizeof(char)));
 	char* ptr = new char[nbytes];
 	particle_x_ptr = (pos_fixed*) ptr;
 	particle_y_ptr = (pos_fixed*) (ptr + NDIM * count);
 	particle_z_ptr = (pos_fixed*) (ptr + 2 * NDIM * count);
-	particle_vx_ptr = (float*) (ptr + 3 * NDIM * count);
-	particle_vy_ptr = (float*) (ptr + 4 * NDIM * count);
-	particle_vz_ptr = (float*) (ptr + 5 * NDIM * count);
+	particle_vx_ptr = (force_float*) (ptr + 3 * NDIM * count);
+	particle_vy_ptr = (force_float*) (ptr + 4 * NDIM * count);
+	particle_vz_ptr = (force_float*) (ptr + 5 * NDIM * count);
 	particle_rung_ptr = (char*) (ptr + 6 * NDIM * count);
 	particle_pos_ptr[0] = particle_x_ptr;
 	particle_pos_ptr[1] = particle_y_ptr;
