@@ -7,7 +7,7 @@ static void radix4_complex(fft_float* X, fft_float* Y, int N, int N0, int dir);
 static void radix2_complex(fft_float* X, fft_float* Y, int N, int N0, int dir);
 
 void fft_complex(fft_float* X, fft_float* Y, int N, int N0, int dir) {
-	if (ilogb(N) % 2 == 1) {
+	if ((ilogb(N) % 2 == 1) && (N <= 32)) {
 		radix2_complex(X, Y, N, N0, dir);
 	} else {
 		radix4_complex(X, Y, N, N0, dir);
@@ -102,7 +102,6 @@ static void radix4_complex(fft_float* X, fft_float* Y, int N, int N0, int dir) {
 			ei2 += ei2 - ei3;
 			std::swap(er2, er3);
 			std::swap(ei2, ei3);
-
 		}
 	}
 }

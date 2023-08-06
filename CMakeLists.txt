@@ -24,43 +24,47 @@ if(COMPILER_SUPPORTS_MARCH_NATIVE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native -fno-pie -no-pie")
 endif()
 
+set(fft_source_files
+    src/fft/fft_complex.cpp
+    src/fft/fft_c2r_3d.cpp
+    src/fft/fft_r2c_3d.cpp
+    src/fft/fft_real.cpp
+    src/fft/scramble.cpp
+    src/fft/transpose.cpp
+    src/fft/twiddles.cpp
+)
 
 set(cosmictiger_source_files
+    src/cosmology.cpp
     src/drift.cpp
     src/kick.cpp
     src/main.cpp
     src/memory.cpp
     src/options.cpp
     src/particle.cpp
-    src/fft/fft_3d.cpp
-    src/fft/fft_complex.cpp
-    src/fft/fft_real.cpp
-    src/fft/scramble.cpp
-    src/fft/transpose.cpp
-    src/fft/twiddles.cpp
+    src/util.cpp
+    ${fft_source_files}
 )      
                        
 set(cosmictiger_header_files
+    include/constants.hpp
     include/cosmictiger.hpp
+    include/cosmology.hpp
+    include/drift.hpp
     include/fft.hpp
+    include/kick.hpp
     include/options.hpp
     include/particle.hpp
     include/util.hpp
 )
 
-add_hpx_executable(
-  cosmictiger
-  SOURCES
-    ${cosmictiger_source_files}
-  HEADERS
-    ${cosmictiger_header_files}
-)
+add_hpx_executable( cosmictiger SOURCES ${cosmictiger_source_files} HEADERS ${cosmictiger_header_files} )
+  
+add_hpx_executable( fft_test SOURCES ${fft_source_files} src/util.cpp src/fft/fft_test.cpp HEADERS cosmictiger/fft.hpp )
   
 if( COSMICTIGER_WITH_CUDA )
 	target_link_libraries(cosmictiger PUBLIC cudart)
-	target_compile_options(cosmictiger PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:
-                       -DUSE_CUDA --use_fast_math -lineinfo ;
-                        >)
+	target_compile_options(cosmictiger PRIVATE $<$<COMPILE_LANGUAGE:CUDA>: -DUSE_CUDA --use_fast_math -lineinfo ;>)
     target_compile_options(cosmictiger PRIVATE -DUSE_CUDA -DBOOST_STACKTRACE_USE_ADDR2LINE )
 	set_property(TARGET cosmictiger PROPERTY CUDA_ARCHITECTURES ${CUDA_ARCH})
 	set_property(TARGET cosmictiger PROPERTY CUDA_SEPARABLE_COMPILATION ON)
@@ -70,6 +74,10 @@ target_link_libraries(cosmictiger PUBLIC sfmm simd)
 target_include_directories(cosmictiger PUBLIC ${PROJECT_SOURCE_DIR})
 target_include_directories(cosmictiger PUBLIC ${PROJECT_SOURCE_DIR}/spherical_fmm)
 target_compile_definitions(cosmictiger PUBLIC ORDER=${COSMICTIGER_WITH_ORDER})
+
+target_include_directories(fft_test PUBLIC ${PROJECT_SOURCE_DIR})
+target_include_directories(fft_test PUBLIC ${PROJECT_SOURCE_DIR}/spherical_fmm)
+target_link_libraries(fft_test PUBLIC fftw3)
 
 
 
