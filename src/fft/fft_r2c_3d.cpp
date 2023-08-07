@@ -1,23 +1,36 @@
 #include "cosmictiger/fft.hpp"
 #include <hpx/async.hpp>
 
-void fft_r2c_3d(fft_float* xin, fft_float* xout, int N) {
-	const int N2 = N * N;
-	const int No2 = N >> 1;
-	transpose_yz(xin, N);
-	scramble(xin, N, N, N);
-	for (int n = 0; n < N; n++) {
-		fft_real(xin + n * N2, N, N);
+using namespace sfmm;
+
+void fft_r2c_3d(fft_float* Xin, complex<fft_float>* Xout, int N) {
+	auto* X = Xin;
+	const auto& Wr = cos_twiddles(N);
+	const auto& Wi = sin_twiddles(N);
+	fft_float* Y = X + N * N * N / 2;
+	scramble(X, N);
+	for (int k = 0; k < N / 2; k++) {
+		fft_complex(X + k * N * N, Y + k * N * N, N, N);
 	}
-	transpose_r2c(xin, xout, N);
-	auto* x = xout;
-	auto* y = xout + N2 * No2;
-	scramble(x, N, N, No2);
-	scramble(y, N, N, No2);
-	for (int n = 0; n < N; n++) {
-		fft_complex(x + n * N2, y + n * N2, N, No2);
+	fft_complex(X, Y, N / 2, N * N);
+	transpose_yz(X, N);
+	// z x y
+	for (int k = 0; k < N / 2; k++) {
+		fft_complex(X + k * N * N, Y + k * N * N, N, N);
 	}
-	scramble(x, 1, N, N * No2);
-	scramble(y, 1, N, N * No2);
-	fft_complex(x, y, N, N * No2);
+	const complex<fft_float> J(0, 1);
+	for (int k = 0; k <= N / 2; k++) {
+		complex<fft_float> W(Wr[k], Wi[k]);
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				const int n0 = j + N * (i + N * (k % (N / 2)));
+				const int n1 = ((N - j) % N) + N * (((N - i) % N) + N * ((N / 2 - k) % (N / 2)));
+				const complex<fft_float> Z0(X[n0], Y[n0]);
+				const complex<fft_float> Z1(X[n1], Y[n1]);
+				const auto Xe = (Z0 + Z1) * 0.5;
+				const auto Xo = (Z1 - Z0) * J * 0.5;
+				Xout[k + (N / 2 + 1) * (j + N * i)] = Xe + Xo * W;
+			}
+		}
+	}
 }

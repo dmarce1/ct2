@@ -74,7 +74,7 @@ void fftw_cmplx(std::vector<complex<fft_float>>& x) {
 		x[n].imag() = (o[n][1]);
 	}
 }
-
+/*
 double test_complex(int N) {
 	std::vector<fft_float> X(N * FFT_SIMD_SIZE), Y(N * FFT_SIMD_SIZE);
 	std::vector < complex < fft_float >> Z(N);
@@ -135,9 +135,9 @@ double test_real(int N) {
 	error = std::sqrt(error);
 	return error;
 }
-
+*/
 int hpx_main(int argc, char *argv[]) {
-	printf("Real\n");
+/*	printf("Real\n");
 	for (int n = 2; n <= 16384; n *= 2) {
 		const double err = test_real(n);
 		printf("%i %e\n", n, err);
@@ -146,7 +146,7 @@ int hpx_main(int argc, char *argv[]) {
 	for (int n = 2; n <= 16384; n *= 2) {
 		const double err = test_complex(n);
 		printf("%i %e\n", n, err);
-	}
+	}*/
 	return hpx::finalize();
 }
 

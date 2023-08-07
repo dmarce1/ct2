@@ -24,5 +24,6 @@ void fft_real(fft_float* X, int N, int N0, int dir = 1);
 void fft_complex(fft_float* X, fft_float* Y, int N, int N0, int dir = 1);
 void fft_r2c_3d(fft_float* xin, fft_float* xout, int N);
 void fft_c2r_3d(fft_float* xin, fft_float* xout, int N);
+void scramble(fft_float* X, int N);
 
 #endif /* FFT_HPP_ */

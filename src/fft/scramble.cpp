@@ -42,3 +42,13 @@ void scramble(fft_float* X, int N1, int N2, int N3) {
 	}
 }
 
+void scramble(fft_float* X, int N) {
+	int l = 0;
+	for (int j = 0; j < N; j++) {
+		if (j > l) {
+			std::swap(X[j], X[l]);
+		}
+		l = reverse_increment(l, N);
+	}
+}
+
