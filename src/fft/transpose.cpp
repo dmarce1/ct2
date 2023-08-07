@@ -30,29 +30,27 @@ static void transpose_yz(fft_float* X, int N, int x, int y, int z, int dx, int d
 	}
 }
 
-static void transpose_r2c(fft_float* xin, fft_float* xout, int N, int x, int y, int z, int dx, int depth) {
+static void transpose_r2c(fft_float* xin, fft_float* xout, int N, int kx, int ky, int kz, int dx, int depth) {
 	const int No2 = N / 2;
-	if (z > No2) {
-		return;
-	}
+	const int No2p1 = No2 + 1;
 	const int dimag = N * N * (N / 2 + 1);
 	if (dx == NT) {
-		for (int ix = x; ix < x + NT; ix++) {
-			for (int iy = 0; iy < std::min(y + NT, No2 + 1); iy++) {
+		for (int ix = kx; ix < kx + NT; ix++) {
+			for (int iy = 0; iy < std::min(ky + NT, No2 + 1); iy++) {
 				if (iy == 0 || iy == No2) {
-					for (int iz = y; iz < z + NT; iz++) {
+					for (int iz = kz; iz < kz + NT; iz++) {
 						const int ir = N * (N * ix + iy) + iz;
-						const int jr = N * (N * ix + iz) + iy;
-						const int ji = N * (N * ix + iz) + iy + dimag;
+						const int jr = No2p1 * (N * ix + iz) + iy;
+						const int ji = No2p1 * (N * ix + iz) + iy + dimag;
 						xout[jr] = xin[ir];
 						xout[ji] = 0.0;
 					}
 				} else {
-					for (int iz = y; iz < z + NT; iz++) {
+					for (int iz = kz; iz < kz + NT; iz++) {
 						const int ir = N * (N * ix + iy) + iz;
 						const int ii = N * (N * ix + (N - iy)) + iz;
-						const int jr = N * (N * ix + iz) + iy;
-						const int ji = N * (N * ix + iz) + iy + dimag;
+						const int jr = No2p1 * (N * ix + iz) + iy;
+						const int ji = No2p1 * (N * ix + iz) + iy + dimag;
 						xout[jr] = xin[ir];
 						xout[ji] = xin[ii];
 					}
@@ -63,14 +61,14 @@ static void transpose_r2c(fft_float* xin, fft_float* xout, int N, int x, int y, 
 		constexpr int z00 = 0;
 		const int do2 = dx >> 1;
 		const int dp1 = depth + 1;
-		transpose_r2c(xin, xout, N, x + z00, y + z00, z + z00, do2, dp1);
-		transpose_r2c(xin, xout, N, x + do2, y + z00, z + z00, do2, dp1);
-		transpose_r2c(xin, xout, N, x + z00, y + do2, z + z00, do2, dp1);
-		transpose_r2c(xin, xout, N, x + do2, y + do2, z + z00, do2, dp1);
-		transpose_r2c(xin, xout, N, x + z00, y + z00, z + do2, do2, dp1);
-		transpose_r2c(xin, xout, N, x + do2, y + z00, z + do2, do2, dp1);
-		transpose_r2c(xin, xout, N, x + z00, y + do2, z + do2, do2, dp1);
-		transpose_r2c(xin, xout, N, x + do2, y + do2, z + do2, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + z00, ky + z00, kz + z00, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + do2, ky + z00, kz + z00, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + z00, ky + do2, kz + z00, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + do2, ky + do2, kz + z00, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + z00, ky + z00, kz + do2, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + do2, ky + z00, kz + do2, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + z00, ky + do2, kz + do2, do2, dp1);
+		transpose_r2c(xin, xout, N, kx + do2, ky + do2, kz + do2, do2, dp1);
 	}
 }
 

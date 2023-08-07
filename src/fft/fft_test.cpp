@@ -6,6 +6,9 @@
 #include <sfmm.hpp>
 #include <cosmictiger/util.hpp>
 
+#define TEST_MIN 8
+#define TEST_MAX 4096
+
 using namespace sfmm;
 
 void fftw_real(const std::vector<fft_float>& xin, std::vector<complex<fft_float>>& xout) {
@@ -30,7 +33,7 @@ void fftw_real(const std::vector<fft_float>& xin, std::vector<complex<fft_float>
 	}
 }
 
-void fftw_real_3d(const std::vector<fft_float>& xin, std::vector<complex<fft_float>>& xout) {
+void fftw_r2c_3d(const std::vector<fft_float>& xin, std::vector<complex<fft_float>>& xout) {
 	const int N = std::lround(std::pow(xin.size(), 1.0 / 3.0));
 	static std::unordered_map<int, fftw_plan> plans;
 	static std::unordered_map<int, fft_float*> in;
@@ -76,25 +79,19 @@ void fftw_cmplx(std::vector<complex<fft_float>>& x) {
 }
 
 double test_complex(int N) {
-	std::vector<fft_float> X(N * FFT_SIMD_SIZE), Y(N * FFT_SIMD_SIZE);
+	std::vector < complex < fft_simd >> X(N);
 	std::vector < complex < fft_float >> Z(N);
-	for (int n = 0; n < FFT_SIMD_SIZE * N; n++) {
-		if (n % FFT_SIMD_SIZE == 0) {
-			Z[n / FFT_SIMD_SIZE].real() = X[n] = rand1();
-			Z[n / FFT_SIMD_SIZE].imag() = Y[n] = rand1();
-		} else {
-			X[n] = X[n - 1];
-			Y[n] = Y[n - 1];
-		}
+	for (int n = 0; n < N; n++) {
+		X[n].real() = Z[n].real() = rand1();
+		X[n].imag() = Z[n].imag() = rand1();
 	}
-	scramble(X.data(), 1, N, FFT_SIMD_SIZE);
-	scramble(Y.data(), 1, N, FFT_SIMD_SIZE);
-	fft_complex(X.data(), Y.data(), N, FFT_SIMD_SIZE);
+	scramble((fft_float*) X.data(), 1, N, 2 * FFT_SIMD_SIZE);
+	fft_complex(X.data(), N);
 	fftw_cmplx (Z);
 	double error = 0.0;
 	for (int n = 0; n < N; n++) {
-		const auto dx = Z[n].real() - X[FFT_SIMD_SIZE * n];
-		const auto dy = Z[n].imag() - Y[FFT_SIMD_SIZE * n];
+		const auto dx = Z[n].real() - X[n].real()[0];
+		const auto dy = Z[n].imag() - X[n].imag()[0];
 		error += sqr(dx);
 		error += sqr(dy);
 	}
@@ -104,29 +101,25 @@ double test_complex(int N) {
 }
 
 double test_real(int N) {
-	std::vector<fft_float> X(N * FFT_SIMD_SIZE);
+	std::vector<fft_simd> X(N);
 	std::vector<fft_float> Zin(N);
 	std::vector < complex < fft_float >> Zout(N / 2 + 1);
-	for (int n = 0; n < FFT_SIMD_SIZE * N; n++) {
-		if (n % FFT_SIMD_SIZE == 0) {
-			Zin[n / FFT_SIMD_SIZE] = X[n] = rand1();
-		} else {
-			X[n] = X[n - 1];
-		}
+	for (int n = 0; n < N; n++) {
+		X[n] = Zin[n] = rand1();
 	}
-	scramble(X.data(), 1, N, FFT_SIMD_SIZE);
-	fft_real(X.data(), N, FFT_SIMD_SIZE);
+	scramble((fft_float*) X.data(), 1, N, FFT_SIMD_SIZE);
+	fft_real(X.data(), N);
 	fftw_real(Zin, Zout);
 	double error = 0.0;
 	for (int n = 0; n < N / 2 + 1; n++) {
 		if (n != 0 && n != N / 2) {
-			const auto dx = Zout[n].real() - X[FFT_SIMD_SIZE * n];
-			const auto dy = Zout[n].imag() - X[FFT_SIMD_SIZE * (N - n)];
+			const auto dx = Zout[n].real() - X[n][0];
+			const auto dy = Zout[n].imag() - X[N - n][0];
 			error += sqr(dx);
 			error += sqr(dy);
 			//	printf("%i | %15e %15e | %15e %15e | %15e %15e\n", n, X[FFT_SIMD_SIZE * n], X[FFT_SIMD_SIZE * (N - n)], Zout[n].real(), Zout[n].imag(), dx, dy);
 		} else {
-			const auto dx = Zout[n].real() - X[FFT_SIMD_SIZE * n];
+			const auto dx = Zout[n].real() - X[n][0];
 			error += sqr(dx);
 			//	printf("%i | %15e %15s | %15e %15s | %15e %15s\n", n, X[FFT_SIMD_SIZE * n], "", Zout[n].real(), "", dx, "");
 		}
@@ -136,14 +129,91 @@ double test_real(int N) {
 	return error;
 }
 
+double test_real_scalar(int N) {
+	std::vector<fft_float> X(N);
+	std::vector<fft_float> Zin(N);
+	std::vector < complex < fft_float >> Zout(N / 2 + 1);
+	for (int n = 0; n < N; n++) {
+		Zin[n] = X[n] = rand1();
+	}
+	scramble(X.data(), 1, N, 1);
+	fft_real(X.data(), N);
+	fftw_real(Zin, Zout);
+	double error = 0.0;
+	for (int n = 0; n < N / 2 + 1; n++) {
+		if (n != 0 && n != N / 2) {
+			const auto dx = Zout[n].real() - X[n];
+			const auto dy = Zout[n].imag() - X[N - n];
+			error += sqr(dx);
+			error += sqr(dy);
+			//	printf("%i | %15e %15e | %15e %15e | %15e %15e\n", n, X[FFT_SIMD_SIZE * n], X[FFT_SIMD_SIZE * (N - n)], Zout[n].real(), Zout[n].imag(), dx, dy);
+		} else {
+			const auto dx = Zout[n].real() - X[n];
+			error += sqr(dx);
+			//	printf("%i | %15e %15s | %15e %15s | %15e %15s\n", n, X[FFT_SIMD_SIZE * n], "", Zout[n].real(), "", dx, "");
+		}
+	}
+	error /= N;
+	error = std::sqrt(error);
+	return error;
+}
+
+/*double test_r2c_3d(int N) {
+ const int N3 = N * N * N;
+ const int N3cmplx = N * N * (N / 2 + 1);
+ std::vector<fft_float> Xin(N3 * FFT_SIMD_SIZE);
+ std::vector<fft_float> Xout(2 * N3cmplx);
+ std::vector<fft_float> Zin(N3);
+ std::vector < complex < fft_float >> Zout(N3cmplx);
+ for (int n = 0; n < N * N * N; n++) {
+ //		Zin[n] = Xin[n] = rand1();
+ Zin[n] = Xin[n] = 0.0;
+ }
+ Xin[0] = Zin[0] = 1.0;
+ fft_r2c_3d(Xin.data(), Xout.data(), N);
+ fftw_r2c_3d(Zin, Zout);
+ double error = 0.0;
+ for (int i = 0; i < N; i++) {
+ for (int j = 0; j < N; j++) {
+ for (int k = 0; k < N / 2 + 1; k++) {
+ const int ijk = (N / 2 + 1) * (N * i + j) + k;
+ if (ijk != 0 && ijk != N * N * (N / 2 + 1)) {
+ const auto dx = Zout[ijk].real() - Xout[ijk];
+ const auto dy = Zout[ijk].imag() - Xout[ijk + N3cmplx];
+ error += sqr(dx);
+ error += sqr(dy);
+ printf("%i %i %i | %15e %15e | %15e %15e | %15e %15e\n", i, j, k, Xout[ijk], Xout[ijk + N3cmplx], Zout[ijk].real(), Zout[ijk].imag(), dx, dy);
+ } else {
+ const auto dx = Zout[ijk].real() - Xout[ijk];
+ error += sqr(dx);
+ printf("%i %i %i | %15e %15s | %15e %15s | %15e %15s\n", i, j, k, Xout[ijk], "", Zout[ijk].real(), "", dx, "");
+ }
+ }
+ }
+ }
+ error /= N;
+ error = std::sqrt(error);
+ return error;
+ }*/
+
 int hpx_main(int argc, char *argv[]) {
-	printf("Real\n");
-	for (int n = 2; n <= 16384; n *= 2) {
+	/*printf("\n3D\n");
+	 for (int n = TEST_MIN; n <= TEST_MAX; n *= 2) {
+	 //	const double err = test_r2c_3d(n);
+	 //	printf("%i %e\n", n, err);
+	 }*/
+	printf("\nReal (Scalar)\n");
+	for (int n = TEST_MIN; n <= TEST_MAX; n *= 2) {
+		const double err = test_real_scalar(n);
+		printf("%i %e\n", n, err);
+	}
+	printf("\nReal (Vector)\n");
+	for (int n = TEST_MIN; n <= TEST_MAX; n *= 2) {
 		const double err = test_real(n);
 		printf("%i %e\n", n, err);
 	}
 	printf("\nComplex\n");
-	for (int n = 2; n <= 16384; n *= 2) {
+	for (int n = TEST_MIN; n <= TEST_MAX; n *= 2) {
 		const double err = test_complex(n);
 		printf("%i %e\n", n, err);
 	}
