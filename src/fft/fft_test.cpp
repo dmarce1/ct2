@@ -74,79 +74,35 @@ void fftw_cmplx(std::vector<complex<fft_float>>& x) {
 		x[n].imag() = (o[n][1]);
 	}
 }
-/*
+
 double test_complex(int N) {
-	std::vector<fft_float> X(N * FFT_SIMD_SIZE), Y(N * FFT_SIMD_SIZE);
+	std::vector < complex < fft_simd >> X(N);
 	std::vector < complex < fft_float >> Z(N);
-	for (int n = 0; n < FFT_SIMD_SIZE * N; n++) {
-		if (n % FFT_SIMD_SIZE == 0) {
-			Z[n / FFT_SIMD_SIZE].real() = X[n] = rand1();
-			Z[n / FFT_SIMD_SIZE].imag() = Y[n] = rand1();
-		} else {
-			X[n] = X[n - 1];
-			Y[n] = Y[n - 1];
-		}
+	for (int n = 0; n < N; n++) {
+		X[n].real() = Z[n].real() = rand1();
+		X[n].imag() = Z[n].imag() = rand1();
 	}
-	scramble(X.data(), 1, N, FFT_SIMD_SIZE);
-	scramble(Y.data(), 1, N, FFT_SIMD_SIZE);
-	fft_complex(X.data(), Y.data(), N, FFT_SIMD_SIZE);
+	fft_1d_simd(X.data(), N);
 	fftw_cmplx (Z);
 	double error = 0.0;
 	for (int n = 0; n < N; n++) {
-		const auto dx = Z[n].real() - X[FFT_SIMD_SIZE * n];
-		const auto dy = Z[n].imag() - Y[FFT_SIMD_SIZE * n];
+		const auto dx = Z[n].real() - X[n].real()[0];
+		const auto dy = Z[n].imag() - X[n].imag()[0];
 		error += sqr(dx);
 		error += sqr(dy);
+	//	printf("%15i %15e %15e %15e %15e %15e %15e\n", n, X[n].real()[0], X[n].imag()[0], Z[n].real(), Z[n].imag(), dx, dy);
 	}
 	error /= 2 * N;
 	error = std::sqrt(error);
 	return error;
 }
 
-double test_real(int N) {
-	std::vector<fft_float> X(N * FFT_SIMD_SIZE);
-	std::vector<fft_float> Zin(N);
-	std::vector < complex < fft_float >> Zout(N / 2 + 1);
-	for (int n = 0; n < FFT_SIMD_SIZE * N; n++) {
-		if (n % FFT_SIMD_SIZE == 0) {
-			Zin[n / FFT_SIMD_SIZE] = X[n] = rand1();
-		} else {
-			X[n] = X[n - 1];
-		}
-	}
-	scramble(X.data(), 1, N, FFT_SIMD_SIZE);
-	fft_real(X.data(), N, FFT_SIMD_SIZE);
-	fftw_real(Zin, Zout);
-	double error = 0.0;
-	for (int n = 0; n < N / 2 + 1; n++) {
-		if (n != 0 && n != N / 2) {
-			const auto dx = Zout[n].real() - X[FFT_SIMD_SIZE * n];
-			const auto dy = Zout[n].imag() - X[FFT_SIMD_SIZE * (N - n)];
-			error += sqr(dx);
-			error += sqr(dy);
-			//	printf("%i | %15e %15e | %15e %15e | %15e %15e\n", n, X[FFT_SIMD_SIZE * n], X[FFT_SIMD_SIZE * (N - n)], Zout[n].real(), Zout[n].imag(), dx, dy);
-		} else {
-			const auto dx = Zout[n].real() - X[FFT_SIMD_SIZE * n];
-			error += sqr(dx);
-			//	printf("%i | %15e %15s | %15e %15s | %15e %15s\n", n, X[FFT_SIMD_SIZE * n], "", Zout[n].real(), "", dx, "");
-		}
-	}
-	error /= N;
-	error = std::sqrt(error);
-	return error;
-}
-*/
 int hpx_main(int argc, char *argv[]) {
-/*	printf("Real\n");
-	for (int n = 2; n <= 16384; n *= 2) {
-		const double err = test_real(n);
-		printf("%i %e\n", n, err);
-	}
 	printf("\nComplex\n");
-	for (int n = 2; n <= 16384; n *= 2) {
+	for (int n = 4; n <= 16384; n *= 2) {
 		const double err = test_complex(n);
 		printf("%i %e\n", n, err);
-	}*/
+	}
 	return hpx::finalize();
 }
 

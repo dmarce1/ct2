@@ -25,12 +25,7 @@ if(COMPILER_SUPPORTS_MARCH_NATIVE)
 endif()
 
 set(fft_source_files
-    src/fft/fft_complex.cpp
-    src/fft/fft_c2r_3d.cpp
-    src/fft/fft_r2c_3d.cpp
-    src/fft/fft_real.cpp
-    src/fft/scramble.cpp
-    src/fft/transpose.cpp
+    src/fft/fft.cpp
     src/fft/twiddles.cpp
 )
 

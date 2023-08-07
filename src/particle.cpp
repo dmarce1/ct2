@@ -258,7 +258,7 @@ void particle_compute_expansions() {
 				}
 			}
 		}
-		fft_c2r_3d(X.data(), Y.data(), Ncell);
+	//	fft_c2r_3d(X.data(), Y.data(), Ncell);
 		for (int j0 = 0; j0 < Ncell; j0++) {
 			for (int k0 = 0; k0 < Ncell; k0++) {
 				for (int l0 = 0; l0 < Ncell / 2 + 1; l0++) {
